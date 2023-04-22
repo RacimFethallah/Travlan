@@ -6,15 +6,17 @@
     </title>
     <link rel="stylesheet" href="Travlan.css">
 
-
+   
 
  </head>
  <body>
-    <header> 
+    <header id="my-header"> 
         <a href="" id ='Logo'></a>
         <form>
-        <input type = 'text' id = "searchBar"> 
+      <input type = 'text' id = "searchBar">
+      <input type = 'text' id = "RsearchBar">
       <img src="img/Anonym.jpg" id="Anonym">
+      <a href="" id ='Sbutton'></a>
        <div id="user_dpmenu"> 
         <h3> PERSONNE <span>Un test</span></h3>
         <ul id="DP">
@@ -25,6 +27,8 @@
         </ul>
        </div>
         <input type = 'submit' value = "S'authentifier" id="Authentification" >
+        <a href="" id ='AuthButton'></a>
+        <a href="" id ='Options'></a>
         </form>
        <ul id="Consultation_list">
          <form>
@@ -36,13 +40,25 @@
 
     </header>
     <main>
-       <div id="container">
+       
+         
+         <div class="slider-container">
+            <div id="image1" class="slider-image"></div>
+            <div id="image2" class="slider-image"></div>
+            <div id="image3" class="slider-image"></div>
+            <div id="image4" class="slider-image"></div>
+            <div id="image5" class="slider-image"></div>
+            <div id="image5" class="slider-image"></div>
+            <div class="slider-nav">
 
-        <div id="a1"><p> <img src="img/pyra.png" id="pyra">
-          <h2>Les pyramides de Gizeh</h2>
-            Les trois plus importantes sont les pyramides de Mykérinos, Khéops et Khéphren, mais elles ne sont pas les seules présentes sur les lieux. En effet, vous pourrez également admirer de plus petites pyramides, comme les “pyramides des reines”, qui sont toutes aussi belles. </p>
-         </div> 
-
+              <button class="Bg-button" onclick="showImage(1)">1</button>
+              <button class="Bg-button" onclick="showImage(2)">2</button>
+              <button class="Bg-button" onclick="showImage(3)">3</button>
+              <button class="Bg-button" onclick="showImage(4)">4</button>
+              <button class="Bg-button" onclick="showImage(5)">5</button>
+              <button class="Bg-button" onclick="showImage(6)">6</button>
+            </div>
+          </div>
 
 
 
@@ -51,18 +67,6 @@
         <input type = 'submit' id = "Reservation" value="Planifier votre voyage">
     </form>
     </main>
-
-
-    <footer>
-    <a href='travlan@gmail.com'>travlan@gmail.com</a>
-    <span>0654328975</span>
-    <div id=Rx_sociaux>
-    <input type = 'submit' id = "Facebook" value="Facebook">
-    <input type = 'submit' id = "Instagram" value="intagram">
-    <input type = 'Submit' id = "Twitter" value="Twitter">
-</div>
-      
-    </footer>
 
 <script type="text/javascript" src="Travlan.js"></script>
  </body>
