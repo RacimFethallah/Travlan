@@ -6,6 +6,15 @@ let x = 1;
 let SearchButton = document.getElementById('Sbutton');
 let SearchBar = document.getElementById('RsearchBar');
 
+
+
+
+const wrapper = document.querySelector('.login-wrapper');
+const loginLink = document.querySelector('.login-link');
+const registerLink = document.querySelector('.register-link');
+const authentification = document.getElementById('Authentification');
+const closeLogin = document.querySelector('.icon-close');
+
 Dp_menu.className="before";
 
 function appear(event) { 
@@ -64,3 +73,23 @@ setInterval(slideImages, Delay);
 
 SearchButton.addEventListener("click", ShowhideSearchBar);
 User_img.addEventListener('click',appear);
+
+
+
+
+registerLink.addEventListener('click', ()=>{
+  wrapper.classList.add('active')
+});
+
+loginLink.addEventListener('click', ()=>{
+  wrapper.classList.remove('active')
+});
+
+authentification.addEventListener('click', ()=>{
+  wrapper.classList.add('hidden');
+})
+
+closeLogin.addEventListener('click', ()=>{
+  wrapper.classList.remove('hidden');
+  wrapper.classList.remove('active');
+})

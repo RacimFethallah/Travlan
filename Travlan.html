@@ -18,7 +18,7 @@
       <img src="img/Anonym.jpg" id="Anonym">
       <a href="" id ='Sbutton'></a>
        <div id="user_dpmenu"> 
-        <h3> PERSONNE <span>Un test</span></h3>
+        <h3> PERSONNE <span class="test">Un test</span></h3>
         <ul id="DP">
         <li> <img src="img/MyP.png" class="Dp_img"><a href=""> Mon Profil </a> </li>
         <li> <img src="img/edit.png" class="Dp_img"><a href=""> Modifier Profil </a> </li>
@@ -68,6 +68,86 @@
     </form>
     </main>
 
+
+
+
+    <div class="login-wrapper">
+      <span class="icon-close">
+         <ion-icon name="close"></ion-icon>
+      </span>
+
+      <div class="box login">
+         <h2>Se connecter</h2>
+         <form action="#"> 
+            <div class="input-box">
+               <span class="logico">
+                  <ion-icon name="mail"></ion-icon>
+               </span>
+               <input type="email" required>
+               <label>Email</label>
+            </div>
+            <div class="input-box">
+               <span class="logico">
+                  <ion-icon name="lock-closed"></ion-icon>
+               </span>
+               <input type="password" required>
+               <label>Mot de passe</label>
+            </div>
+            <div class="remember-forgot">
+               <label><input type="checkbox">Retenir le mot de passe</label>
+               <a href="#">Mot de passe oublié?</a>
+            </div>
+            <button type="submit" class="btn">Se connecter</button>
+            <div class="login-register">
+               <p>Vous n’avez pas de compte ?
+                  <a href="#" class="register-link">Inscrivez-vous</a>
+               </p>
+               
+            </div>
+         </form>
+      </div>
+
+
+      <div class="box register">
+         <h2>S'inscrire</h2>
+         <form action="#"> 
+            <div class="input-box">
+               <span class="logico">
+                  <ion-icon name="person"></ion-icon>
+               </span>
+               <input type="text" required>
+               <label>Nom d'utilisateur</label>
+            </div>
+            <div class="input-box">
+               <span class="logico">
+                  <ion-icon name="mail"></ion-icon>
+               </span>
+               <input type="email" required>
+               <label>Email</label>
+            </div>
+            <div class="input-box">
+               <span class="logico">
+                  <ion-icon name="lock-closed"></ion-icon>
+               </span>
+               <input type="password" required>
+               <label>Mot de passe</label>
+            </div>
+            <div class="remember-forgot">
+            </div>
+            <button type="submit" class="btn">S'inscrire</button>
+            <div class="login-register">
+               <p>Vous avez déjà un compte ?
+                  <a href="#" class="login-link">Connectez-vous</a>
+               </p>
+               
+            </div>
+         </form>
+      </div>
+    </div>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script type="text/javascript" src="Travlan.js"></script>
  </body>
 
