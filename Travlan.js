@@ -85,7 +85,8 @@ loginLink.addEventListener('click', ()=>{
   wrapper.classList.remove('active')
 });
 
-authentification.addEventListener('click', ()=>{
+authentification.addEventListener('click', (event)=>{
+  event.preventDefault();
   wrapper.classList.add('hidden');
 });
 
