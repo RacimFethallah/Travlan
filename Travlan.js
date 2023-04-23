@@ -87,9 +87,9 @@ loginLink.addEventListener('click', ()=>{
 
 authentification.addEventListener('click', ()=>{
   wrapper.classList.add('hidden');
-})
+});
 
 closeLogin.addEventListener('click', ()=>{
   wrapper.classList.remove('hidden');
   wrapper.classList.remove('active');
-})
+});
