@@ -83,6 +83,7 @@ registerLink.addEventListener('click', ()=>{
 
 loginLink.addEventListener('click', ()=>{
   wrapper.classList.remove('active')
+  document.getElementById('chkpwd').checked = false;
 });
 
 authentification.addEventListener('click', (event)=>{
@@ -93,4 +94,5 @@ authentification.addEventListener('click', (event)=>{
 closeLogin.addEventListener('click', ()=>{
   wrapper.classList.remove('hidden');
   wrapper.classList.remove('active');
+  document.getElementById('chkpwd').checked = false;
 });
