@@ -24,7 +24,13 @@ session_start();
         <form>
             <input type='text' id="searchBar">
             <input type='text' id="RsearchBar">
+
+            
             <img src="Pics/Background/profilePicture.svg" id="Anonym">
+            <?= $_SESSION["username"] ?? "" ? "<span id='floatright'>Hi,<br>{$_SESSION["username"]}</span>" : "" ?>
+            
+
+            
             <span ><ion-icon id="Anonym" name="person-circle-outline"></ion-icon></span>
             <?php
             if (!isset($_SESSION["username"])) {
