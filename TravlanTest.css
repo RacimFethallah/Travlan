@@ -1,0 +1,677 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+header {
+  background-color: rgba(70, 70, 70, 0.5);
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#username {
+  display: flex;
+  justify-content: center;
+  color: #162938;
+  font-size: 20px;
+  padding-bottom: -12px;
+  margin: 7.5%;
+}
+
+#user_dpmenu {
+  background-color: white;
+  width: 200px;
+  height: 310px;
+  float: right;
+  position: absolute;
+  top: 70px;
+  right: 50px;
+  border-radius: 10px;
+  z-index: 9999;
+}
+
+#DP li span {
+  padding: 10px;
+  font-size: 1.5em;
+  color: #162938;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+
+#DP {
+  border-top: 2px solid lightgrey;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 260px;
+  overflow-y: auto;
+  /* Enable scrolling for the list items */
+}
+
+#DP li {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  /* Use flexbox to align the icon and link horizontally */
+  align-items: center;
+  /* Center the icon and link vertically */
+  padding: 10px;
+  transition: background-color 0.3s ease-in-out;
+  /* Add a transition effect to the background color change */
+}
+
+#DP li:hover {
+  background-color: #f2f2f2;
+  /* Change the background color of the li element when hovering */
+}
+
+
+#DP li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+#DP li a:hover {
+  text-decoration: underline;
+  /* Add an underline to the link when hovering */
+}
+
+
+#searchBar {
+  background-image: url('Pics/Background/search.svg');
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  position: absolute;
+  right: 275px;
+  top: 20px;
+  width: 350px;
+  height: 30px;
+  background-color: #fff;
+  opacity: 0.8;
+  border: 2px solid #162938;
+  color: #162938;
+  font-size: 18px;
+  outline: none;
+  border-radius: 10px;
+
+}
+
+#RsearchBar {
+  background-image: url('Pics/Background/search.svg');
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  position: absolute;
+  right: 200px;
+  top: 70px;
+  width: 300px;
+  height: 30px;
+  background-color: seashell;
+  border: 2px solid #162938;
+  color: #162938;
+  font-size: 18px;
+  outline: none;
+  border-radius: 10px;
+  display: none;
+
+}
+
+
+
+#Logo {
+  display: inline-block;
+  width: 215px;
+  height: 45px;
+  margin-top: 0px;
+  background-image: url(Pics/UI/Logo.png);
+  background-size: cover;
+  position: absolute;
+}
+
+#Sbutton {
+  display: inline-block;
+  width: 40px;
+  height: 50px;
+  float: right;
+  background-image: url(Pics/UI/Sbutton.png);
+  background-size: cover;
+  margin-right: 20px;
+  margin-top: 5px;
+  display: none;
+}
+
+.Authentification:nth-of-type(2) {
+  display: inline-block;
+  width: 40px !important;
+  height: 50px !important;
+  float: right !important;
+  background-image: url(Pics/UI/AuthButton.png) !important;
+  background-size: cover !important;
+  margin-right: 20px !important;
+  display: none;
+}
+
+#Options {
+  display: inline-block;
+  width: 40px;
+  height: 50px;
+  float: right;
+  background-image: url(Pics/UI/Options.png);
+  background-size: cover;
+  margin-right: 15px;
+  display: none;
+}
+
+
+#Anonym {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  display: none;
+  background-color: #fff;
+  margin-right: 105px;
+  overflow: hidden;
+  float: right;
+  border-radius: 50%;
+  top: -5px;
+  position: relative;
+}
+
+
+
+
+
+
+.before {
+  display: none;
+}
+
+.after {
+  display: all;
+}
+
+
+
+
+
+.test {
+  display: inline-block;
+  color: lightgrey;
+  text-align: center;
+  width: 200px;
+}
+
+
+
+.Dp_img {
+  float: left;
+  width: 20px;
+  height: 20px;
+  padding-right: 5px;
+}
+
+
+
+
+.Authentification:nth-of-type(1) {
+  float: right;
+  display: block;
+  font-size: 20px;
+  background-color: transparent;
+  color: #fff;
+  margin-right: 20px;
+  border: solid 2px #fff;
+  height: 50px;
+  width: 130px;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+footer>a,
+footer>span {
+  color: white;
+}
+
+#Rx_sociaux {
+  position: absolute;
+  right: 30px;
+}
+
+#Reservation {
+  position: absolute;
+  top: 354px;
+  right: -285px;
+  transform: rotate(90deg);
+  width: 600px;
+  background-color: white;
+  height: 30px;
+  background-color: rgba(95, 3, 3, 0.5);
+  color: white;
+  font-size: 20px;
+  border: transparent;
+}
+
+
+#pyra {
+  width: 100px;
+  height: 120px;
+  border-radius: 5px;
+  float: right;
+  margin-left: 5px;
+  padding-right: 5px;
+}
+
+
+
+#hebergement {
+  left: 250px;
+  border-left: transparent;
+  border-right: 1px solid white;
+}
+
+#Restaurant {
+  left: 400px;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+#Activites {
+  left: 550px;
+  border-left: 1px solid white;
+  border-right: transparent;
+}
+
+#hebergement,
+#Restaurant,
+#Activites {
+  position: absolute;
+  background-color: transparent;
+  outline: none;
+  border-bottom: transparent;
+  border-top: transparent;
+  width: 150px;
+  height: 40px;
+  position: absolute;
+  top: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+#hebergement:hover,
+#Restaurant:hover,
+#Activites:hover,
+.Authentification:nth-of-type(1):hover {
+  background-color: #892b2852;
+  transition: background-color 0.5s ease-in-out;
+}
+
+
+
+
+.slider-container {
+  position: fixed;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#image1 {
+  background-image: url('Pics/Background/Egypt.jpg');
+}
+
+#image2 {
+  background-image: url('Pics/Background/Japan.jpg');
+}
+
+#image3 {
+  background-image: url('Pics/Background/Ireland.jpg');
+}
+
+#image4 {
+  background-image: url('Pics/Background/USA.jpg');
+}
+
+#image5 {
+  background-image: url('Pics/Background/Brazil.jpg');
+}
+
+#image6 {
+  background-image: url('Pics/Background/Australia.jpg');
+}
+
+.slider-image.active {
+  opacity: 1;
+}
+
+.slider-nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  /* Center the buttons horizontally */
+}
+
+.Bg-button {
+  transition: background-color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 25px;
+  padding: 5px 10px;
+  margin: 0 10px;
+  border-radius: 50%;
+  /* Add some margin between the buttons */
+  cursor: pointer;
+}
+
+.Bg-button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+
+@media screen and (max-width: 1270px) {
+  #searchBar {
+    display: none;
+  }
+
+  #Sbutton {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 900px) {
+
+  .Authentification:nth-of-type(1),
+  #Activites {
+    display: none;
+  }
+
+  .Authentification:nth-of-type(2) {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 840px) {
+
+  #Restaurant {
+    display: none;
+  }
+
+  #Options {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  #Hebergement {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 570px) {
+
+  #Options,
+  .Authentification:nth-of-type(2),
+  #Sbutton {
+    display: none;
+  }
+
+  .Authentification:nth-of-type(1) {
+    display: block;
+  }
+}
+
+
+
+
+.login-wrapper {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 420px;
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, .5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform .3s ease, height .2s ease;
+  transform: scale(0);
+  overflow: hidden;
+}
+
+.login-wrapper.hidden {
+  transform: scale(1);
+}
+
+
+.login-wrapper.active {
+  height: 570px;
+}
+
+
+
+.login-wrapper .box {
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.login-wrapper .box.login {
+  transition: transform .18s ease;
+  transform: translateX(0);
+}
+
+.login-wrapper.active .box.login {
+  transition: none;
+  transform: translateX(-400px);
+}
+
+.login-wrapper .box.register {
+  position: absolute;
+  transition: none;
+  transform: translateX(450px);
+}
+
+.login-wrapper.active .box.register {
+  transition: transform .18s ease;
+  transform: translateX(0);
+}
+
+.login-wrapper .icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: #162938;
+  font-size: 2em;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.box h2 {
+  font-size: 2em;
+  color: #162938;
+  text-align: center;
+}
+
+.box h1 {
+  font-size: 1.5em;
+  color: #162938;
+  text-align: center;
+}
+
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid #162938;
+  margin: 30px 0;
+}
+
+.input-box div {
+  text-align: center;
+  padding: 15px;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #162938;
+  font-weight: 500;
+  pointer-events: none;
+  transition: .5s;
+}
+
+
+.input-box input:not(:placeholder-shown)~label,
+.input-box input:focus~label{
+  top: -5px;
+}
+
+::placeholder{
+  color: transparent;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #162938;
+  font-weight: 600;
+  padding: 0 35px 0 5px;
+}
+
+.input-box .logico {
+  position: absolute;
+  right: 2px;
+  font-size: 1.2em;
+  color: #162938;
+  bottom: 18px;
+}
+
+
+.remember-forgot {
+  font-size: .9em;
+  color: #162938;
+  font-weight: 500;
+  margin: 0px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember-forgot label input {
+  accent-color: #162938;
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color: #162938;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+
+.btn {
+  width: 100%;
+  height: 45px;
+  margin: 15px 0px 15px;
+  background: #162938;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+}
+
+
+.login-register {
+  font-size: .9em;
+  color: #162938;
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 10px;
+}
+
+
+.login-register p a {
+  color: #162938;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+
+
+.login-register p a:hover {
+  text-decoration: underline;
+}
+
+
+
+.closebtn {
+  cursor: pointer;
+  position: absolute;
+  font-size: 5em;
+  color: #162938;
+  padding-left: 30%;
+  padding-top: 10%;
+}
