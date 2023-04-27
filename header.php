@@ -11,7 +11,7 @@ session_start();
     <title>
         Travlan
     </title>
-    <link rel="stylesheet" href="TravlanTest.css">
+    <link rel="stylesheet" href="Travlan.css">
     <link rel="icon" href="Pics/UI/location.svg">
 
 
