@@ -6,14 +6,6 @@ use PHPMailer\PHPMailer\Exception;
 
 
 
-function invalidUsername($nomutilisateur)
-{
-    $result = false;
-    if (!preg_match("/^[a-zA-Z0-9 ]*$/", $nomutilisateur)) {
-        $result = true;
-    }
-    return $result;
-}
 
 function invalidEmail($email)
 {
@@ -85,6 +77,7 @@ function loginUser($conn, $email, $pwd)
         session_start();
         $_SESSION['logged_in'] = true;
         $_SESSION["username"] = $userExists["username"];
+        $_SESSION["email"] = $userExists["email"];
         header("location: ../Travlan.php?error=lnone");
         exit();
     }
@@ -183,8 +176,7 @@ function resetP($conn, $password, $token)
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-
-
+    
     header("location: ../Travlan.php?error=pnone");
     exit();
 }
@@ -194,6 +186,7 @@ function resetP($conn, $password, $token)
 
 function resetmailpage()
 {
+
     echo "<div class='login-wrapper hidden'>
     <span class='icon-close' id='closereset'>
        <ion-icon name='close'></ion-icon>
@@ -206,7 +199,7 @@ function resetmailpage()
              <span class='logico'>
                 <ion-icon name='mail'></ion-icon>
              </span>
-             <input type='email' name='email' required placeholder='email'>
+             <input type='email' name='email' required placeholder='email' " . ($_SESSION["email"] ?? "" ? "value='{$_SESSION['email']}'" : "") . ">
              <label>Veuillez saisir votre adresse Email</label>
           </div>
           <button type='submit' name='submitmail' class='btn'>Confirmer</button>

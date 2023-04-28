@@ -69,13 +69,22 @@ if (isset($_GET["error"])) {
                   </script>";
     }else if ($_GET["error"] == "pnone"){
         echo "<div class='login-wrapper hidden'>
-            <div class='box login'> <h1>Mot de passe réinitialisé avec succès</h1> <ion-icon name='checkmark-circle' class='closebtn'></ion-icon> </div></div>";
+                <div class='box login'> 
+                    <h1>Mot de passe réinitialisé avec succès</h1> 
+                    <ion-icon name='checkmark-circle' class='closebtn'></ion-icon> 
+                </div>
+              </div>";
         echo "<script>
-                    document.querySelector('.closebtn').addEventListener('click', function() {
-                        var parentElement = this.parentNode.parentNode;
-                        parentElement.parentNode.removeChild(parentElement);
-                        document.querySelector('.login-wrapper').classList.add('hidden');
-                    });
-                  </script>";
+                document.querySelector('.closebtn').addEventListener('click', function() {
+                    var parentElement = this.parentNode.parentNode;
+                    parentElement.parentNode.removeChild(parentElement);
+                    document.querySelector('.login-wrapper').classList.add('hidden');
+            ";
+        if (isset($_SESSION["username"])) {
+            echo "  window.location.href = 'includes/logout.inc.php';
+            ";
+        }
+        echo "    });
+              </script>";
     }
 }

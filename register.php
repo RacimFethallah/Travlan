@@ -19,7 +19,7 @@
             <span class="logico">
                <ion-icon name="lock-closed"></ion-icon>
             </span>
-            <input type="password" id="pwd" name="pwd" required placeholder="password" oninput="passwordValidity()">
+            <input type="password" id="pwd" name="pwd" required placeholder="password">
             <label>Mot de passe</label>
          </div>
          <div class="input-box">

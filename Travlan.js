@@ -8,8 +8,8 @@ let SearchBar = document.getElementById('RsearchBar');
 let loginBtn = document.getElementById('loginBtn');
 var authButtons = document.querySelectorAll('.Authentification');
 let userMenuBtn = document.querySelectorAll('.usermenubtn');
-var password = document.getElementById("pwd");
 var username = document.getElementById('nomuti');
+var password = document.getElementById("pwd");
 
 
 
@@ -218,20 +218,27 @@ function checkPasswordMatch() {
 
 
 
-function passwordValidity() {
+password.addEventListener("input", () => passwordValidity(password));
+
+
+
+
+function passwordValidity(input) {
+
+
   const minLength = 8;
   const pattern = /(?=.*\d)(?=.*[a-z])/;
 
-  if (password.value.length < minLength) {
-    password.setCustomValidity(`Le mot de passe doit contenir au moins ${minLength} caractères`);
-  } else if (!pattern.test(password.value)) {
-    password.setCustomValidity("Le mot de passe doit contenir au moins une lettre et un chiffre");
+
+
+  if (input.value.length < minLength ) {
+    input.setCustomValidity(`Le mot de passe doit contenir au moins ${minLength} caractères`);
+  } else if (!pattern.test(input.value)) {
+    input.setCustomValidity("Le mot de passe doit contenir au moins une lettre et un chiffre");
   } else {
-    password.setCustomValidity("");
+    input.setCustomValidity("");
   }
 }
-
-
 
 
 
@@ -254,3 +261,7 @@ function usernameValidity() {
     username.setCustomValidity("");
   }
 }
+
+
+
+
