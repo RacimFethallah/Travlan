@@ -60,12 +60,15 @@ function showImage(n) {
   for (let i = 0; i < images.length; i++) {
     images[i].classList.remove('active');
     buttons[i].classList.remove('active');
+    buttons[i].style.setProperty('--bg-color', '#fff');
   }
   images[n - 1].classList.add('active');
   buttons[n - 1].classList.add('active');
+  buttons[n - 1].style.setProperty('--bg-color', 'rgb(2, 56, 126)');
   currentImageIndex = n;
 
 }
+
 
 function slideImages() {
   const images = document.getElementsByClassName('slider-image');
