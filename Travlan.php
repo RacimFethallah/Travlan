@@ -13,12 +13,12 @@ include_once 'header.php';
    <div id="image6" class="slider-image"></div>
    <div class="slider-nav">
 
-      <button class="Bg-button" onclick="showImage(1)">1</button>
-      <button class="Bg-button" onclick="showImage(2)">2</button>
-      <button class="Bg-button" onclick="showImage(3)">3</button>
-      <button class="Bg-button" onclick="showImage(4)">4</button>
-      <button class="Bg-button" onclick="showImage(5)">5</button>
-      <button class="Bg-button" onclick="showImage(6)">6</button>
+      <button type="button" class="Bg-button" onclick="showImage(1)"></button>
+      <button type="button" class="Bg-button" onclick="showImage(2)"></button>
+      <button type="button" class="Bg-button" onclick="showImage(3)"></button>
+      <button type="button" class="Bg-button" onclick="showImage(4)"></button>
+      <button type="button" class="Bg-button" onclick="showImage(5)"></button>
+      <button type="button" class="Bg-button" onclick="showImage(6)"></button>
    </div>
 </div>
 

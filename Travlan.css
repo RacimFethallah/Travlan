@@ -111,13 +111,17 @@ header {
   width: 350px;
   height: 30px;
   background-color: #fff;
-  opacity: 0.8;
+  opacity: 0.5;
   border: 2px solid #162938;
   color: #162938;
   font-size: 18px;
   outline: none;
   border-radius: 10px;
 
+}
+#searchBar:focus{
+  opacity: 1;
+  border: 3px solid #162938;
 }
 
 #RsearchBar {
@@ -402,15 +406,36 @@ footer>span {
   border: none;
   font-size: 25px;
   padding: 5px 10px;
-  margin: 0 10px;
+  margin: 0 25px;
   border-radius: 50%;
   /* Add some margin between the buttons */
   cursor: pointer;
+  position: relative;
 }
 
-.Bg-button:hover {
+
+.Bg-button:active::before{
+  top: -20px
+}
+
+.Bg-button::before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
   background-color: #fff;
-  color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.5s ease-in-out;
+  transition: top 0.08s ease-out;
+}
+
+.Bg-button:hover::before {
+  background-color: rgb(2, 56, 126);
+  opacity: 0.8;
 }
 
 
