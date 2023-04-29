@@ -16,12 +16,12 @@ if (isset($_GET["token"])) {
    $result = mysqli_query($conn, $sql);
    if (mysqli_num_rows($result) == 0) {
       echo "<script> alert('Token is invalid or has expired'); </script>";
-      echo "<script> window.location.href = 'Travlan.php'; </script>";
+      echo "<script> window.location.href = 'index.php'; </script>";
    } else {
       $row = mysqli_fetch_assoc($result);
       if (time() > $row['timelimit']) {
          echo "<script> alert('Token is invalid or has expired'); </script>";
-         echo "<script> window.location.href = 'Travlan.php'; </script>";
+         echo "<script> window.location.href = 'index.php'; </script>";
       } else {
         
             echo "<div class='login-wrapper hidden'>
@@ -48,7 +48,7 @@ if (isset($_GET["token"])) {
             var password2 = document.getElementById('newpwd'); 
             password2.addEventListener('input', () => passwordValidity(password2));
             document.getElementById('closereset').addEventListener('click', function() {
-            window.location.href = 'Travlan.php';
+            window.location.href = 'index.php';
             });
    </script>";
       }

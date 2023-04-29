@@ -15,15 +15,15 @@ if(isset($_POST["registersubmit"])){
 
 
     if (invalidEmail($email) !== false){
-        header("location: ../Travlan.php?error=invalidemail");
+        header("location: ../index.php?error=invalidemail");
         exit();
     }
     if (usernameExists($conn, $nomutilisateur, $email) !== false){
-        header("location: ../Travlan.php?error=usernametaken");
+        header("location: ../index.php?error=usernametaken");
         exit();
     }
     //if(invalidPassword($pwd , $pwdconf) !== false){
-    //    header("location: ../Travlan.php?error=invalidpassword");
+    //    header("location: ../index.php?error=invalidpassword");
     //    exit();
     //}
 
@@ -32,7 +32,7 @@ if(isset($_POST["registersubmit"])){
 
 }
 else{
-    header("location: ../Travlan.php");
+    header("location: ../index.php");
     exit();
 }
 

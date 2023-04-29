@@ -8,7 +8,7 @@ if (isset($_GET["error"])) {
                     document.querySelector('.closebtn').addEventListener('click', function() {
                         var parentElement = this.parentNode.parentNode;
                         parentElement.parentNode.removeChild(parentElement);
-                        window.location.href = './Travlan.php?error=invalidemail2';
+                        window.location.href = './index.php?error=invalidemail2';
                     });
                   </script>";
         
@@ -44,7 +44,7 @@ if (isset($_GET["error"])) {
             document.querySelector('.closebtn').addEventListener('click', function() {
                         var parentElement = this.parentNode.parentNode;
                         parentElement.parentNode.removeChild(parentElement);
-                        window.location.href = './Travlan.php';
+                        window.location.href = './index.php';
                     });
                   </script>";
     } else if ($_GET["error"] == "lnone") {
@@ -54,7 +54,7 @@ if (isset($_GET["error"])) {
                     document.querySelector('.closebtn').addEventListener('click', function() {
                         var parentElement = this.parentNode.parentNode;
                         parentElement.parentNode.removeChild(parentElement);
-                        window.location.href = './Travlan.php';
+                        window.location.href = './index.php';
                     });
                   </script>";
     } else if ($_GET["error"] == "emailsent"){
@@ -64,7 +64,7 @@ if (isset($_GET["error"])) {
                     document.querySelector('.closebtn').addEventListener('click', function() {
                         var parentElement = this.parentNode.parentNode;
                         parentElement.parentNode.removeChild(parentElement);
-                        window.location.href = './Travlan.php';
+                        window.location.href = './index.php';
                     });
                   </script>";
     }else if ($_GET["error"] == "pnone"){

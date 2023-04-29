@@ -113,13 +113,13 @@ authButtons.forEach(function (button) {
 userMenuBtn.forEach(function (button) {
   button.addEventListener('click', function () {
     if (button.classList.contains('1')) {
-      window.location.href = './Travlan.php';
+      window.location.href = './index.php';
 
     } else if (button.classList.contains('2')) {
-      window.location.href = './Travlan.php';
+      window.location.href = './index.php';
 
     } else if (button.classList.contains('3')) {
-      window.location.href = './Travlan.php';
+      window.location.href = './index.php';
 
     } else if (button.classList.contains('4')) {
       window.location.href = 'includes/logout.inc.php'

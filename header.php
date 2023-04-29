@@ -20,7 +20,7 @@ session_start();
 
 <body>
     <header id="my-header">
-        <a href="Travlan.php" id='Logo'></a>
+        <a href="index.php" id='Logo'></a>
         <form>
             <input type='text' id="searchBar">
             <input type='text' id="RsearchBar">
@@ -55,7 +55,7 @@ session_start();
                 </span>
                 <ul id="DP">
                     <li> <span class="usermenubtn 1"><ion-icon name="person-outline"></ion-icon></span><a href=""> Mon Profil </a> </li>
-                    <li> <span class="usermenubtn 2"><ion-icon  name="settings-outline"></ion-icon></span><a href="Travlan.php?id=1021"> Changer mot de passe</a> </li>
+                    <li> <span class="usermenubtn 2"><ion-icon  name="settings-outline"></ion-icon></span><a href="index.php?id=1021"> Changer mot de passe</a> </li>
                     <li> <span class="usermenubtn 3"><ion-icon  name="information-circle-outline"></ion-icon></span><a href=""> Aide </a> </li>
                     <li> <span class="usermenubtn 4"><ion-icon  name="log-out-outline"></ion-icon></span><a href="includes/logout.inc.php"> Se deconnecter </a></li>
                 </ul>

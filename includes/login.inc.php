@@ -13,6 +13,6 @@ if(isset($_POST["loginBtn"])){
     loginUser($conn, $email, $pwd);
 
 }else{
-    header("location: ../Travlan.php");
+    header("location: ../index.php");
     exit();
 }

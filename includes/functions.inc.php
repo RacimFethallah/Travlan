@@ -21,7 +21,7 @@ function usernameExists($conn, $nomutilisateur, $email)
     $sql = "SELECT * FROM users WHERE username = ? OR email = ?; ";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../Travlan.php?error=stmterror");
+        header("location: ../index.php?error=stmterror");
         exit();
     }
     mysqli_stmt_bind_param($stmt, "ss", $nomutilisateur, $email);
@@ -43,7 +43,7 @@ function createUser($conn, $nomutilisateur, $email, $pwd)
     $sql = "INSERT INTO users(username,email,password) VALUES (?,?,?); ";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../Travlan.php?error=stmterror");
+        header("location: ../index.php?error=stmterror");
         exit();
     }
 
@@ -52,7 +52,7 @@ function createUser($conn, $nomutilisateur, $email, $pwd)
     mysqli_stmt_bind_param($stmt, "sss", $nomutilisateur, $email, $hashedpwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../Travlan.php?error=rnone");
+    header("location: ../index.php?error=rnone");
     exit();
 }
 
@@ -63,7 +63,7 @@ function loginUser($conn, $email, $pwd)
     $userExists = usernameExists($conn, $email, $email);
 
     if ($userExists === false) {
-        header("location: ../Travlan.php?error=wronglogin");
+        header("location: ../index.php?error=wronglogin");
         exit();
     }
 
@@ -71,14 +71,14 @@ function loginUser($conn, $email, $pwd)
     $pwdHashed = $userExists["password"];
     $checkpwd = password_verify($pwd, $pwdHashed);
     if ($checkpwd === false) {
-        header("location: ../Travlan.php?error=wronglogin");
+        header("location: ../index.php?error=wronglogin");
         exit();
     } else if ($checkpwd === true) {
         session_start();
         $_SESSION['logged_in'] = true;
         $_SESSION["username"] = $userExists["username"];
         $_SESSION["email"] = $userExists["email"];
-        header("location: ../Travlan.php?error=lnone");
+        header("location: ../index.php?error=lnone");
         exit();
     }
 }
@@ -94,7 +94,7 @@ function mailSend($conn, $email)
     $userExists = usernameExists($conn, $email, $email);
 
     if ($userExists === false) {
-        header("location: ../Travlan.php?error=invalidemail");
+        header("location: ../index.php?error=invalidemail");
         exit();
     }
 
@@ -111,7 +111,7 @@ function mailSend($conn, $email)
 
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../Travlan.php?error=stmterror");
+        header("location: ../index.php?error=stmterror");
         exit();
     }
 
@@ -122,7 +122,7 @@ function mailSend($conn, $email)
     mysqli_stmt_close($stmt);
 
     $subject = "Password reset request";
-    $message = "Please click on the following link to reset your password: http://localhost/Travlan/Travlan.php?token=$token";
+    $message = "Please click on the following link to reset your password: http://localhost/Travlan/index.php?token=$token";
 
     $mailmsg = new PHPMailer(true);
     $mailmsg->isSMTP();
@@ -140,7 +140,7 @@ function mailSend($conn, $email)
 
     $mailmsg->send();
 
-    header("location: ../Travlan.php?error=emailsent");
+    header("location: ../index.php?error=emailsent");
     exit();
 }
 
@@ -155,7 +155,7 @@ function resetP($conn, $password, $token)
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../Travlan.php?error=stmterror");
+        header("location: ../index.php?error=stmterror");
         exit();
     }
 
@@ -168,7 +168,7 @@ function resetP($conn, $password, $token)
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql2)) {
-        header("location: ../Travlan.php?error=stmterror");
+        header("location: ../index.php?error=stmterror");
         exit();
     }
 
@@ -177,7 +177,7 @@ function resetP($conn, $password, $token)
     mysqli_stmt_close($stmt);
 
     
-    header("location: ../Travlan.php?error=pnone");
+    header("location: ../index.php?error=pnone");
     exit();
 }
 
@@ -208,7 +208,7 @@ function resetmailpage()
  </div>";
     echo "<script>
  document.getElementById('closereset').addEventListener('click', function() {
-   window.location.href = 'Travlan.php';
+   window.location.href = 'index.php';
  });
 </script>";
 }

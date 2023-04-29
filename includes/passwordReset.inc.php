@@ -24,6 +24,6 @@ if(isset($_POST["submitmail"])){
 
 
 }else{
-    header("location: ../Travlan.php");
+    header("location: ../index.php");
     exit();
 }

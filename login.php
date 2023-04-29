@@ -22,7 +22,7 @@
          </div>
          <div class="remember-forgot">
             <label><input type="checkbox" id="chkpwd" name="chkpwd">Retenir le mot de passe</label>
-            <a href="Travlan.php?id=1021">Mot de passe oublié?</a>
+            <a href="index.php?id=1021">Mot de passe oublié?</a>
          </div>
          <button type="submit" id="loginBtn" name="loginBtn" class="btn">Se connecter</button>
          <div class="login-register">
