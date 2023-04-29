@@ -8,8 +8,6 @@ let SearchBar = document.getElementById('RsearchBar');
 let loginBtn = document.getElementById('loginBtn');
 let authButtons = document.querySelectorAll('.Authentification');
 let userMenuBtn = document.querySelectorAll('.usermenubtn');
-let username = document.getElementById('nomuti');
-let password = document.getElementById("pwd");
 
 
 const wrapper = document.querySelector('.login-wrapper');
@@ -202,23 +200,18 @@ function deleteCookie(name) {
 
 
 
-function checkPasswordMatch() {
-  var confirm_password = document.getElementById("pwdconf");
-  var message = document.getElementById("passwordMatch");
-  if (password.value == confirm_password.value) {
-    message.innerHTML = "Mots de passe identique!";
-    confirm_password.setCustomValidity("");
+
+
+
+
+
+function checkPasswordMatch(input1, input2) {
+  if (input1.value == input2.value) {
+    input2.setCustomValidity("");
   } else {
-    message.innerHTML = "Mots de passe differents!";
-    confirm_password.setCustomValidity("Les mots de passes doivents etre identique");
+    input2.setCustomValidity("Les mots de passes doivents etre identique!");
   }
 }
-
-
-
-
-password.addEventListener("input", () => passwordValidity(password));
-
 
 
 
@@ -242,7 +235,7 @@ function passwordValidity(input) {
 
 
 
-function usernameValidity() {
+function usernameValidity(username) {
   
   const minLength = 3;
   const maxLength = 36;

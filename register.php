@@ -5,7 +5,7 @@
             <span class="logico">
                <ion-icon name="person"></ion-icon>
             </span>
-            <input type="text" id="nomuti" name="nomuti" required placeholder="nom utilisateur" oninput="usernameValidity()">
+            <input type="text" id="nomuti" name="nomuti" required placeholder="nom utilisateur" oninput="usernameValidity(nomuti)">
             <label>Nom d'utilisateur</label>
          </div>
          <div class="input-box">
@@ -19,16 +19,15 @@
             <span class="logico">
                <ion-icon name="lock-closed"></ion-icon>
             </span>
-            <input type="password" id="pwd" name="pwd" required placeholder="password">
+            <input type="password" id="pwd" name="pwd" required placeholder="password" oninput="passwordValidity(pwd)">
             <label>Mot de passe</label>
          </div>
          <div class="input-box">
             <span class="logico">
                <ion-icon name="checkmark-done-outline"></ion-icon>
             </span>
-            <input type="password" id="pwdconf" name="pwdconf" required oninput="checkPasswordMatch()" placeholder="password">
+            <input type="password" id="pwdconf" name="pwdconf" required oninput="checkPasswordMatch(pwd,pwdconf)" placeholder="password">
             <label>Confirmer Mot de passe</label>
-            <div id="passwordMatch"></div>
          </div>
          <button type="submit" name="registersubmit" class="btn">S'inscrire</button>
          <div class="login-register">
