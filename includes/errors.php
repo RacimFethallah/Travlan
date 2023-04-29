@@ -86,5 +86,8 @@ if (isset($_GET["error"])) {
         }
         echo "    });
               </script>";
+    }else if ($_GET["error"] == "emailpwdresetnotsent"){
+        echo "<script> alert('An error occured! Email could not be sent!');
+        window.location.href = '../index.php'; </script>";
     }
 }

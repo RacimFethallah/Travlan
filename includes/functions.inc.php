@@ -121,8 +121,11 @@ function mailSend($conn, $email)
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
+
+
+    $url = "http://localhost/Travlan/index.php?token=$token";
     $subject = "Password reset request";
-    $message = "Please click on the following link to reset your password: http://localhost/Travlan/index.php?token=$token";
+    $message = "Please click on the following link to reset your password: $url" ;
 
     $mailmsg = new PHPMailer(true);
     $mailmsg->isSMTP();
@@ -138,10 +141,14 @@ function mailSend($conn, $email)
     $mailmsg->Subject = $subject;
     $mailmsg->Body = $message;
 
-    $mailmsg->send();
-
-    header("location: ../index.php?error=emailsent");
-    exit();
+    try {
+        $mailmsg->send();
+        header("location: ../index.php?error=emailsent");
+        exit();
+    } catch (Exception $e) {
+        header("location: ../index.php?error=emailpwdresetnotsent");
+        exit();
+    }
 }
 
 
