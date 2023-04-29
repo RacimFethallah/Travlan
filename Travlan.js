@@ -1,19 +1,15 @@
-var User_img = document.getElementById('Anonym');
-var Dp_menu = document.getElementById('user_dpmenu');
+let User_img = document.getElementById('Anonym');
+let Dp_menu = document.getElementById('user_dpmenu');
 let currentImageIndex = 1;
 let Delay = 2000;
 let x = 1;
 let SearchButton = document.getElementById('Sbutton');
 let SearchBar = document.getElementById('RsearchBar');
 let loginBtn = document.getElementById('loginBtn');
-var authButtons = document.querySelectorAll('.Authentification');
+let authButtons = document.querySelectorAll('.Authentification');
 let userMenuBtn = document.querySelectorAll('.usermenubtn');
-var username = document.getElementById('nomuti');
-var password = document.getElementById("pwd");
-
-
-
-
+let username = document.getElementById('nomuti');
+let password = document.getElementById("pwd");
 
 
 const wrapper = document.querySelector('.login-wrapper');
