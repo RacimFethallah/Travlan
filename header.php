@@ -18,7 +18,7 @@ session_start();
 
 </head>
 
-<body>
+<body class="plan">
     <header id="my-header">
         <a href="index.php" id='Logo'></a>
         <form>

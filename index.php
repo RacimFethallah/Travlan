@@ -84,7 +84,7 @@ include_once 'header.php';
 
 
 
-<a href="Travlan_plan.html">
+<a href="Travlan_plan.php">
    <input type="submit" value="Planifiez votre voyage !" id="Planifier">
 </a>
 

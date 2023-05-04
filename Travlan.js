@@ -76,8 +76,10 @@ function slideImages() {
 }
 
 var randomNum = Math.floor(Math.random() * 6) + 1;
-showImage(randomNum);
-setInterval(slideImages, Delay);
+if (location.href.indexOf('index') !== -1) {
+  showImage(randomNum);
+  setInterval(slideImages, Delay);
+}
 
 
 SearchButton.addEventListener("click", ShowhideSearchBar);
