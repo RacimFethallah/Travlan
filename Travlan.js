@@ -115,6 +115,15 @@ loginLink.addEventListener('click', () => {
   checkedpwd.checked = false;
 });
 
+function checkSession() {
+  if (sessionStorage.getItem('logged_in') === 'true') {
+    window.location.href = "Travlan_plan.php";
+  } else {
+    if (wrapper.classList.contains('hidden') === false) {
+      wrapper.classList.add('hidden');
+    }
+  }
+}
 
 
 authButtons.forEach(function (button) {

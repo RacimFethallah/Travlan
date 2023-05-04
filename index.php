@@ -113,7 +113,7 @@ include_once 'header.php';
 </div>
 
 
-<a href="Travlan_plan.php">
+<a href="#" onclick="checkSession()">
    <input type="submit" value="Planifiez votre voyage !" id="Planifier">
 </a>
 

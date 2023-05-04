@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (isset($_SESSION["username"])) {
+    echo "<script>sessionStorage.setItem('logged_in', 'true');</script>";
+}else{
+    echo "<script>sessionStorage.clear();</script>";
+}
 ?>
 
 

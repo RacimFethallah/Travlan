@@ -78,6 +78,7 @@ function loginUser($conn, $email, $pwd)
         $_SESSION['logged_in'] = true;
         $_SESSION["username"] = $userExists["username"];
         $_SESSION["email"] = $userExists["email"];
+        
         header("location: ../index.php?error=lnone");
         exit();
     }
