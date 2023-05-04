@@ -82,6 +82,35 @@ include_once 'header.php';
    </button>
 </div>
 
+<div id="slide5" class="hide">
+   <button class="boxe" id="j1">
+      <h1 class="text">Tokyo</h1>
+   </button>
+   <button class="boxe" id="j2">
+      <h1 class="text">Blablabla</h1>
+   </button>
+   <button class="boxe" id="j3">
+      <h1 class="text">Tokyo</h1>
+   </button>
+   <button class="boxe" id="j4">
+      <h1 class="text">r+TOKJYIJ</h1>
+   </button>
+</div>
+
+<div id="slide6" class="hide">
+   <button class="boxe" id="j1">
+      <h1 class="text">Tokyo</h1>
+   </button>
+   <button class="boxe" id="j2">
+      <h1 class="text">Blablabla</h1>
+   </button>
+   <button class="boxe" id="j3">
+      <h1 class="text">Tokyo</h1>
+   </button>
+   <button class="boxe" id="j4">
+      <h1 class="text">r+TOKJYIJ</h1>
+   </button>
+</div>
 
 
 <a href="Travlan_plan.php">
