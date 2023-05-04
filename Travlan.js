@@ -82,6 +82,12 @@ if (location.href.indexOf('index') !== -1) {
 }
 
 
+if (location.href.indexOf('Travlan_plan') !== -1) {
+ let body = document.querySelector('body');
+ body.className = 'plan';
+}
+
+
 SearchButton.addEventListener("click", ShowhideSearchBar);
 User_img.addEventListener('click', appear);
 

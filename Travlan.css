@@ -804,27 +804,27 @@ footer>span {
   opacity: 1;
   transform: translateY(-10px);
   cursor: pointer;
-}
-
-.appear {
-  display: inline-block;
-}
-
-.hide {
-  display: none;
+  color: #162938;
 }
 
 
 
-/* travlan plan style */
+
+/* travlan plan page style */
+
 
 body.plan {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 100vh;
-  background-position: bottom;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
 }
+
 
 .slider {
   -moz-appearance: none;
@@ -835,6 +835,7 @@ body.plan {
   border: 1px solid white;
   border-radius: 20px;
   color: white;
+  cursor: pointer;
 }
 
 input[type=range]::-moz-range-thumb {
@@ -1118,7 +1119,7 @@ select {
   height: 0;
 }
 
-/* The slider */
+
 .sliderr {
   position: absolute;
   cursor: pointer;
