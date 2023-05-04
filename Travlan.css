@@ -119,7 +119,8 @@ header {
   border-radius: 10px;
 
 }
-#searchBar:focus{
+
+#searchBar:focus {
   opacity: 1;
   border: 3px solid #162938;
 }
@@ -411,7 +412,7 @@ footer>span {
   position: relative;
 }
 
-.Bg-button:active::before{
+.Bg-button:active::before {
   top: -20px;
 }
 
@@ -573,6 +574,9 @@ footer>span {
   font-size: 2em;
   color: #162938;
   text-align: center;
+  top: -84px;
+  position: absolute;
+  right: 62px;
 }
 
 .box h1 {
@@ -711,12 +715,12 @@ footer>span {
 }
 
 
-.boxe h1{
+.boxe h1 {
   color: white;
   margin: auto;
 }
 
-.boxe{
+.boxe {
   padding: 25px;
   width: 230px;
   height: 270px;
@@ -724,54 +728,60 @@ footer>span {
   border-radius: 15px;
   background-position: center;
   background-size: cover;
-  margin : 20px;
+  margin: 20px;
   position: absolute;
   box-sizing: border-box;
   border: none;
-  }
+  z-index: -1;
+}
 
-#j1{
-  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("Pics/Background/Japan1.jpg");
+#j1 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan1.jpg");
   top: 16%;
   right: 130px;
 }
 
-#j2{
-  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("Pics/Background/Japan2.jpg");
+#j2 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan2.jpg");
   top: 16%;
   right: 400px;
 }
 
-#j3{
-  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("Pics/Background/Japan3.jpg");
+#j3 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan3.jpg");
   top: 55%;
   right: 130px;
 }
 
-#j4{
-  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("Pics/Background/Japan4.jpg");
+#j4 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan4.jpg");
   top: 55%;
   right: 400px;
+  z-index: 0;
 }
 
-.boxe:hover{
+.boxe:hover {
   transform: translateY(-10px);
   cursor: pointer;
 }
 
 .boxe:hover .text {
-color: transparent;}
+  color: transparent;
+}
 
-#j1:hover{
+#j1:hover {
   background-image: url("Pics/Background/Japan1.jpg");
 }
-#j2:hover{
+
+#j2:hover {
   background-image: url("Pics/Background/Japan2.jpg");
 }
-#j3:hover{
+
+#j3:hover {
   background-image: url("Pics/Background/Japan3.jpg");
 }
-#j4:hover{
+
+#j4:hover {
   background-image: url("Pics/Background/Japan4.jpg");
 }
 
@@ -789,20 +799,20 @@ color: transparent;}
   Top: 48%;
   opacity: 0.7;
   font-size: 25px;
- font-weight: 800;
- left: 250px;
+  font-weight: 800;
+  left: 250px;
 }
 
-#Planifier:hover{
-  opacity: 1; 
+#Planifier:hover {
+  opacity: 1;
   transform: translateY(-10px);
   cursor: pointer;
 }
 
-.appear{ 
-display: inline-block;
- }
+.appear {
+  display: inline-block;
+}
 
-.hide{
+.hide {
   display: none;
 }
