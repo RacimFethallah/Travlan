@@ -362,11 +362,11 @@ footer>span {
 }
 
 #image1 {
-  background-image: url('Pics/Background/Egypt.jpg');
+  background-image: url('Pics/Background/Tokyo.jpg');
 }
 
 #image2 {
-  background-image: url('Pics/Background/Japan.jpg');
+  background-image: url('Pics/Background/Egypt.jpg');
 }
 
 #image3 {
@@ -708,4 +708,101 @@ footer>span {
   color: #162938;
   padding-left: 30%;
   padding-top: 10%;
+}
+
+
+.boxe h1{
+  color: white;
+  margin: auto;
+}
+
+.boxe{
+  padding: 25px;
+  width: 230px;
+  height: 270px;
+  display: inline-block;
+  border-radius: 15px;
+  background-position: center;
+  background-size: cover;
+  margin : 20px;
+  position: absolute;
+  box-sizing: border-box;
+  border: none;
+  }
+
+#j1{
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("Pics/Background/Japan1.jpg");
+  top: 16%;
+  right: 130px;
+}
+
+#j2{
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("Pics/Background/Japan2.jpg");
+  top: 16%;
+  right: 400px;
+}
+
+#j3{
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("Pics/Background/Japan3.jpg");
+  top: 55%;
+  right: 130px;
+}
+
+#j4{
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("Pics/Background/Japan4.jpg");
+  top: 55%;
+  right: 400px;
+}
+
+.boxe:hover{
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+.boxe:hover .text {
+color: transparent;}
+
+#j1:hover{
+  background-image: url("Pics/Background/Japan1.jpg");
+}
+#j2:hover{
+  background-image: url("Pics/Background/Japan2.jpg");
+}
+#j3:hover{
+  background-image: url("Pics/Background/Japan3.jpg");
+}
+#j4:hover{
+  background-image: url("Pics/Background/Japan4.jpg");
+}
+
+
+#Planifier {
+  outline: none;
+  border: 0;
+  border-radius: 50px;
+  background-color: white;
+  font-style: italic;
+  padding: 10px;
+  width: 350px;
+  height: 100px;
+  position: absolute;
+  Top: 48%;
+  opacity: 0.7;
+  font-size: 25px;
+ font-weight: 800;
+ left: 250px;
+}
+
+#Planifier:hover{
+  opacity: 1; 
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+.appear{ 
+display: inline-block;
+ }
+
+.hide{
+  display: none;
 }

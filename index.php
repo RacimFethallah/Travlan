@@ -22,12 +22,88 @@ include_once 'header.php';
    </div>
 </div>
 
+<div id="slide1" class="appear">
+   <button class="boxe" id="j1">
+      <h1 class="text">Arashiyama</h1>
+   </button>
+   <button class="boxe" id="j2">
+      <h1 class="text">Itsukushima-jinja</h1>
+   </button>
+   <button class="boxe" id="j3">
+      <h1 class="text">Mont Fuji</h1>
+   </button>
+   <button class="boxe" id="j4">
+      <h1 class="text">Fushimi Inari</h1>
+   </button>
+</div>
+
+<div id="slide2" class="hide">
+   <button class="boxe" id="j1">
+      <h1 class="text">Tokyo</h1>
+   </button>
+   <button class="boxe" id="j2">
+      <h1 class="text">Blablabla</h1>
+   </button>
+   <button class="boxe" id="j3">
+      <h1 class="text">Tokyo</h1>
+   </button>
+   <button class="boxe" id="j4">
+      <h1 class="text">r+TOKJYIJ</h1>
+   </button>
+</div>
+
+<div id="slide3" class="hide">
+   <button class="boxe" id="j1">
+      <h1 class="text">Tokyo</h1>
+   </button>
+   <button class="boxe" id="j2">
+      <h1 class="text">Blablabla</h1>
+   </button>
+   <button class="boxe" id="j3">
+      <h1 class="text">Tokyo</h1>
+   </button>
+   <button class="boxe" id="j4">
+      <h1 class="text">r+TOKJYIJ</h1>
+   </button>
+</div>
+
+<div id="slide4" class="hide">
+   <button class="boxe" id="j1">
+      <h1 class="text">Tokyo</h1>
+   </button>
+   <button class="boxe" id="j2">
+      <h1 class="text">Blablabla</h1>
+   </button>
+   <button class="boxe" id="j3">
+      <h1 class="text">Tokyo</h1>
+   </button>
+   <button class="boxe" id="j4">
+      <h1 class="text">r+TOKJYIJ</h1>
+   </button>
+</div>
+
+<div id="slide5" class="hide">
+   <button class="boxe" id="j1">
+      <h1 class="text">Tokyo</h1>
+   </button>
+   <button class="boxe" id="j2">
+      <h1 class="text">Blablabla</h1>
+   </button>
+   <button class="boxe" id="j3">
+      <h1 class="text">Tokyo</h1>
+   </button>
+   <button class="boxe" id="j4">
+      <h1 class="text">r+TOKJYIJ</h1>
+   </button>
+</div>
+
+
+<a href="Travlan_plan.html">
+   <input type="submit" value="Planifiez votre voyage !" id="Planifier">
+</a>
 
 
 
-<form>
-   <input type='submit' id="Reservation" value="Planifier votre voyage">
-</form>
 
 
 <?php
