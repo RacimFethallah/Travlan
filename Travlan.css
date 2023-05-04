@@ -27,6 +27,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 
 #username {
@@ -340,7 +341,6 @@ footer>span {
 
 .slider-container {
   position: fixed;
-  z-index: -2;
   top: 0;
   left: 0;
   width: 100%;
@@ -727,7 +727,6 @@ footer>span {
   position: absolute;
   box-sizing: border-box;
   border: none;
-  z-index: -1;
 }
 
 #j1 {
@@ -959,7 +958,6 @@ input[type=range]::-moz-range-thumb {
 
 #Activité_container {
   left: 930px;
-  z-index: -1;
 }
 
 #Bg_con>label {
@@ -1007,7 +1005,6 @@ input[type=range]::-moz-range-thumb {
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(5px);
-  z-index: -1;
 }
 
 .date {
