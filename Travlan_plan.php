@@ -23,7 +23,7 @@ include_once 'header.php';
 	<div id="Budget_container">
 		<div id="Bg_con">
       <form action="" method="POST"> 
-	     	<label class="s">Votre bugdet maximal</label>
+	     	<label>Votre bugdet maximal</label>
 			<input type="range" min=500 max=3000 value =500 class="slider" id="Budget_general"> 
 			<input type="number" id="BG" value="500" class="valeur">
     </form>
@@ -34,7 +34,7 @@ include_once 'header.php';
     
 
 <div id="Hebergement_container" class="appear">
-	<p>HEBERGEMENT</p>
+	<p class="pcontainer">HEBERGEMENT</p>
 	<form id="Typsel">
 		<label for="type">Type d'hebergement</label>
       <select id="type">
@@ -218,7 +218,7 @@ include_once 'header.php';
 
 
 <div id="Activité_container"> 
-<p> ACTIVITES </p>
+<p class="pcontainer"> ACTIVITES </p>
   
 </div>
 
