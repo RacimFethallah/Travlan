@@ -751,7 +751,29 @@ footer>span {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan4.jpg");
   top: 55%;
   right: 400px;
-  z-index: 0;
+}
+#j5 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/egypt1.jpg");
+  top: 16%;
+  right: 130px;
+}
+
+#j6 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/egypt2.jpg");
+  top: 16%;
+  right: 400px;
+}
+
+#j7 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/egypt3.jpg");
+  top: 55%;
+  right: 130px;
+}
+
+#j8 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/egypt4.jpg");
+  top: 55%;
+  right: 400px;
 }
 
 .boxe:hover {
@@ -777,6 +799,21 @@ footer>span {
 
 #j4:hover {
   background-image: url("Pics/Background/Japan4.jpg");
+}
+#j5:hover {
+  background-image: url("Pics/Background/egypt1.jpg");
+}
+
+#j6:hover {
+  background-image: url("Pics/Background/egypt2.jpg");
+}
+
+#j7:hover {
+  background-image: url("Pics/Background/egypt3.jpg");
+}
+
+#j8:hover {
+  background-image: url("Pics/Background/egypt4.jpg");
 }
 
 

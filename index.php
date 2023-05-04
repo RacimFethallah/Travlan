@@ -38,17 +38,17 @@ include_once 'header.php';
 </div>
 
 <div id="slide2" class="hide">
-   <button class="boxe" id="j1">
-      <h1 class="text">Tokyo</h1>
+   <button class="boxe" id="j5">
+      <h1 class="text">caire</h1>
    </button>
-   <button class="boxe" id="j2">
-      <h1 class="text">Blablabla</h1>
+   <button class="boxe" id="j6">
+      <h1 class="text">Gizeh</h1>
    </button>
-   <button class="boxe" id="j3">
-      <h1 class="text">Tokyo</h1>
+   <button class="boxe" id="j7">
+      <h1 class="text">nil</h1>
    </button>
-   <button class="boxe" id="j4">
-      <h1 class="text">r+TOKJYIJ</h1>
+   <button class="boxe" id="j8">
+      <h1 class="text">luxor</h1>
    </button>
 </div>
 
