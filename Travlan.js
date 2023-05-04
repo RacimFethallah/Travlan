@@ -115,8 +115,8 @@ loginLink.addEventListener('click', () => {
   checkedpwd.checked = false;
 });
 
-function checkSession() {
-  if (sessionStorage.getItem('logged_in') === 'true') {
+function checkSession(event) {
+  if ((sessionStorage.getItem('logged_in') === 'true') && (event.target.id === 'Planifier')) {
     window.location.href = "Travlan_plan.php";
   } else {
     if (wrapper.classList.contains('hidden') === false) {
