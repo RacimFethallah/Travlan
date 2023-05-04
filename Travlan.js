@@ -1,13 +1,14 @@
 let User_img = document.getElementById('Anonym');
 let Dp_menu = document.getElementById('user_dpmenu');
-let currentImageIndex = 1;
-let Delay = 2000;
+let currentImageIndex = 0;
+let Delay = 2500;
 let x = 1;
 let SearchButton = document.getElementById('Sbutton');
 let SearchBar = document.getElementById('RsearchBar');
 let loginBtn = document.getElementById('loginBtn');
 let authButtons = document.querySelectorAll('.Authentification');
 let userMenuBtn = document.querySelectorAll('.usermenubtn');
+let boxes = document.querySelectorAll('.boxe');
 
 
 const wrapper = document.querySelector('.login-wrapper');
@@ -47,6 +48,8 @@ function ShowhideSearchBar() {
 }
 
 
+let sliderInterval;
+
 function showImage(n) {
   const images = document.getElementsByClassName('slider-image');
   const buttons = document.getElementsByClassName('Bg-button');
@@ -60,25 +63,32 @@ function showImage(n) {
   buttons[n - 1].classList.add('active');
   buttons[n - 1].style.setProperty('--bg-color', 'rgb(2, 56, 126)');
   currentImageIndex = n;
-
 }
 
 
 function slideImages() {
   const images = document.getElementsByClassName('slider-image');
-  const buttons = document.getElementsByClassName('Bg-button');
   currentImageIndex++;
   if (currentImageIndex > images.length) {
     currentImageIndex = 1;
   }
   showImage(currentImageIndex);
-  Delay = 700;
 }
 
-var randomNum = Math.floor(Math.random() * 6) + 1;
+
+
+
 if (location.href.indexOf('index') !== -1) {
-  showImage(randomNum);
-  setInterval(slideImages, Delay);
+  showImage(1);
+  sliderInterval = setInterval(slideImages, Delay);
+  boxes.forEach(box => {
+    box.addEventListener('mouseover', () => {
+      clearInterval(sliderInterval);
+    })
+    box.addEventListener('mouseout', () => {
+      sliderInterval = setInterval(slideImages, Delay);
+    })
+  });
 }
 
 
