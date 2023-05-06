@@ -11,7 +11,7 @@
   text-align: center;
   font-size: 16px;
   top: 8px;
-  left: 148px;
+  left: 50px;
   font-weight: bold;
   color: #fff;
 }
@@ -206,6 +206,7 @@ header {
   border-radius: 50%;
   top: -5px;
   position: relative;
+  left: 75px;
 }
 
 

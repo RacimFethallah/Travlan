@@ -84,7 +84,7 @@ function slideImages() {
 
 
 
-if (location.href.indexOf('index') !== -1) {
+if ((location.href.indexOf('index') !== -1)) {
   showImage(1);
   sliderInterval = setInterval(slideImages, Delay);
   boxes.forEach(box => {
@@ -144,7 +144,7 @@ userMenuBtn.forEach(function (button) {
       window.location.href = './index.php';
 
     } else if (button.classList.contains('2')) {
-      window.location.href = './index.php';
+      window.location.href = './index.php?id=1021';
 
     } else if (button.classList.contains('3')) {
       window.location.href = './index.php';
