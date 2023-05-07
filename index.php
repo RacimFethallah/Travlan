@@ -27,28 +27,24 @@ include_once 'header.php';
                 <a href="https://goo.gl/maps/waJLyoQbTdcf2jZa7?coh=178571&entry=tt" class="linki" target="_blank">Maps<ion-icon name="location"></ion-icon></a>
                 <h1 class="text">Arashiyama</h1>
             </button>
-        </a>
 
             <button class="boxe" id="j2">
                 <a href="https://fr.wikipedia.org/wiki/Itsukushima-jinja" class="linki" target="_blank">Wikipedia<ion-icon name="globe"></ion-icon></a>
                 <a href="https://goo.gl/maps/sY5NC16fzScWLHH19?coh=178571&entry=tt" class="linki" target="_blank">Maps<ion-icon name="location"></ion-icon></a>
                 <h1 class="text">Itsukushima-jinja</h1>
             </button>
-        </a>
 
             <button class="boxe" id="j3">
                 <a href="https://fr.wikipedia.org/wiki/Mont_Fuji" class="linki" target="_blank">Wikipedia<ion-icon name="globe"></ion-icon></a>
                 <a href="https://goo.gl/maps/GSDpMcuhYnay8gbV9?coh=178571&entry=tt" class="linki" target="_blank">Maps<ion-icon name="location"></ion-icon></a>
                 <h1 class="text">Mont Fuji</h1>
             </button>
-        </a>
 
             <button class="boxe" id="j4">
                 <a href="https://fr.wikipedia.org/wiki/Fushimi_Inari-taisha" class="linki" target="_blank">Wikipedia<ion-icon name="globe"></ion-icon></a>
                 <a href="https://goo.gl/maps/UkCMr5FmDj3mQSMU8?coh=178571&entry=tt" class="linki" target="_blank">Maps<ion-icon name="location"></ion-icon></a>
                 <h1 class="text">Fushimi Inari</h1>
             </button>
-        </a>
 
     </div>
 
