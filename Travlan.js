@@ -22,7 +22,7 @@ const rememberCheckbox = document.getElementById('chkpwd');
 Dp_menu.className = "before";
 
 function appear(event) {
-    var e = event.target;
+    let e = event.target;
     if (e.id == "Anonym") {
         if (Dp_menu.className == "before") {
             Dp_menu.classList.remove('before');
@@ -36,7 +36,7 @@ function appear(event) {
 
 
 function ShowhideSearchBar() {
-    if (x % 2 == 0) {
+    if (x % 2 === 0) {
         SearchBar.style.display = "block";
     } else {
         SearchBar.style.display = "none";
@@ -209,7 +209,7 @@ function deleteCookie(name) {
 
 
 function checkPasswordMatch(input1, input2) {
-    if (input1.value == input2.value) {
+    if (input1.value === input2.value) {
         input2.setCustomValidity("");
     } else {
         input2.setCustomValidity("Les mots de passes doivents etre identique!");
