@@ -69,14 +69,14 @@ function showImage(n) {
 }
 
 
-function slideImages() {
-    const images = document.getElementsByClassName('slider-image');
-    currentImageIndex++;
-    if (currentImageIndex > images.length) {
-        currentImageIndex = 1;
-    }
-    showImage(currentImageIndex);
-}
+//function slideImages() {
+//    const images = document.getElementsByClassName('slider-image');
+//    currentImageIndex++;
+//    if (currentImageIndex > images.length) {
+//        currentImageIndex = 1;
+//    }
+//    showImage(currentImageIndex);
+//}
 
 
 if ((location.href.indexOf('index') !== -1)) {

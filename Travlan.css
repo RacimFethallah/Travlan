@@ -74,7 +74,6 @@ header {
 
 #DP li {
   margin: 0;
-  padding: 0;
   display: flex;
   /* Use flexbox to align the icon and link horizontally */
   align-items: center;
@@ -153,7 +152,7 @@ header {
   display: inline-block;
   width: 215px;
   height: 45px;
-  margin-top: 0px;
+  margin-top: 0;
   background-image: url(Pics/UI/Logo.png);
   background-size: cover;
   position: absolute;
@@ -161,7 +160,6 @@ header {
 
 #Sbutton {
   float: right;
-  display: inline-block;
   width: 40px;
   height: 50px;
   background-image: url(Pics/UI/Sbutton.png);
@@ -173,7 +171,6 @@ header {
 
 .Authentification:nth-of-type(2) {
   float: right;
-  display: inline-block;
   width: 40px !important;
   height: 50px !important;
   background-image: url(Pics/UI/AuthButton.png) !important;
@@ -184,7 +181,6 @@ header {
 
 #Options {
   float: right;
-  display: inline-block;
   width: 40px;
   height: 50px;
   background-image: url(Pics/UI/Options.png);
@@ -248,7 +244,6 @@ header {
 .Authentification:nth-of-type(1) {
   float: right;
   display: block;
-  font-size: 20px;
   background-color: transparent;
   color: #fff;
   margin-right: 20px;
@@ -326,7 +321,6 @@ footer>span {
   border-top: transparent;
   width: 150px;
   height: 40px;
-  position: absolute;
   top: 15px;
   color: white;
   font-size: 20px;
@@ -365,7 +359,7 @@ footer>span {
 }
 
 #image1 {
-  background-image: url('Pics/Background/Tokyo.jpg');
+  background-image: url('Pics/Background/japan.jpg');
 }
 
 #image2 {
@@ -373,19 +367,19 @@ footer>span {
 }
 
 #image3 {
-  background-image: url('Pics/Background/Ireland.jpg');
+  background-image: url('Pics/Background/ireland/Ireland.jpg');
 }
 
 #image4 {
-  background-image: url('Pics/Background/USA.jpg');
+  background-image: url('Pics/Background/usa/USA.jpg');
 }
 
 #image5 {
-  background-image: url('Pics/Background/Brazil.jpg');
+  background-image: url('Pics/Background/brazil/brazil.jpg');
 }
 
 #image6 {
-  background-image: url('Pics/Background/Australia.jpg');
+  background-image: url('Pics/Background/australia/Australia.jpg');
 }
 
 .slider-image.active {
@@ -645,7 +639,7 @@ footer>span {
   font-size: .9em;
   color: #162938;
   font-weight: 500;
-  margin: 0px 0 15px;
+  margin: 0 0 15px;
   display: flex;
   justify-content: space-between;
 }
@@ -669,7 +663,7 @@ footer>span {
 .btn {
   width: 100%;
   height: 45px;
-  margin: 15px 0px 15px;
+  margin: 15px 0 15px;
   background: #162938;
   border: none;
   outline: none;
@@ -712,6 +706,14 @@ footer>span {
   padding-left: 30%;
   padding-top: 10%;
 }
+
+
+
+
+
+
+
+
 
 
 .boxe h1 {
@@ -779,14 +781,125 @@ footer>span {
   top: 55%;
   right: 400px;
 }
+#j9 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/ireland/ireland1.jpg");
+  top: 16%;
+  right: 130px;
+}
+
+#j10 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/ireland/ireland2.jpg");
+  top: 16%;
+  right: 400px;
+}
+
+#j11 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/ireland/ireland3.jpg");
+  top: 55%;
+  right: 130px;
+}
+
+#j12 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/ireland/ireland4.jpg");
+  top: 55%;
+  right: 400px;
+}
+#j13 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/usa/usa1.jpg");
+  top: 16%;
+  right: 130px;
+}
+
+#j14 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/usa/usa2.jpg");
+  top: 16%;
+  right: 400px;
+}
+
+#j15 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/usa/usa3.jpg");
+  top: 55%;
+  right: 130px;
+}
+
+#j16 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/usa/usa4.jpg");
+  top: 55%;
+  right: 400px;
+}
+#j17 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil1.jpg");
+  top: 55%;
+  right: 400px;
+}
+#j18 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil2.jpg");
+  top: 16%;
+  right: 130px;
+}
+
+#j19 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil3.jpg");
+  top: 16%;
+  right: 400px;
+}
+
+#j20 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil4.jpg");
+  top: 55%;
+  right: 130px;
+}
+#j21 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia1.jpg");
+  top: 16%;
+  right: 400px;
+}
+#j22 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia2.jpg");
+  top: 16%;
+  right: 130px;
+}
+#j23 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia3.jpg");
+  top: 55%;
+  right: 400px;
+}
+#j24 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia4.jpg");
+  top: 55%;
+  right: 130px;
+}
 
 .boxe:hover {
   transform: translateY(-10px);
   cursor: pointer;
 }
 
+
 .boxe:hover .text {
   color: transparent;
+}
+
+.linki{
+  color: white;
+  display: none;
+  font-weight: 700;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+}
+.linki:visited{
+  color: white;
+}
+.linki:hover{
+  color: #06e;
+  font-weight: 725;
+  text-decoration: underline;
+}
+.boxe:hover .linki{
+  display: inline-block;
+
 }
 
 #j1:hover {
@@ -818,6 +931,63 @@ footer>span {
 
 #j8:hover {
   background-image: url("Pics/Background/egypt4.jpg");
+}
+#j9:hover {
+  background-image: url("Pics/Background/ireland/ireland1.jpg");
+}
+
+#j10:hover {
+  background-image: url("Pics/Background/ireland/ireland2.jpg");
+}
+
+#j11:hover {
+  background-image: url("Pics/Background/ireland/ireland3.jpg");
+}
+
+#j12:hover {
+  background-image: url("Pics/Background/ireland/ireland4.jpg");
+}
+#j13:hover {
+  background-image: url("Pics/Background/usa/usa1.jpg");
+}
+
+#j14:hover {
+  background-image: url("Pics/Background/usa/usa2.jpg");
+}
+
+#j15:hover {
+  background-image: url("Pics/Background/usa/usa3.jpg");
+}
+
+#j16:hover {
+  background-image: url("Pics/Background/usa/usa4.jpg");
+}
+#j17:hover {
+  background-image: url("Pics/Background/brazil/brazil1.jpg");
+}
+
+#j18:hover {
+  background-image: url("Pics/Background/brazil/brazil2.jpg");
+}
+
+#j19:hover {
+  background-image: url("Pics/Background/brazil/brazil3.jpg");
+}
+
+#j20:hover {
+  background-image: url("Pics/Background/brazil/brazil4.jpg");
+}
+#j21:hover {
+  background-image: url("Pics/Background/australia/australia1.jpg");
+}
+#j22:hover {
+  background-image: url("Pics/Background/australia/australia2.jpg");
+}
+#j23:hover {
+  background-image: url("Pics/Background/australia/australia3.jpg");
+}
+#j24:hover {
+  background-image: url("Pics/Background/australia/australia4.jpg");
 }
 
 
@@ -852,7 +1022,7 @@ footer>span {
 
 
 body.plan {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/tokyo.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -867,7 +1037,7 @@ body.plan {
 .slider {
   -moz-appearance: none;
   width: 350px;
-  height: 0px;
+  height: 0;
   margin-top: 10px;
   margin-left: 30px;
   border: 1px solid white;
@@ -922,8 +1092,9 @@ input[type=range]::-moz-range-thumb {
   display: inline-block;
   width: 200px;
   position: absolute;
-  font-size: 20px;
+  font-size: 15px;
   left: 40px;
+  color: white;
 }
 
 #fwifi,
@@ -1179,8 +1350,8 @@ select {
   height: 15px;
   width: 28px;
   border-radius: 78px;
-  left: 0px;
-  bottom: 0px;
+  left: 0;
+  bottom: 0;
   background-color: transparent;
   border-right: 1px solid white;
   transition: 0.1s;
@@ -1193,7 +1364,7 @@ input:checked+.sliderr {
 input:checked+.sliderr:before {
   transform: translateX(20px);
   content: "YES";
-  border-right: 0px;
+  border-right: 0;
   border-left: 1px solid white;
 }
 
