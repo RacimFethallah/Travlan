@@ -758,6 +758,7 @@ footer>span {
   top: 55%;
   right: 400px;
 }
+
 #j5 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/egypt1.jpg");
   top: 16%;
@@ -781,6 +782,7 @@ footer>span {
   top: 55%;
   right: 400px;
 }
+
 #j9 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/ireland/ireland1.jpg");
   top: 16%;
@@ -804,6 +806,7 @@ footer>span {
   top: 55%;
   right: 400px;
 }
+
 #j13 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/usa/usa1.jpg");
   top: 16%;
@@ -827,11 +830,13 @@ footer>span {
   top: 55%;
   right: 400px;
 }
+
 #j17 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil1.jpg");
   top: 55%;
   right: 400px;
 }
+
 #j18 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil2.jpg");
   top: 16%;
@@ -849,21 +854,25 @@ footer>span {
   top: 55%;
   right: 130px;
 }
+
 #j21 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia1.jpg");
   top: 16%;
   right: 400px;
 }
+
 #j22 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia2.jpg");
   top: 16%;
   right: 130px;
 }
+
 #j23 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia3.jpg");
   top: 55%;
   right: 400px;
 }
+
 #j24 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia4.jpg");
   top: 55%;
@@ -880,7 +889,7 @@ footer>span {
   color: transparent;
 }
 
-.linki{
+.linki {
   color: white;
   display: none;
   font-weight: 700;
@@ -889,15 +898,18 @@ footer>span {
   padding: 20px;
   text-decoration: none;
 }
-.linki:visited{
+
+.linki:visited {
   color: white;
 }
-.linki:hover{
+
+.linki:hover {
   color: #06e;
   font-weight: 725;
   text-decoration: underline;
 }
-.boxe:hover .linki{
+
+.boxe:hover .linki {
   display: inline-block;
 
 }
@@ -917,6 +929,7 @@ footer>span {
 #j4:hover {
   background-image: url("Pics/Background/Japan4.jpg");
 }
+
 #j5:hover {
   background-image: url("Pics/Background/egypt1.jpg");
 }
@@ -932,6 +945,7 @@ footer>span {
 #j8:hover {
   background-image: url("Pics/Background/egypt4.jpg");
 }
+
 #j9:hover {
   background-image: url("Pics/Background/ireland/ireland1.jpg");
 }
@@ -947,6 +961,7 @@ footer>span {
 #j12:hover {
   background-image: url("Pics/Background/ireland/ireland4.jpg");
 }
+
 #j13:hover {
   background-image: url("Pics/Background/usa/usa1.jpg");
 }
@@ -962,6 +977,7 @@ footer>span {
 #j16:hover {
   background-image: url("Pics/Background/usa/usa4.jpg");
 }
+
 #j17:hover {
   background-image: url("Pics/Background/brazil/brazil1.jpg");
 }
@@ -977,15 +993,19 @@ footer>span {
 #j20:hover {
   background-image: url("Pics/Background/brazil/brazil4.jpg");
 }
+
 #j21:hover {
   background-image: url("Pics/Background/australia/australia1.jpg");
 }
+
 #j22:hover {
   background-image: url("Pics/Background/australia/australia2.jpg");
 }
+
 #j23:hover {
   background-image: url("Pics/Background/australia/australia3.jpg");
 }
+
 #j24:hover {
   background-image: url("Pics/Background/australia/australia4.jpg");
 }
@@ -1073,6 +1093,10 @@ input[type=range]::-moz-range-thumb {
   top: 20%;
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(5px);
+}
+
+#Activité_container {
+  height: 450px;
 }
 
 #Hebergement_container_hotel2 {
@@ -1209,15 +1233,16 @@ input[type=range]::-moz-range-thumb {
   display: none;
 }
 
-#Infos {
-  position: absolute;
-  right: 30px;
-  top: 12%;
-  border: 1px solid white;
-  padding: 6px;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(5px);
+#Infos
+{
+position: absolute;
+right: 30px;
+top: 12%;
+border: 1px solid white;
+padding: 6px;
+border-radius: 5px;
+background-color: rgba(255, 255, 255, 0.3);
+backdrop-filter: blur(5px);
 }
 
 .date {
@@ -1446,4 +1471,8 @@ input:checked+.sliderr:before {
   top: 132px;
   width: 150px;
   left: 200px;
+}
+
+#pays {
+  position: absolute;
 }

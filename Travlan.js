@@ -418,7 +418,7 @@ if (location.href.indexOf('Travlan_plan') !== -1) {
 
     //Hebergement_apres confirmation du type
     var confirmer = document.getElementById('ok');
-    var select = document.getElementById('type');
+    var selectHebergement = document.getElementById('typeH');
     var suivant = document.getElementById('Suiv');
     var heb_hot2_con = document.getElementById('Hebergement_container_hotel2')
     var heb_con = document.getElementById('Hebergement_container');
@@ -429,7 +429,7 @@ if (location.href.indexOf('Travlan_plan') !== -1) {
     suivant.addEventListener('click', heb_hot);
 
     function heb_log() {
-        switch (select.value) {
+        switch (selectHebergement.value) {
             case "Logement":
                 heb_con.classList.remove('appear');
                 heb_con.className = 'hide';
