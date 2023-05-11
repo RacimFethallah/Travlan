@@ -45,7 +45,7 @@ if (isset($_SESSION["username"])) {
                 echo "<button class='Authentification'>Se connecter</button>";
             }
             ?>
-            <a href="" id='Sbutton'></a>
+            <a href="javascript:void(0)" id='Sbutton'></a>
             <div id="user_dpmenu">
                 <span id="username">
                     <?php

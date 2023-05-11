@@ -2,9 +2,9 @@ let User_img = document.getElementById('Anonym');
 let Dp_menu = document.getElementById('user_dpmenu');
 let currentImageIndex = 0;
 let Delay = 3000;
-let x = 1;
+let x = 0;
 let SearchButton = document.getElementById('Sbutton');
-let SearchBar = document.getElementById('RsearchBar');
+let RSearchBar = document.getElementById('RsearchBar');
 let loginBtn = document.getElementById('loginBtn');
 let authButtons = document.querySelectorAll('.Authentification');
 let userMenuBtn = document.querySelectorAll('.usermenubtn');
@@ -86,6 +86,11 @@ searchBar.addEventListener('keyup', function (event) {
     searchDestinations(searchTerm);
 });
 
+RSearchBar.addEventListener('keyup', function (event) {
+    const searchTerm = event.target.value;
+    searchDestinations(searchTerm);
+});
+
 
 Dp_menu.className = "before";
 
@@ -102,15 +107,21 @@ function appear(event) {
     }
 }
 
+User_img.addEventListener('click', appear);
 
-function ShowhideSearchBar() {
+
+function ShowhideSearchBar(event) {
+    
     if (x % 2 === 0) {
-        SearchBar.style.display = "block";
+        RSearchBar.style.display = "block";
     } else {
-        SearchBar.style.display = "none";
+        RSearchBar.style.display = "none";
     }
     x++;
+    event.preventDefault;
 }
+
+SearchButton.addEventListener("click", ShowhideSearchBar);
 
 
 let sliderInterval;
@@ -161,8 +172,8 @@ if ((location.href.indexOf('index') !== -1)) {
 }
 
 
-SearchButton.addEventListener("click", ShowhideSearchBar);
-User_img.addEventListener('click', appear);
+
+
 
 
 registerLink.addEventListener('click', () => {
