@@ -3,6 +3,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+require_once 'db.inc.php';
 
 
 
@@ -78,7 +79,7 @@ function loginUser($conn, $email, $pwd)
         $_SESSION['logged_in'] = true;
         $_SESSION["username"] = $userExists["username"];
         $_SESSION["email"] = $userExists["email"];
-        
+
         header("location: ../index.php?error=lnone");
         exit();
     }
@@ -126,7 +127,7 @@ function mailSend($conn, $email)
 
     $url = "http://localhost/Travlan/index.php?token=$token";
     $subject = "Password reset request";
-    $message = "Please click on the following link to reset your password: $url" ;
+    $message = "Please click on the following link to reset your password: $url";
 
     $mailmsg = new PHPMailer(true);
     $mailmsg->isSMTP();
@@ -184,7 +185,7 @@ function resetP($conn, $password, $token)
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    
+
     header("location: ../index.php?error=pnone");
     exit();
 }
@@ -219,4 +220,36 @@ function resetmailpage()
    window.location.href = 'index.php';
  });
 </script>";
+}
+
+
+
+
+
+function search($conn,$searchTerm)
+{
+    
+    $searchTerm = mysqli_real_escape_string($conn, $searchTerm);
+
+
+    $sql = "SELECT 
+            CASE
+                WHEN type = 'ville' THEN CONCAT(nom, ', ', (SELECT nom FROM destinations WHERE id = d.parentID))
+                ELSE nom
+            END AS resultat
+        FROM destinations AS d
+        WHERE nom LIKE '%$searchTerm%'";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $resultsArray = array();
+        while ($row = $result->fetch_assoc()) {
+            $resultsArray[] = $row['resultat'];
+        }
+        // Encode the results as JSON and echo the response
+        echo  json_encode($resultsArray);
+    } else {
+        echo json_encode(["message" => "Aucun résultat trouvé."]);
+    }
 }

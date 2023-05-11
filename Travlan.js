@@ -34,48 +34,57 @@ document.addEventListener('click', function (event) {
 });
 
 
+//fonction pour rechercher dans la barre de recherche
+function searchDestinations(searchTerm) {
+    const resultsContainer = document.getElementById('resultsContainer');
 
-//function searchDestinations(searchTerm) {
-//    const resultsContainer = document.getElementById('resultsContainer');
-//
-//    // Effacer les résultats précédents
-//    resultsContainer.innerHTML = '';
-//
-//    // Effectuer une requête AJAX
-//    const xhr = new XMLHttpRequest();
-//    xhr.onreadystatechange = function () {
-//        if (xhr.readyState === XMLHttpRequest.DONE) {
-//            if (xhr.status === 200) {
-//                const results = JSON.parse(xhr.responseText);
-//
-//                // Afficher les résultats
-//                results.forEach(function (result) {
-//                    const resultDiv = document.createElement('div');
-//                    resultDiv.classList.add('result');
-//                    resultDiv.innerHTML = `<p>${result}</p>`;
-//                    resultDiv.addEventListener('click', () => {
-//                        searchBar.value = result;
-//                        resultsContainer.innerHTML = '';
-//                        searchBar.focus();
-//                    });
-//                    resultsContainer.appendChild(resultDiv);
-//                });
-//            } else {
-//                console.error('Erreur lors de la requête AJAX');
-//            }
-//        }
-//    };
-//
-//    // Envoyer la requête AJAX
-//    xhr.open('GET', 'search.php?searchTerm=' + searchTerm);
-//    xhr.send();
-//}
+    // Effacer les résultats précédents
+    resultsContainer.innerHTML = '';
+
+    if (searchTerm.trim() === '') {
+        return; // Exit the function without making the AJAX request
+    }
+
+    // Effectuer une requête AJAX
+    fetch('includes/search.inc.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `searchTerm=${encodeURIComponent(searchTerm)}`
+    })
+        .then(response => response.json())
+        .then(results => {
+            // Afficher les résultats
+            if (Array.isArray(results)) {
+                // Afficher les résultats
+                results.forEach(result => {
+                    const resultDiv = document.createElement('div');
+                    resultDiv.classList.add('result');
+                    resultDiv.innerHTML = `<p>${result}</p>`;
+                    resultDiv.addEventListener('click', () => {
+                        searchBar.value = result;
+                        resultsContainer.innerHTML = '';
+                        searchBar.focus();
+                    });
+                    resultsContainer.appendChild(resultDiv);
+                });
+            } else {
+                const noresultDiv = document.createElement('div');
+                noresultDiv.innerHTML = `<p>Aucun résultat trouvé.</p>`;
+                resultsContainer.appendChild(noresultDiv);
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors de la requête AJAX:', error);
+        });
+}
 
 // Écouter les événements de saisie dans la barre de recherche
-//searchBar.addEventListener('input', function (event) {
-//    const searchTerm = event.target.value;
-//    searchDestinations(searchTerm);
-//});
+searchBar.addEventListener('keyup', function (event) {
+    const searchTerm = event.target.value;
+    searchDestinations(searchTerm);
+});
 
 
 Dp_menu.className = "before";
