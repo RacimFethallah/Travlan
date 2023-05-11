@@ -17,6 +17,65 @@ const registerLink = document.querySelector('.register-link');
 const closeLogin = document.querySelector('.icon-close');
 const passwordInput = document.getElementById('userpwd');
 const rememberCheckbox = document.getElementById('chkpwd');
+const resultsContainer = document.getElementById('resultsContainer');
+const searchBar = document.getElementById('searchBar');
+
+
+
+
+// vider le resultcontainer quand on clique ailleur
+document.addEventListener('click', function (event) {
+    const target = event.target;
+
+    // Check if the click event originated outside the resultsContainer
+    if (!resultsContainer.contains(target) || !searchBar.contains(target)) {
+        resultsContainer.innerHTML = ''; // Function to clear the results
+    }
+});
+
+
+
+//function searchDestinations(searchTerm) {
+//    const resultsContainer = document.getElementById('resultsContainer');
+//
+//    // Effacer les résultats précédents
+//    resultsContainer.innerHTML = '';
+//
+//    // Effectuer une requête AJAX
+//    const xhr = new XMLHttpRequest();
+//    xhr.onreadystatechange = function () {
+//        if (xhr.readyState === XMLHttpRequest.DONE) {
+//            if (xhr.status === 200) {
+//                const results = JSON.parse(xhr.responseText);
+//
+//                // Afficher les résultats
+//                results.forEach(function (result) {
+//                    const resultDiv = document.createElement('div');
+//                    resultDiv.classList.add('result');
+//                    resultDiv.innerHTML = `<p>${result}</p>`;
+//                    resultDiv.addEventListener('click', () => {
+//                        searchBar.value = result;
+//                        resultsContainer.innerHTML = '';
+//                        searchBar.focus();
+//                    });
+//                    resultsContainer.appendChild(resultDiv);
+//                });
+//            } else {
+//                console.error('Erreur lors de la requête AJAX');
+//            }
+//        }
+//    };
+//
+//    // Envoyer la requête AJAX
+//    xhr.open('GET', 'search.php?searchTerm=' + searchTerm);
+//    xhr.send();
+//}
+
+// Écouter les événements de saisie dans la barre de recherche
+//searchBar.addEventListener('input', function (event) {
+//    const searchTerm = event.target.value;
+//    searchDestinations(searchTerm);
+//});
 
 
 Dp_menu.className = "before";
@@ -119,7 +178,7 @@ function checkSession(event) {
 
 
 authButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function (event) {
         event.preventDefault();
         if (wrapper.classList.contains('hidden') === false) {
             wrapper.classList.add('hidden');
@@ -146,7 +205,6 @@ userMenuBtn.forEach(function (button) {
 
 
 closeLogin.addEventListener('click', () => {
-
     wrapper.classList.remove('hidden');
     wrapper.classList.remove('active');
     document.getElementById('chkpwd').checked = false;

@@ -28,6 +28,7 @@ if (isset($_SESSION["username"])) {
         <a href="index.php" id='Logo'></a>
         <form>
             <input type='text' id="searchBar">
+            <div id="resultsContainer"></div>
             <input type='text' id="RsearchBar">
 
             

@@ -126,6 +126,37 @@ header {
   border: 3px solid #162938;
 }
 
+#resultsContainer{
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  position: absolute;
+  right: 250px;
+  top: 50px;
+  width: 375px;
+  background-color: #fff;
+  border: 2px solid #162938;
+  color: #162938;
+  font-size: 20px;
+  outline: none;
+  border-radius: 10px;
+}
+#resultsContainer:empty {
+  display: none;
+}
+#resultsContainer .result {
+  background-color: #fff;
+  opacity: 0.7;
+  margin-bottom: 10px;
+  border-bottom: 1.5px solid #162938;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+#resultsContainer .result:hover{
+  background-color: rgb(242, 242, 242);
+  opacity: 1;
+}
+
 #RsearchBar {
   background-image: url('Pics/Background/search.svg');
   background-position: left center;
@@ -716,6 +747,152 @@ footer>span {
 
 
 
+
+
+#j1 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan1.jpg");
+  top: 12%;
+  right: 130px;
+}
+
+#j2 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan2.jpg");
+  top: 12%;
+  right: 400px;
+}
+
+#j3 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan3.jpg");
+  top: 52%;
+  right: 130px;
+}
+
+#j4 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan4.jpg");
+  top: 52%;
+  right: 400px;
+}
+
+#j5 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/egypt1.jpg");
+  top: 12%;
+  right: 130px;
+}
+
+#j6 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/egypt2.jpg");
+  top: 12%;
+  right: 400px;
+}
+
+#j7 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/egypt3.jpg");
+  top: 52%;
+  right: 130px;
+}
+
+#j8 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/egypt4.jpg");
+  top: 52%;
+  right: 400px;
+}
+
+#j9 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/ireland/ireland1.jpg");
+  top: 12%;
+  right: 130px;
+}
+
+#j10 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/ireland/ireland2.jpg");
+  top: 12%;
+  right: 400px;
+}
+
+#j11 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/ireland/ireland3.jpg");
+  top: 52%;
+  right: 130px;
+}
+
+#j12 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/ireland/ireland4.jpg");
+  top: 52%;
+  right: 400px;
+}
+
+#j13 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/usa/usa1.jpg");
+  top: 12%;
+  right: 130px;
+}
+
+#j14 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/usa/usa2.jpg");
+  top: 12%;
+  right: 400px;
+}
+
+#j15 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/usa/usa3.jpg");
+  top: 52%;
+  right: 130px;
+}
+
+#j16 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/usa/usa4.jpg");
+  top: 52%;
+  right: 400px;
+}
+
+#j17 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil1.jpg");
+  top: 52%;
+  right: 400px;
+}
+
+#j18 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil2.jpg");
+  top: 12%;
+  right: 130px;
+}
+
+#j19 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil3.jpg");
+  top: 12%;
+  right: 400px;
+}
+
+#j20 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil4.jpg");
+  top: 52%;
+  right: 130px;
+}
+
+#j21 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia1.jpg");
+  top: 12%;
+  right: 400px;
+}
+
+#j22 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia2.jpg");
+  top: 12%;
+  right: 130px;
+}
+
+#j23 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia3.jpg");
+  top: 52%;
+  right: 400px;
+}
+
+#j24 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia4.jpg");
+  top: 52%;
+  right: 130px;
+}
+
 .boxe h1 {
   color: white;
   margin: auto;
@@ -733,154 +910,11 @@ footer>span {
   position: absolute;
   box-sizing: border-box;
   border: none;
-}
-
-#j1 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan1.jpg");
-  top: 16%;
-  right: 130px;
-}
-
-#j2 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan2.jpg");
-  top: 16%;
-  right: 400px;
-}
-
-#j3 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan3.jpg");
-  top: 55%;
-  right: 130px;
-}
-
-#j4 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/Japan4.jpg");
-  top: 55%;
-  right: 400px;
-}
-
-#j5 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/egypt1.jpg");
-  top: 16%;
-  right: 130px;
-}
-
-#j6 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/egypt2.jpg");
-  top: 16%;
-  right: 400px;
-}
-
-#j7 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/egypt3.jpg");
-  top: 55%;
-  right: 130px;
-}
-
-#j8 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/egypt4.jpg");
-  top: 55%;
-  right: 400px;
-}
-
-#j9 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/ireland/ireland1.jpg");
-  top: 16%;
-  right: 130px;
-}
-
-#j10 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/ireland/ireland2.jpg");
-  top: 16%;
-  right: 400px;
-}
-
-#j11 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/ireland/ireland3.jpg");
-  top: 55%;
-  right: 130px;
-}
-
-#j12 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/ireland/ireland4.jpg");
-  top: 55%;
-  right: 400px;
-}
-
-#j13 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/usa/usa1.jpg");
-  top: 16%;
-  right: 130px;
-}
-
-#j14 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/usa/usa2.jpg");
-  top: 16%;
-  right: 400px;
-}
-
-#j15 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/usa/usa3.jpg");
-  top: 55%;
-  right: 130px;
-}
-
-#j16 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/usa/usa4.jpg");
-  top: 55%;
-  right: 400px;
-}
-
-#j17 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil1.jpg");
-  top: 55%;
-  right: 400px;
-}
-
-#j18 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil2.jpg");
-  top: 16%;
-  right: 130px;
-}
-
-#j19 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil3.jpg");
-  top: 16%;
-  right: 400px;
-}
-
-#j20 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/brazil/brazil4.jpg");
-  top: 55%;
-  right: 130px;
-}
-
-#j21 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia1.jpg");
-  top: 16%;
-  right: 400px;
-}
-
-#j22 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia2.jpg");
-  top: 16%;
-  right: 130px;
-}
-
-#j23 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia3.jpg");
-  top: 55%;
-  right: 400px;
-}
-
-#j24 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/australia/australia4.jpg");
-  top: 55%;
-  right: 130px;
+  transition: transform .5s ease-in-out;
 }
 
 .boxe:hover {
-  transform: translateY(-10px);
+  transform: translateY(-15px);
   cursor: pointer;
 }
 
