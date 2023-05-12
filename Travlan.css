@@ -118,7 +118,6 @@ header {
   font-size: 18px;
   outline: none;
   border-radius: 10px;
-
 }
 
 #searchBar:focus {
@@ -140,9 +139,13 @@ header {
   font-size: 20px;
   outline: none;
   border-radius: 10px;
+  display: none;
 }
 #resultsContainer:empty {
-  display: none;
+  display: none !important;
+}
+#resultsContainer:focus {
+  display: inline-block;
 }
 #resultsContainer .result {
   background-color: #fff;

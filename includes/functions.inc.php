@@ -233,19 +233,12 @@ function search($conn, $searchTerm)
 
 
     $sql = "SELECT 
-                CASE
-                    WHEN d.type = 'ville' THEN CONCAT(d.nom, ', ', (SELECT nom FROM destinations WHERE id = d.parentID))
-                    ELSE d.nom
-                END AS resultat
-            FROM destinations AS d
-            WHERE d.nom LIKE '%$searchTerm%'
-            UNION
-            SELECT CONCAT(h.nom, ', ', d.nom, ', ', (SELECT nom FROM destinations WHERE id = d.parentID)) AS resultat
-            FROM hotels AS h
-            JOIN destinations AS d ON h.destination_id = d.id
-            WHERE h.nom LIKE '%$searchTerm%'
-                OR d.nom LIKE '%$searchTerm%'
-                OR (SELECT nom FROM destinations WHERE id = d.parentID) LIKE '%$searchTerm%'";
+            CASE
+                WHEN type = 'ville' THEN CONCAT(nom, ', ', (SELECT nom FROM destinations WHERE id = d.parentID))
+                ELSE nom
+            END AS resultat
+        FROM destinations AS d
+        WHERE nom LIKE '%$searchTerm%'";
 
     $result = $conn->query($sql);
 

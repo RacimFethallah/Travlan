@@ -11,6 +11,7 @@ let userMenuBtn = document.querySelectorAll('.usermenubtn');
 let boxes = document.querySelectorAll('.boxe');
 
 
+
 const wrapper = document.querySelector('.login-wrapper');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
@@ -24,14 +25,14 @@ let searchResult = "";
 
 
 // vider le resultcontainer quand on clique ailleur
-document.addEventListener('click', function (event) {
-    const target = event.target;
-
-    // Check if the click event originated outside the resultsContainer
-    if (!resultsContainer.contains(target) || !searchBar.contains(target)) {
-        resultsContainer.innerHTML = ''; // Function to clear the results
+document.addEventListener('click', (event) => {
+    const isSearchBarClicked = event.target === searchBar;
+    const isResultsContainerClicked = resultsContainer.contains(event.target);
+  
+    if (!isSearchBarClicked && !isResultsContainerClicked) {
+      resultsContainer.style.display = "none";
     }
-});
+  });
 
 
 //fonction pour rechercher dans la barre de recherche
@@ -57,22 +58,41 @@ function searchDestinations(searchTerm) {
         .then(results => {
             // Afficher les résultats
             if (Array.isArray(results)) {
-                // Afficher les résultats
                 results.forEach(result => {
+                    const resultTypes = [
+                        { type: 'choses à voir/à faire', icon: '<ion-icon name="ticket-outline"></ion-icon>' },
+                        { type: 'hôtels', icon: '<ion-icon name="bed-outline"></ion-icon>' },
+                        { type: 'restaurants', icon: '<ion-icon name="restaurant-outline"></ion-icon>' }
+                      ];
+
+                    resultTypes.forEach(resultType => {
+                        const resultDiv = document.createElement('div');
+                        resultDiv.classList.add('result');
+                        resultDiv.innerHTML = `<p>${resultType.icon} ${result} ${resultType.type}</p>`;
+                        resultDiv.addEventListener('click', () => {
+                            window.location.href = `index.php?search=${encodeURIComponent(result)} ${encodeURIComponent(resultType.type)} `;
+                        });
+                        resultsContainer.appendChild(resultDiv);
+                    });
+
                     const resultDiv = document.createElement('div');
                     resultDiv.classList.add('result');
                     resultDiv.innerHTML = `<p>${result}</p>`;
                     resultDiv.addEventListener('click', () => {
                         window.location.href = `index.php?search=${encodeURIComponent(result)}`;
                     });
-                    searchBar.addEventListener('keydown',(event) => {
-                        if (event.key  === 'Enter') {
-                            window.location.href = `index.php?search=${encodeURIComponent(searchTerm)}`;
-                          }
-                    });
                     resultsContainer.appendChild(resultDiv);
+                    
                 });
-            } else {
+
+                let resultElements = document.querySelectorAll('#resultsContainer .result p');
+                resultElements.forEach(function (resultElement) {
+                    let resultText = resultElement.innerHTML;
+                    let highlightedText = resultText.replace(new RegExp(searchTerm, 'gi'), '<span style="font-weight: bold;">$&</span>');
+                    resultElement.innerHTML = highlightedText;
+                });
+            }
+            else {
                 const noresultDiv = document.createElement('div');
                 noresultDiv.innerHTML = `<p>Aucun résultat trouvé.</p>`;
                 resultsContainer.appendChild(noresultDiv);
@@ -85,8 +105,12 @@ function searchDestinations(searchTerm) {
 
 // Écouter les événements de saisie dans la barre de recherche
 searchBar.addEventListener('keyup', function (event) {
+    resultsContainer.style.display = "inline-block";
     const searchTerm = event.target.value;
     searchDestinations(searchTerm);
+});
+searchBar.addEventListener('focus', () => {
+    resultsContainer.style.display = "inline-block";
 });
 
 RSearchBar.addEventListener('keyup', function (event) {
