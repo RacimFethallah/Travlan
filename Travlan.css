@@ -536,7 +536,7 @@ footer>span {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform .3s ease, height .2s ease;
+  transition: transform .5s ease-in-out, height .3s ease-in-out;
   transform: scale(0);
   overflow: hidden;
 }
@@ -559,7 +559,7 @@ footer>span {
 }
 
 .login-wrapper .box.login {
-  transition: transform .18s ease;
+  transition: transform .3s ease;
   transform: translateX(0);
 }
 
@@ -575,7 +575,7 @@ footer>span {
 }
 
 .login-wrapper.active .box.register {
-  transition: transform .18s ease;
+  transition: transform .3s ease;
   transform: translateX(0);
 }
 

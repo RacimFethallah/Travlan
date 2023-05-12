@@ -19,7 +19,7 @@ const passwordInput = document.getElementById('userpwd');
 const rememberCheckbox = document.getElementById('chkpwd');
 const resultsContainer = document.getElementById('resultsContainer');
 const searchBar = document.getElementById('searchBar');
-
+let searchResult = "";
 
 
 
@@ -63,9 +63,12 @@ function searchDestinations(searchTerm) {
                     resultDiv.classList.add('result');
                     resultDiv.innerHTML = `<p>${result}</p>`;
                     resultDiv.addEventListener('click', () => {
-                        searchBar.value = result;
-                        resultsContainer.innerHTML = '';
-                        searchBar.focus();
+                        window.location.href = `index.php?search=${encodeURIComponent(result)}`;
+                    });
+                    searchBar.addEventListener('keydown',(event) => {
+                        if (event.key  === 'Enter') {
+                            window.location.href = `index.php?search=${encodeURIComponent(searchTerm)}`;
+                          }
                     });
                     resultsContainer.appendChild(resultDiv);
                 });
@@ -111,7 +114,7 @@ User_img.addEventListener('click', appear);
 
 
 function ShowhideSearchBar(event) {
-    
+
     if (x % 2 === 0) {
         RSearchBar.style.display = "block";
     } else {

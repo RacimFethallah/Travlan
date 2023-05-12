@@ -26,7 +26,7 @@ if (isset($_SESSION["username"])) {
 <body>
     <header id="my-header">
         <a href="index.php" id='Logo'></a>
-        <form>
+        
             
             <input type='text' id="searchBar">
             <div id="resultsContainer"></div>
@@ -74,7 +74,7 @@ if (isset($_SESSION["username"])) {
             }
             ?>
             <a href="" id='Options'></a>
-        </form>
+        
         <ul id="Consultation_list">
             <form>
                 <li><input type="submit" id="Hebergement" value="Hebergement"></li>
