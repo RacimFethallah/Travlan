@@ -534,7 +534,7 @@ footer>span {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform .5s ease-in-out, height .3s ease-in-out;
+  transition: transform .3s ease-in-out, height .3s ease-in-out;
   transform: scale(0);
   overflow: hidden;
 }
@@ -957,6 +957,7 @@ footer>span {
   text-decoration: none;
   opacity: 0;
   transition: opacity 0.5s ease;
+  transition: color 0.5s ease;
   display: block; /* Add this line to make the links clickable */
 }
 
@@ -969,7 +970,7 @@ footer>span {
 }
 
 .linki:hover {
-  color: #06e;
+  color: #0091ff;
   font-weight: 725;
   text-decoration: underline;
 }
@@ -1009,7 +1010,7 @@ footer>span {
 
 
 body.plan {
-  background-image:   url("Pics/Background/tokyo.jpg");
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/tokyo.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
