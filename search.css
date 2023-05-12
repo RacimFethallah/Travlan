@@ -1,0 +1,103 @@
+body.search {
+    color: #295171;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    background: linear-gradient(to bottom, #f5f5f5, #5A97C1);
+}
+
+
+
+#asideSearchPage {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    min-height: 90vh;
+    margin-top: 50px;
+    width: 200px;
+    border-radius: 20px;
+}
+
+#asideSearchPage h2 {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    border-bottom: 1.5px solid #5A97C1;
+    padding-bottom: 10px;
+    /* Add desired margin-bottom value */
+}
+
+#asideSearchPage form label {
+    display: block;
+    /* Display the filter options as blocks */
+    margin-bottom: 30px;
+    /* Add some bottom margin between filter options */
+}
+
+#asideSearchPage form input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+#asideSearchPage form input[type="checkbox"]:checked {
+    background-color: #295171;
+    border-color: #295171;
+    /*#5A97C1*/
+}
+
+#applyFilter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    background: #3b6480;
+    border: 2px solid #162938;
+    border-radius: 20px;
+    width: 200px;
+    height: 35px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 17px;
+    color: white;
+    transition: all 0.8s ease;
+}
+
+#applyFilter:hover {
+    box-shadow: inset 200px 200px 200px 200px #162938;
+}
+
+#resetFiltersButton {
+    background-color: #fff;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: #5A97C1;
+    cursor: pointer;
+    margin-top: 13.5px;
+    float: right;
+    font-size: 12px;
+}
+
+#sectionSearchPage {
+    min-height: 100vh;
+    width: 1230px;
+    margin-top: 200px;
+    background-color: #fff;
+    display: flex;
+    float: right;
+    flex: 3;
+    padding: 20px;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 20px;
+}

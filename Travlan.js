@@ -9,6 +9,7 @@ let loginBtn = document.getElementById('loginBtn');
 let authButtons = document.querySelectorAll('.Authentification');
 let userMenuBtn = document.querySelectorAll('.usermenubtn');
 let boxes = document.querySelectorAll('.boxe');
+let body = document.querySelector('body');
 
 
 
@@ -70,7 +71,7 @@ function searchDestinations(searchTerm) {
                         resultDiv.classList.add('result');
                         resultDiv.innerHTML = `<p>${resultType.icon} ${result} ${resultType.type}</p>`;
                         resultDiv.addEventListener('click', () => {
-                            window.location.href = `index.php?search=${encodeURIComponent(result)} ${encodeURIComponent(resultType.type)} `;
+                            window.location.href = `search.php?search=${encodeURIComponent(result)} ${encodeURIComponent(resultType.type)} `;
                         });
                         resultsContainer.appendChild(resultDiv);
                     });
@@ -349,7 +350,7 @@ function usernameValidity(username) {
 
 
 if (location.href.indexOf('Travlan_plan') !== -1) {
-    let body = document.querySelector('body');
+    
     body.className = 'plan';
 
 
@@ -548,3 +549,9 @@ if (location.href.indexOf('Travlan_plan') !== -1) {
 }
 
 
+
+// ------------------------- Partie recherche ------------------------------------------ //
+
+if (location.href.indexOf('search') !== -1) {
+    body.className = 'search';
+}

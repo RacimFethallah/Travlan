@@ -17,6 +17,7 @@ if (isset($_SESSION["username"])) {
         Travlan
     </title>
     <link rel="stylesheet" href="Travlan.css">
+    <link rel="stylesheet" href="search.css">
     <link rel="icon" href="Pics/UI/location.svg">
 
 

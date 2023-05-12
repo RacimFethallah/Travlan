@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 
@@ -999,7 +999,7 @@ footer>span {
   opacity: 1;
   transform: translateY(-10px);
   cursor: pointer;
-  box-shadow: inset 350px 0 0 0 #162938;
+  box-shadow: inset 350px 350px 350px 350px #162938;
   color: #fff;
 }
 
