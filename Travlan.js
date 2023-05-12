@@ -84,13 +84,6 @@ function searchDestinations(searchTerm) {
                     resultsContainer.appendChild(resultDiv);
                     
                 });
-
-                let resultElements = document.querySelectorAll('#resultsContainer .result p');
-                resultElements.forEach(function (resultElement) {
-                    let resultText = resultElement.innerHTML;
-                    let highlightedText = resultText.replace(new RegExp(searchTerm, 'gi'), '<span style="font-weight: bold;">$&</span>');
-                    resultElement.innerHTML = highlightedText;
-                });
             }
             else {
                 const noresultDiv = document.createElement('div');
