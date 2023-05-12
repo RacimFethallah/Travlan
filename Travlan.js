@@ -28,11 +28,11 @@ let searchResult = "";
 document.addEventListener('click', (event) => {
     const isSearchBarClicked = event.target === searchBar;
     const isResultsContainerClicked = resultsContainer.contains(event.target);
-  
+
     if (!isSearchBarClicked && !isResultsContainerClicked) {
-      resultsContainer.style.display = "none";
+        resultsContainer.style.display = "none";
     }
-  });
+});
 
 
 //fonction pour rechercher dans la barre de recherche
@@ -63,7 +63,7 @@ function searchDestinations(searchTerm) {
                         { type: 'choses à voir/à faire', icon: '<ion-icon name="ticket-outline"></ion-icon>' },
                         { type: 'hôtels', icon: '<ion-icon name="bed-outline"></ion-icon>' },
                         { type: 'restaurants', icon: '<ion-icon name="restaurant-outline"></ion-icon>' }
-                      ];
+                    ];
 
                     resultTypes.forEach(resultType => {
                         const resultDiv = document.createElement('div');
@@ -82,7 +82,7 @@ function searchDestinations(searchTerm) {
                         window.location.href = `index.php?search=${encodeURIComponent(result)}`;
                     });
                     resultsContainer.appendChild(resultDiv);
-                    
+
                 });
             }
             else {
@@ -112,18 +112,11 @@ RSearchBar.addEventListener('keyup', function (event) {
 });
 
 
-Dp_menu.className = "before";
 
 function appear(event) {
     let e = event.target;
     if (e.id == "Anonym") {
-        if (Dp_menu.className == "before") {
-            Dp_menu.classList.remove('before');
-            Dp_menu.classList.add('after');
-        } else {
-            Dp_menu.classList.remove('after');
-            Dp_menu.classList.add('before');
-        }
+        Dp_menu.classList.toggle("after");
     }
 }
 

@@ -45,11 +45,20 @@ header {
   height: 310px;
   float: right;
   position: absolute;
-  top: 70px;
+  top: -310px; /* Set initial position above the viewport */
   right: 50px;
   border-radius: 10px;
   z-index: 9999;
+  opacity: 0;
+  transition: top 0.8s ease, opacity 0.8s ease;
 }
+
+.after {
+  opacity: 1 !important;
+  top: 70px !important; /* Set final position where the menu is visible */
+}
+
+
 
 #DP li span {
   padding: 10px;
@@ -75,16 +84,13 @@ header {
 #DP li {
   margin: 0;
   display: flex;
-  /* Use flexbox to align the icon and link horizontally */
   align-items: center;
-  /* Center the icon and link vertically */
   padding: 10px;
-  transition: background-color 0.3s ease-in-out;
-  /* Add a transition effect to the background color change */
+  transition: background-color 0.5s ease;
 }
 
 #DP li:hover {
-  background-color: #f2f2f2;
+  background-color: #ccc;
   /* Change the background color of the li element when hovering */
 }
 
@@ -238,22 +244,6 @@ header {
   position: relative;
   left: 75px;
 }
-
-
-
-
-
-
-.before {
-  display: none;
-}
-
-.after {
-  display: all;
-}
-
-
-
 
 
 .test {
