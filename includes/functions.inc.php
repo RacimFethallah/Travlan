@@ -208,7 +208,7 @@ function resetmailpage()
              <span class='logico'>
                 <ion-icon name='mail'></ion-icon>
              </span>
-             <input type='email' name='email' required placeholder='email' " . ($_SESSION["email"] ?? "" ? "value='{$_SESSION['email']}'" : "") . ">
+             <input type='email' name='email' required  " . ($_SESSION["email"] ?? "" ? "value='{$_SESSION['email']}'" : "") . ">
              <label>Veuillez saisir votre adresse Email</label>
           </div>
           <button type='submit' name='submitmail' class='btn'>Confirmer</button>

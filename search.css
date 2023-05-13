@@ -140,6 +140,13 @@ body.search main {
     color: #162938;
 }
 
+/* input#searchBarB:focus {
+    opacity: 0.3;
+  }
+#searchBarB:focus + body {
+    opacity: 0.3;
+  } */
+
 #searchbtnB {
     font-size: 14px;
     background-color: #295171;
@@ -152,4 +159,8 @@ body.search main {
     border-radius: 10px;
     border: none;
     margin-top: 5px;
+    transition: all 0.5s ease;
+}
+#searchbtnB:hover{
+    box-shadow: inset 0 0 200px 200px #162938;
 }

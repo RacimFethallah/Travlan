@@ -634,14 +634,14 @@ footer>span {
 }
 
 
-.input-box input:not(:placeholder-shown)~label,
+.input-box input:valid~label,
 .input-box input:focus~label {
   top: -5px;
 }
 
-::placeholder {
+/* ::placeholder {
   color: transparent;
-}
+} */
 
 .input-box input {
   width: 100%;

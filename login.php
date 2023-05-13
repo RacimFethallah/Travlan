@@ -10,14 +10,14 @@
             <span class="logico">
                <ion-icon name="mail"></ion-icon>
             </span>
-            <input type="email" name="email" required placeholder="Email">
+            <input type="email" name="email" required >
             <label>Email</label>
          </div>
          <div class="input-box">
             <span class="logico">
                <ion-icon name="lock-closed"></ion-icon>
             </span>
-            <input id="userpwd" type="password" name="password" required placeholder="password">
+            <input id="userpwd" type="password" name="password" required >
             <label>Mot de passe</label>
          </div>
          <div class="remember-forgot">

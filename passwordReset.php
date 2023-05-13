@@ -36,14 +36,14 @@ if (isset($_GET["token"])) {
                     <span class='logico'>
                        <ion-icon name='lock-closed'></ion-icon>
                     </span>
-                    <input type='password' id='newpwd' name='password' required placeholder='password' oninput='passwordValidity(newpwd)'>
+                    <input type='password' id='newpwd' name='password' required  oninput='passwordValidity(newpwd)'>
                     <label>Veuillez saisir votre nouveau mot de passe</label>
                  </div>
                  <div class='input-box'>
                   <span class='logico'>
                      <ion-icon name='checkmark-done-outline'></ion-icon>
                   </span>
-                  <input type='password' id='newpwdconf' name='pwdconf' required placeholder='password' oninput='checkPasswordMatch(newpwd,newpwdconf)'>
+                  <input type='password' id='newpwdconf' name='pwdconf' required  oninput='checkPasswordMatch(newpwd,newpwdconf)'>
                   <label>Confirmer nouveau Mot de passe</label>
                </div>
                  <button type='submit' name='submitpwd' class='btn'>Réinitialiser</button>
