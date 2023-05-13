@@ -28,7 +28,10 @@ include_once 'header.php';
 
 
 
-
+<section id="sectionSearchPage1">
+    <input type="text" placeholder="Search" id="searchBarB" >
+    <button type="submit" id="searchbtnB">Search</button>
+</section>
 
 
 <section id="sectionSearchPage">

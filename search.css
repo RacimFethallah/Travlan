@@ -3,7 +3,13 @@ body.search {
     margin: 0;
     padding: 0;
     overflow: auto;
+    overflow-x: auto;
+
     background: linear-gradient(to bottom, #f5f5f5, #5A97C1);
+}
+main{
+    overflow-x: auto;
+    overflow: auto;
 }
 
 
@@ -49,6 +55,10 @@ body.search {
     transition: background-color 0.3s;
 }
 
+#asideSearchPage form input[type="checkbox"]:hover {
+    cursor: pointer;
+}
+
 #asideSearchPage form input[type="checkbox"]:checked {
     background-color: #295171;
     border-color: #295171;
@@ -89,9 +99,10 @@ body.search {
 }
 
 #sectionSearchPage {
+    position: relative;
     min-height: 100vh;
     width: 1230px;
-    margin-top: 200px;
+    margin-top: 15px;
     background-color: #fff;
     display: flex;
     float: right;
@@ -100,4 +111,49 @@ body.search {
     flex-direction: column;
     align-items: stretch;
     border-radius: 20px;
+}
+
+#sectionSearchPage1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    float: right;
+    margin-top: 84px;
+    background-color: #fff;
+    width: 1269px;
+    height: 80px;
+    border-radius: 20px;
+}
+
+#searchBarB {
+    background-image: url('Pics/Background/search.svg');
+    background-size: 25px auto;
+    font-size: 20px;
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    outline: none;
+    border: 3px solid #295171;
+    position: absolute;
+    padding-right: 30px;
+    height: 40px;
+    width: 1180px;
+    border-radius: 10px;
+    margin-right: 50px;
+    padding-left: 45px;
+    color: #162938;
+}
+
+#searchbtnB {
+    color: white;
+    font-size: 14px;
+    background-color: #295171;
+    position: absolute;
+    width: 63px;
+    height: 30px;
+    color: white;
+    cursor: pointer;
+    right: 80px;
+    border-radius: 10px;
+    border: none;
 }
