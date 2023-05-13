@@ -1,26 +1,4 @@
-let User_img = document.getElementById('Anonym');
-let Dp_menu = document.getElementById('user_dpmenu');
-let SearchButton = document.getElementById('Sbutton');
-let RSearchBar = document.getElementById('RsearchBar');
-let loginBtn = document.getElementById('loginBtn');
-let authButtons = document.querySelectorAll('.Authentification');
-let userMenuBtn = document.querySelectorAll('.usermenubtn');
-let boxes = document.querySelectorAll('.boxe');
-let body = document.querySelector('body');
-let searchformS = document.getElementById('searchFormS');
 
-
-
-
-const wrapper = document.querySelector('.login-wrapper');
-const loginLink = document.querySelector('.login-link');
-const registerLink = document.querySelector('.register-link');
-const closeLogin = document.querySelector('.icon-close');
-const passwordInput = document.getElementById('userpwd');
-const rememberCheckbox = document.getElementById('chkpwd');
-const resultsContainer = document.getElementById('resultsContainer');
-const searchBar = document.getElementById('searchBar');
-const storedPassword = getCookie('rememberedPassword');
 
 
 

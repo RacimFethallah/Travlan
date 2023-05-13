@@ -1,10 +1,30 @@
-
-
-
+let User_img = document.getElementById('Anonym');
+let Dp_menu = document.getElementById('user_dpmenu');
+let SearchButton = document.getElementById('Sbutton');
+let RSearchBar = document.getElementById('RsearchBar');
+let loginBtn = document.getElementById('loginBtn');
+let authButtons = document.querySelectorAll('.Authentification');
+let userMenuBtn = document.querySelectorAll('.usermenubtn');
+let boxes = document.querySelectorAll('.boxe');
+let body = document.querySelector('body');
+let searchformS = document.getElementById('searchFormS');
 let currentImageIndex = 0;
 let Delay = 3000;
 
+const wrapper = document.querySelector('.login-wrapper');
+const loginLink = document.querySelector('.login-link');
+const registerLink = document.querySelector('.register-link');
+const closeLogin = document.querySelector('.icon-close');
+const passwordInput = document.getElementById('userpwd');
+const rememberCheckbox = document.getElementById('chkpwd');
+const resultsContainer = document.getElementById('resultsContainer');
+const searchBar = document.getElementById('searchBar');
+const storedPassword = getCookie('rememberedPassword');
 
+
+
+
+//fonction pour verifier si l'utilisateur est connecté pour planifier
 function checkSession(event) {
     if ((sessionStorage.getItem('logged_in') === 'true') && (event.target.id === 'Planifier')) {
         window.location.href = "Travlan_plan.php";
@@ -75,7 +95,7 @@ function searchDestinations(searchTerm, resultContainer) {
         });
 }
 
-
+//fonction pour defiller les images
 function showImage(n) {
   const images = document.getElementsByClassName('slider-image');
   const buttons = document.getElementsByClassName('Bg-button');
@@ -94,6 +114,7 @@ function showImage(n) {
   currentImageIndex = n;
 }
 
+//fonction pour defiller les images
 function slideImages() {
   const images = document.getElementsByClassName('slider-image');
   currentImageIndex = (currentImageIndex + 1) % images.length || 0;
@@ -126,7 +147,7 @@ function deleteCookie(name) {
     document.cookie = name + "=;expires=Thu, 01 Jan 2999 00:00:01 GMT;path=/";
 }
 
-
+//fonction pour verifier si les mots de passes d'inscription sont identique
 function checkPasswordMatch(input1, input2) {
     if (input1.value === input2.value) {
         input2.setCustomValidity("");
@@ -135,7 +156,7 @@ function checkPasswordMatch(input1, input2) {
     }
 }
 
-
+//fonction pour verifier si un mot de passe est valide
 function passwordValidity(input) {
 
 
@@ -152,7 +173,7 @@ function passwordValidity(input) {
     }
 }
 
-
+//fonction pour verifier si un nom d'utilisateur est valide
 function usernameValidity(username) {
 
     const minLength = 3;
