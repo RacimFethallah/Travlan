@@ -35,20 +35,38 @@ include_once 'header.php';
 
 
     <section id="sectionSearchPage">
-        <!-- Search results display area on the right -->
-        <h2>Search Results</h2>
-        <ul>
-            <li>
-                <a href="#">Result 1</a>
-                <p>Description of result 1</p>
-            </li>
-            <li>
-                <a href="#">Result 2</a>
-                <p>Description of result 2</p>
-            </li>
-            <!-- Additional search results -->
-        </ul>
-    </section>
+    <h2>Search Results for</h2>
+    <ul class="search-results">
+        <li>
+            <div class="result-item">
+                <img src="#" alt="Result 1">
+                <div class="result-content">
+                    <a href="#">Result 1</a>
+                    <p>Description of result 1</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="result-item">
+                <img src="#" alt="Result 2">
+                <div class="result-content">
+                    <a href="#">Result 2</a>
+                    <p>Description of result 2</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="result-item">
+                <img src="#" alt="Result 3">
+                <div class="result-content">
+                    <a href="#">Result 1</a>
+                    <p>Description of result 1</p>
+                </div>
+            </div>
+        </li>
+        <!-- Additional search results -->
+    </ul>
+</section>
 
 </div>
 
