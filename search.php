@@ -38,7 +38,7 @@ include_once 'header.php';
 
 
     <section id="sectionSearchPage">
-    <h2>Search Results for</h2>
+    <h2>Search Results for <span id="resulttitle"></span></h2>
     <ul class="search-results">
         <li>
             <div class="result-item">

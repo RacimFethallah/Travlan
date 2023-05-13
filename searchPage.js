@@ -1,9 +1,16 @@
 const bigSearchBar = document.getElementById('searchBarB');
 const bigResultsContainer = document.getElementById('resultsContainerB');
 const searchForm = document.getElementById('searchform');
+const spanTitle = document.getElementById('resulttitle');
+
 
 if (location.href.indexOf('search') !== -1) {
     body.className = 'search';
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
+    // Get the value of the "search" parameter
+    spanTitle.innerHTML = urlParams.get('search');
 
 
     document.addEventListener('click', (event) => {
@@ -34,6 +41,7 @@ if (location.href.indexOf('search') !== -1) {
             return; // Exit the function without making the AJAX request
         }
         window.location.href = `search.php?search=${encodeURIComponent(searchTerm)}`;
+        
     });
 
 
