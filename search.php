@@ -32,6 +32,7 @@ include_once 'header.php';
         <input type="text"  placeholder="Search" id="searchBarB">
         <button type="submit" id="searchbtnB">Search</button>
     </section>
+    <div id="resultsContainerB"></div>
 
 
     <section id="sectionSearchPage">
@@ -39,7 +40,7 @@ include_once 'header.php';
     <ul class="search-results">
         <li>
             <div class="result-item">
-                <img src="#" alt="Result 1">
+                <img src="Pics/Background/Egypt.jpg" alt="Result 1">
                 <div class="result-content">
                     <a href="#">Result 1</a>
                     <p>Description of result 1</p>
