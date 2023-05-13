@@ -9,7 +9,7 @@ include_once 'header.php';
         Filtres
         <button id="resetFiltersButton">Reset</button>
     </h2>
-    <form action="filter.php" method="GET">
+    <form action="filter.php" method="GET" id="filterForm">
         <!-- Filter options, checkboxes, dropdowns, etc. -->
         <label>
             <input type="checkbox" name="filter1" value="value1">

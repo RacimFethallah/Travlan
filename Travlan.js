@@ -109,7 +109,6 @@ closeLogin.addEventListener('click', () => {
 
 
 // Check if there's a stored password in the cookie
-
 if (storedPassword) {
     // Set the password input value to the stored password
     passwordInput.value = storedPassword;

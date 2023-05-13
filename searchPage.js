@@ -13,6 +13,11 @@ const bigResultsContainer = document.getElementById('resultsContainerB');
 const searchForm = document.getElementById('searchform');
 const spanTitle = document.getElementById('resulttitle');
 
+const resetFiltersButton = document.getElementById('resetFiltersButton');
+const filterForm = document.getElementById('filterForm');
+
+
+
 //pour verifier si on se trouve dans la page search
 if (location.href.indexOf('search') !== -1) {
     body.className = 'search';
@@ -53,6 +58,13 @@ if (location.href.indexOf('search') !== -1) {
         window.location.href = `search.php?search=${encodeURIComponent(searchTerm)}`;
         
     });
+
+
+
+    resetFiltersButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        filterForm.reset();
+      });
 
 
 
