@@ -44,7 +44,7 @@ function searchDestinations(searchTerm, resultContainer) {
                     resultDiv.classList.add('result');
                     resultDiv.innerHTML = `<p>${result}</p>`;
                     resultDiv.addEventListener('click', () => {
-                        window.location.href = `index.php?search=${encodeURIComponent(result)}`;
+                        window.location.href = `search.php?search=${encodeURIComponent(result)}`;
                     });
                     resultContainer.appendChild(resultDiv);
 

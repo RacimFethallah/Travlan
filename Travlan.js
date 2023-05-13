@@ -10,6 +10,7 @@ let authButtons = document.querySelectorAll('.Authentification');
 let userMenuBtn = document.querySelectorAll('.usermenubtn');
 let boxes = document.querySelectorAll('.boxe');
 let body = document.querySelector('body');
+let searchformS = document.getElementById('searchFormS');
 
 
 
@@ -21,7 +22,6 @@ const passwordInput = document.getElementById('userpwd');
 const rememberCheckbox = document.getElementById('chkpwd');
 const resultsContainer = document.getElementById('resultsContainer');
 const searchBar = document.getElementById('searchBar');
-let searchResult = "";
 
 
 
@@ -41,6 +41,15 @@ searchBar.addEventListener('keyup', function (event) {
     const searchTerm = event.target.value;
     searchDestinations(searchTerm , resultsContainer);
 });
+
+searchformS.addEventListener('submit', (event)=>{
+    event.preventDefault();
+        const searchTerm = searchBar.value;
+        if (searchTerm.trim() === '') {
+            return; // Exit the function without making the AJAX request
+        }
+        window.location.href = `search.php?search=${encodeURIComponent(searchTerm)}`;
+})
 
 RSearchBar.addEventListener('keyup', function (event) {
     const searchTerm = event.target.value;

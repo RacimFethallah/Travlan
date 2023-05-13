@@ -29,8 +29,10 @@ include_once 'header.php';
 
 <div class="content-wrapper">
     <section id="sectionSearchPage1">
+        <form action="search.php" method="POST" id="searchform">
         <input type="text"  placeholder="Search" id="searchBarB">
         <button type="submit" id="searchbtnB">Search</button>
+        </form>
     </section>
     <div id="resultsContainerB"></div>
 

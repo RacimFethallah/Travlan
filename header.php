@@ -28,8 +28,9 @@ if (isset($_SESSION["username"])) {
     <header id="my-header">
         <a href="index.php" id='Logo'></a>
         
-            
-            <input type='text' id="searchBar" placeholder="Search">
+            <form action="search.php" method="POST" id="searchFormS">
+                <input type='text' id="searchBar" placeholder="Search">
+            </form>
             <div id="resultsContainer"></div>
             <input type='text' id="RsearchBar">
             

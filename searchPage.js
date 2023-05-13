@@ -1,5 +1,6 @@
 const bigSearchBar = document.getElementById('searchBarB');
 const bigResultsContainer = document.getElementById('resultsContainerB');
+const searchForm = document.getElementById('searchform');
 
 if (location.href.indexOf('search') !== -1) {
     body.className = 'search';
@@ -21,8 +22,22 @@ if (location.href.indexOf('search') !== -1) {
     bigSearchBar.addEventListener('keyup', function (event) {
         bigResultsContainer.style.display = "inline-block";
         const searchTerm = event.target.value;
+        
         searchDestinations(searchTerm , bigResultsContainer);
     });
+
+
+    searchForm.addEventListener('submit', (event)=>{
+        event.preventDefault();
+        const searchTerm = bigSearchBar.value;
+        if (searchTerm.trim() === '') {
+            return; // Exit the function without making the AJAX request
+        }
+        window.location.href = `search.php?search=${encodeURIComponent(searchTerm)}`;
+    });
+
+
+
 
 
     
