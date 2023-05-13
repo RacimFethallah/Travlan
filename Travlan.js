@@ -1,8 +1,5 @@
 let User_img = document.getElementById('Anonym');
 let Dp_menu = document.getElementById('user_dpmenu');
-let currentImageIndex = 0;
-let Delay = 3000;
-let x = 0;
 let SearchButton = document.getElementById('Sbutton');
 let RSearchBar = document.getElementById('RsearchBar');
 let loginBtn = document.getElementById('loginBtn');
@@ -14,6 +11,7 @@ let searchformS = document.getElementById('searchFormS');
 
 
 
+
 const wrapper = document.querySelector('.login-wrapper');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
@@ -22,11 +20,13 @@ const passwordInput = document.getElementById('userpwd');
 const rememberCheckbox = document.getElementById('chkpwd');
 const resultsContainer = document.getElementById('resultsContainer');
 const searchBar = document.getElementById('searchBar');
+const storedPassword = getCookie('rememberedPassword');
 
 
 
 
-if (window.location.href === 'http://localhost/travlan/' || window.location.href === 'http://localhost/travlan/index.php') {
+if (window.location.href === 'http://localhost/travlan/' || window.location.href.indexOf('index.php') !== -1) {
+    let sliderInterval;
     showImage(1);
     sliderInterval = setInterval(slideImages, Delay);
     boxes.forEach(box => {
@@ -72,71 +72,17 @@ RSearchBar.addEventListener('keyup', function (event) {
     searchDestinations(searchTerm);
 });
 
-
-
-function appear(event) {
-    let e = event.target;
-    if (e.id == "Anonym") {
+User_img.addEventListener('click', function(event) {
+    if (event.target.id === "Anonym") {
         Dp_menu.classList.toggle("after");
     }
-}
-
-User_img.addEventListener('click', appear);
+});
 
 
-function ShowhideSearchBar(event) {
-
-    if (x % 2 === 0) {
-        RSearchBar.style.display = "block";
-    } else {
-        RSearchBar.style.display = "none";
-    }
-    x++;
-    event.preventDefault;
-}
-
-SearchButton.addEventListener("click", ShowhideSearchBar);
-
-
-let sliderInterval;
-
-function showImage(n) {
-    const images = document.getElementsByClassName('slider-image');
-    const buttons = document.getElementsByClassName('Bg-button');
-    const slides = document.querySelectorAll('.appear, .hide');
-
-
-    for (let i = 0; i < images.length; i++) {
-        images[i].classList.remove('active');
-        buttons[i].classList.remove('active');
-        slides[i].classList.remove('appear');
-        slides[i].classList.add('hide');
-        buttons[i].style.setProperty('--bg-color', '#fff');
-    }
-    images[n - 1].classList.add('active');
-    buttons[n - 1].classList.add('active');
-    slides[n - 1].classList.add('appear');
-    slides[n - 1].classList.remove('hide');
-    buttons[n - 1].style.setProperty('--bg-color', 'rgb(2, 56, 126)');
-    currentImageIndex = n;
-}
-
-
-function slideImages() {
-    const images = document.getElementsByClassName('slider-image');
-    currentImageIndex++;
-    if (currentImageIndex > images.length) {
-        currentImageIndex = 1;
-    }
-    showImage(currentImageIndex);
-}
-
-
-
-
-
-
-
+SearchButton.addEventListener("click", function(event) {
+    RSearchBar.style.display = RSearchBar.style.display === "block" ? "none" : "block";
+    event.preventDefault();
+});
 
 
 registerLink.addEventListener('click', () => {
@@ -148,16 +94,6 @@ loginLink.addEventListener('click', () => {
     wrapper.classList.remove('active')
     rememberCheckbox.checked = false;
 });
-
-function checkSession(event) {
-    if ((sessionStorage.getItem('logged_in') === 'true') && (event.target.id === 'Planifier')) {
-        window.location.href = "Travlan_plan.php";
-    } else {
-        if (wrapper.classList.contains('hidden') === false) {
-            wrapper.classList.add('hidden');
-        }
-    }
-}
 
 
 authButtons.forEach(function (button) {
@@ -195,7 +131,7 @@ closeLogin.addEventListener('click', () => {
 
 
 // Check if there's a stored password in the cookie
-const storedPassword = getCookie('rememberedPassword');
+
 if (storedPassword) {
     // Set the password input value to the stored password
     passwordInput.value = storedPassword;
@@ -223,76 +159,8 @@ rememberCheckbox.addEventListener('change', () => {
     }
 });
 
-// Helper function to set a cookie
-function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
-
-// Helper function to get a cookie
-function getCookie(name) {
-    const cookies = document.cookie.split(';');
-    for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.startsWith(name + '=')) {
-            return cookie.substring(name.length + 1);
-        }
-    }
-    return null;
-}
-
-// Helper function to delete a cookie
-function deleteCookie(name) {
-    document.cookie = name + "=;expires=Thu, 01 Jan 2999 00:00:01 GMT;path=/";
-}
 
 
-function checkPasswordMatch(input1, input2) {
-    if (input1.value === input2.value) {
-        input2.setCustomValidity("");
-    } else {
-        input2.setCustomValidity("Les mots de passes doivents etre identique!");
-    }
-}
-
-
-function passwordValidity(input) {
-
-
-    const minLength = 8;
-    const pattern = /(?=.*\d)(?=.*[a-z])/;
-
-
-    if (input.value.length < minLength) {
-        input.setCustomValidity(`Le mot de passe doit contenir au moins ${minLength} caractères`);
-    } else if (!pattern.test(input.value)) {
-        input.setCustomValidity("Le mot de passe doit contenir au moins une lettre et un chiffre");
-    } else {
-        input.setCustomValidity("");
-    }
-}
-
-
-function usernameValidity(username) {
-
-    const minLength = 3;
-    const maxLength = 36;
-    const pattern = /^[a-zA-Z0-9._ ]+$/;
-
-    if (!pattern.test(username.value)) {
-        username.setCustomValidity("Utilisez uniquement des lettres (a-z), des chiffres (0-9) et des points et tirets (.) (_).");
-
-    } else if (username.value.length < minLength) {
-        username.setCustomValidity(`Utilisez au moins ${minLength} caractères`);
-
-    } else if (username.value.length > maxLength) {
-        username.setCustomValidity(`Utilisez au plus ${maxLength} caractères`);
-    } else {
-        username.setCustomValidity("");
-    }
-}
 
 
 
