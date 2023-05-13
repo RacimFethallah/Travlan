@@ -27,30 +27,30 @@ include_once 'header.php';
 
 
 
-
-<section id="sectionSearchPage1">
-    <input type="text" placeholder="Search" id="searchBarB" >
-    <button type="submit" id="searchbtnB">Search</button>
-</section>
-
-
-<section id="sectionSearchPage">
-    <!-- Search results display area on the right -->
-    <h2>Search Results</h2>
-    <ul>
-        <li>
-            <a href="#">Result 1</a>
-            <p>Description of result 1</p>
-        </li>
-        <li>
-            <a href="#">Result 2</a>
-            <p>Description of result 2</p>
-        </li>
-        <!-- Additional search results -->
-    </ul>
-</section>
+<div class="content-wrapper">
+    <section id="sectionSearchPage1">
+        <input type="text"  id="searchBarB">
+        <button type="submit" id="searchbtnB">Search</button>
+    </section>
 
 
+    <section id="sectionSearchPage">
+        <!-- Search results display area on the right -->
+        <h2>Search Results</h2>
+        <ul>
+            <li>
+                <a href="#">Result 1</a>
+                <p>Description of result 1</p>
+            </li>
+            <li>
+                <a href="#">Result 2</a>
+                <p>Description of result 2</p>
+            </li>
+            <!-- Additional search results -->
+        </ul>
+    </section>
+
+</div>
 
 
 

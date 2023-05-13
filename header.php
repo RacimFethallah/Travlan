@@ -29,7 +29,7 @@ if (isset($_SESSION["username"])) {
         <a href="index.php" id='Logo'></a>
         
             
-            <input type='text' id="searchBar">
+            <input type='text' id="searchBar" placeholder="Search">
             <div id="resultsContainer"></div>
             <input type='text' id="RsearchBar">
             

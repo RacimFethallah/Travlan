@@ -3,28 +3,26 @@ body.search {
     margin: 0;
     padding: 0;
     overflow: auto;
-    overflow-x: auto;
-
     background: linear-gradient(to bottom, #f5f5f5, #5A97C1);
 }
-main{
-    overflow-x: auto;
-    overflow: auto;
+
+body.search main {
+    display: flex;
+    overflow: hidden;
 }
 
-
-
 #asideSearchPage {
+    flex-grow: 1;
+    overflow-y: auto;
     position: relative;
     display: flex;
     flex-direction: column;
     float: left;
-    flex: 1;
+    flex: 0 0 200px;
     background-color: #fff;
     padding: 20px;
-    min-height: 90vh;
-    margin-top: 50px;
-    width: 200px;
+    height: 85vh;
+    margin-top: 85px;
     border-radius: 20px;
 }
 
@@ -33,20 +31,15 @@ main{
     margin-top: 10px;
     border-bottom: 1.5px solid #5A97C1;
     padding-bottom: 10px;
-    /* Add desired margin-bottom value */
 }
 
 #asideSearchPage form label {
     display: block;
-    /* Display the filter options as blocks */
     margin-bottom: 30px;
-    /* Add some bottom margin between filter options */
 }
 
 #asideSearchPage form input[type="checkbox"] {
     appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     width: 18px;
     height: 18px;
     border: 2px solid #ccc;
@@ -62,7 +55,6 @@ main{
 #asideSearchPage form input[type="checkbox"]:checked {
     background-color: #295171;
     border-color: #295171;
-    /*#5A97C1*/
 }
 
 #applyFilter {
@@ -83,13 +75,12 @@ main{
 }
 
 #applyFilter:hover {
-    box-shadow: inset 200px 200px 200px 200px #162938;
+    box-shadow: inset 0 0 200px 200px #162938;
 }
 
 #resetFiltersButton {
     background-color: #fff;
     border: none;
-    padding: 0;
     font: inherit;
     color: #5A97C1;
     cursor: pointer;
@@ -98,32 +89,37 @@ main{
     font-size: 12px;
 }
 
-#sectionSearchPage {
+.content-wrapper {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#sectionSearchPage,
+#sectionSearchPage1 {
+    flex-grow: 1;
+    overflow-y: hidden;
+    min-width: 500px;
     position: relative;
-    min-height: 100vh;
-    width: 1230px;
-    margin-top: 15px;
+    width: 1200px;
     background-color: #fff;
     display: flex;
-    float: right;
-    flex: 3;
     padding: 20px;
     flex-direction: column;
     align-items: stretch;
     border-radius: 20px;
+    margin-left: 25px;
+}
+
+#sectionSearchPage {
+    margin-top: 20px;
+    min-height: 100vh;
 }
 
 #sectionSearchPage1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    float: right;
-    margin-top: 84px;
-    background-color: #fff;
-    width: 1269px;
-    height: 80px;
-    border-radius: 20px;
+    min-height: 80px;
+    margin-top: 83px;
 }
 
 #searchBarB {
@@ -137,15 +133,14 @@ main{
     position: absolute;
     padding-right: 30px;
     height: 40px;
-    width: 1180px;
+    width: 1131px;
     border-radius: 10px;
-    margin-right: 50px;
+    margin-right: 80px;
     padding-left: 45px;
     color: #162938;
 }
 
 #searchbtnB {
-    color: white;
     font-size: 14px;
     background-color: #295171;
     position: absolute;
@@ -153,7 +148,8 @@ main{
     height: 30px;
     color: white;
     cursor: pointer;
-    right: 80px;
+    margin-left: 1060px;
     border-radius: 10px;
     border: none;
+    margin-top: 5px;
 }
