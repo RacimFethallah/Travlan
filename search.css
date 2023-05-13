@@ -104,7 +104,6 @@ body.search main {
     min-width: 500px;
     position: relative;
     width: 1200px;
-    background: linear-gradient(to bottom, #fff, #e6f5ff);
     box-shadow: 0 0 30px rgba(0, 0, 0, .2);
     display: flex;
     padding: 20px;
@@ -115,11 +114,13 @@ body.search main {
 }
 
 #sectionSearchPage {
+    background: linear-gradient(to bottom, #fff, #e6f5ff);
     margin-top: 20px;
     min-height: 50vh;
 }
 
 #sectionSearchPage1 {
+    background-color: #fff;
     min-height: 80px;
     margin-top: 83px;
 }
