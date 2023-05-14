@@ -264,12 +264,14 @@ function fullSearch($conn, $searchQuery)
         $queryParts = preg_split("/[, ]+/", $searchQuery);
         // Get the first part of the search query
         $firstPart = trim($queryParts[0]);
+        $pluralForm = rtrim($firstPart, "s");
     
         $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg
                   FROM hotels AS h
                   LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
                   WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%' 
-                  OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'";
+                  OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                  OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'";
     
         $result = mysqli_query($conn, $query);
     
