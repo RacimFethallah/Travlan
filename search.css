@@ -3,7 +3,7 @@ body.search {
     margin: 0;
     padding: 0;
     overflow: auto;
-    background: linear-gradient(to bottom, #fff, #5A97C1);
+    background: linear-gradient(to bottom, #fff, grey);
 }
 
 body.search main {
@@ -114,13 +114,13 @@ body.search main {
 }
 
 #sectionSearchPage {
-    background: linear-gradient(to bottom, #fff, #e6f5ff);
+    background-color: rgba(255, 255, 255, 0.3);
     margin-top: 20px;
     min-height: 50vh;
 }
 
 #sectionSearchPage1 {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
     max-height: 60px;
     min-height: 60px;
     margin-top: 83px;
@@ -252,13 +252,13 @@ body.search main {
 
 
 
-#resulttitle{
+#resulttitle {
     font-size: 20px;
     margin-left: 10px;
 }
 
 
-.noResult{
+.noResult {
     font-size: 25px;
-margin-top: 50px;
+    margin-top: 50px;
 }
