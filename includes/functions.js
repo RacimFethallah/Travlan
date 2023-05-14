@@ -118,9 +118,12 @@ function showImage(n) {
 
 //fonction pour defiller les images
 function slideImages() {
-  const images = document.getElementsByClassName('slider-image');
-  currentImageIndex = (currentImageIndex + 1) % images.length || 0;
-  showImage(currentImageIndex + 1);
+    const images = document.getElementsByClassName('slider-image');
+    currentImageIndex++;
+    if (currentImageIndex > images.length) {
+        currentImageIndex = 1;
+    }
+    showImage(currentImageIndex);
 }
 
 
