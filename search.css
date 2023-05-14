@@ -256,3 +256,9 @@ body.search main {
     font-size: 20px;
     margin-left: 10px;
 }
+
+
+.noResult{
+    font-size: 25px;
+margin-top: 50px;
+}

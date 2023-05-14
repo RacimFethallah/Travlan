@@ -260,24 +260,19 @@ function fullSearch($conn, $searchQuery)
 
     $searchQuery = mysqli_real_escape_string($conn, $searchQuery);
 
-    if (strpos($searchQuery, "hôtels") !== false) {
-        // echo "The search query contains the word 'hotel'.";
-
-
-        $queryParts = explode(",", $searchQuery);
+    if (stripos($searchQuery, 'hotel') !== false || stripos($searchQuery, 'hôtel') !== false) {
+        $queryParts = preg_split("/[, ]+/", $searchQuery);
         // Get the first part of the search query
         $firstPart = trim($queryParts[0]);
-
-
+    
         $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg
                   FROM hotels AS h
                   LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
-                  WHERE d.nom LIKE '%$firstPart%'";
-
-
-
+                  WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%' 
+                  OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'";
+    
         $result = mysqli_query($conn, $query);
-
+    
         if ($result->num_rows > 0) {
             $searchResults = array();
             while ($row = mysqli_fetch_assoc($result)) {
@@ -288,16 +283,17 @@ function fullSearch($conn, $searchQuery)
         } else {
             echo json_encode(["message" => "Aucun résultat trouvé."]);
         }
-    } else {
+    }
+     else {
 
         $query = "SELECT d.nom, NULL AS rating, NULL AS price, NULL AS description,NULL AS urlimg
-                  FROM destinations d
-                  WHERE d.nom LIKE '%Paris%'
-                  UNION
-                  SELECT h.nom, h.rating, h.price, h.description, h.urlimg
-                  FROM hotels h
-                  JOIN destinations d ON d.id = h.destination_id
-                  WHERE d.nom LIKE '%Paris%';";
+               FROM destinations d
+               WHERE d.nom LIKE '%Paris%'
+               UNION
+               SELECT h.nom, h.rating, h.price, h.description, h.urlimg
+               FROM hotels h
+               JOIN destinations d ON d.id = h.destination_id
+               WHERE d.nom LIKE '%Paris%';";
 
 
 

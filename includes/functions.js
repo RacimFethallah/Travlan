@@ -206,31 +206,40 @@ function displaySearchResults(searchResults){
     searchResultsList.innerHTML = '';
 
 
-
-    searchResults.forEach(function(result) {
-        const listItem = document.createElement('li');
-        const resultItem = document.createElement('div');
-        const resultImage = document.createElement('img');
-        const resultContent = document.createElement('div');
-        const resultLink = document.createElement('a');
-        const resultDescription = document.createElement('p');
+    if (Array.isArray(searchResults)) {
+        searchResults.forEach(function(result) {
+            const listItem = document.createElement('li');
+            const resultItem = document.createElement('div');
+            const resultImage = document.createElement('img');
+            const resultContent = document.createElement('div');
+            const resultLink = document.createElement('a');
+            const resultDescription = document.createElement('p');
+        
+            resultItem.classList.add('result-item');
+            resultImage.src = result.urlimg;
+            // resultImage.alt = result.nom;
+            // resultLink.href = result.nom;
+            resultLink.textContent = result.nom;
+            resultDescription.textContent = result.description;
+        
+            resultContent.classList.add('result-content');
+            resultContent.appendChild(resultLink);
+            resultContent.appendChild(resultDescription);
+        
+            resultItem.appendChild(resultImage);
+            resultItem.appendChild(resultContent);
+        
+            listItem.appendChild(resultItem);
+            searchResultsList.appendChild(listItem);
+          });
+    }else {
+        const NolistItem = document.createElement('li');
+        const NoresultDescription = document.createElement('p');
+        NoresultDescription.textContent = "No results found.";
+        NoresultDescription.classList.add('noResult');
+        NolistItem.appendChild(NoresultDescription);
+        searchResultsList.appendChild(NolistItem);
+    }
     
-        resultItem.classList.add('result-item');
-        resultImage.src = result.urlimg;
-        // resultImage.alt = result.nom;
-        // resultLink.href = result.nom;
-        resultLink.textContent = result.nom;
-        resultDescription.textContent = result.description;
-    
-        resultContent.classList.add('result-content');
-        resultContent.appendChild(resultLink);
-        resultContent.appendChild(resultDescription);
-    
-        resultItem.appendChild(resultImage);
-        resultItem.appendChild(resultContent);
-    
-        listItem.appendChild(resultItem);
-        searchResultsList.appendChild(listItem);
-      });
 
 }
