@@ -18,6 +18,41 @@ if (window.location.href === 'http://localhost/travlan/' || window.location.href
 }
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.href.indexOf('search.php') !== -1) {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        const searchQuery = urlParams.get('search');
+
+
+        if (searchQuery.trim() === '') {
+            return; // Exit the function without making the AJAX request
+        }
+        spanTitle.innerHTML = searchQuery;
+
+        fetch('includes/search.inc.php', {
+            method: 'POST',
+            body: new URLSearchParams({
+                searchQuery: searchQuery
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Call a function to display the search results
+                // window.location.href = `search.php?search=${encodeURIComponent(searchQuery)}`;
+
+
+                displaySearchResults(data);
+
+                
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+});
+
 
 // vider le resultcontainer quand on clique ailleur
 document.addEventListener('click', (event) => {
@@ -33,17 +68,24 @@ document.addEventListener('click', (event) => {
 searchBar.addEventListener('keyup', function (event) {
     resultsContainer.style.display = "inline-block";
     const searchTerm = event.target.value;
-    searchDestinations(searchTerm , resultsContainer);
+
+    const hiddenSubmitButton = document.createElement('button');
+    hiddenSubmitButton.type = 'submit';
+    hiddenSubmitButton.style.display = 'none';
+
+    // Append the hidden submit button to the form
+    searchformS.appendChild(hiddenSubmitButton);
+    searchDestinations(searchTerm , resultsContainer,searchBar, hiddenSubmitButton);
 });
 
-searchformS.addEventListener('submit', (event)=>{
+searchformS.addEventListener('submit', (event) => {
     event.preventDefault();
-        const searchTerm = searchBar.value;
-        if (searchTerm.trim() === '') {
-            return; // Exit the function without making the AJAX request
-        }
-        window.location.href = `search.php?search=${encodeURIComponent(searchTerm)}`;
-})
+    const searchQuery = searchBar.value;
+    window.location.replace(`search.php?search=${encodeURIComponent(searchQuery)}`);
+});
+
+
+
 
 RSearchBar.addEventListener('keyup', function (event) {
     const searchTerm = event.target.value;

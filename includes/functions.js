@@ -7,7 +7,6 @@ let authButtons = document.querySelectorAll('.Authentification');
 let userMenuBtn = document.querySelectorAll('.usermenubtn');
 let boxes = document.querySelectorAll('.boxe');
 let body = document.querySelector('body');
-let searchformS = document.getElementById('searchFormS');
 let currentImageIndex = 0;
 let Delay = 3000;
 
@@ -20,6 +19,7 @@ const rememberCheckbox = document.getElementById('chkpwd');
 const resultsContainer = document.getElementById('resultsContainer');
 const searchBar = document.getElementById('searchBar');
 const storedPassword = getCookie('rememberedPassword');
+const searchformS = document.getElementById('searchFormS');
 
 
 
@@ -36,7 +36,7 @@ function checkSession(event) {
 }
 
 //fonction pour rechercher dans la barre de recherche
-function searchDestinations(searchTerm, resultContainer) {
+function searchDestinations(searchTerm, resultContainer, bar, btn) {
 
     // Effacer les résultats précédents
     resultContainer.innerHTML = '';
@@ -69,7 +69,9 @@ function searchDestinations(searchTerm, resultContainer) {
                         resultDiv.classList.add('result');
                         resultDiv.innerHTML = `<p>${resultType.icon} ${result} ${resultType.type}</p>`;
                         resultDiv.addEventListener('click', () => {
-                            window.location.href = `search.php?search=${encodeURIComponent(result)} ${encodeURIComponent(resultType.type)} `;
+                            // window.location.href = `search.php?search=${encodeURIComponent(result)} ${encodeURIComponent(resultType.type)} `;
+                            bar.value = `${result} ${resultType.type}`;
+                            btn.click();
                         });
                         resultContainer.appendChild(resultDiv);
                     });
@@ -191,4 +193,44 @@ function usernameValidity(username) {
     } else {
         username.setCustomValidity("");
     }
+}
+
+
+
+
+function displaySearchResults(searchResults){
+    const searchResultsList = document.querySelector('#sectionSearchPage .search-results');
+
+
+
+    searchResultsList.innerHTML = '';
+
+
+
+    searchResults.forEach(function(result) {
+        const listItem = document.createElement('li');
+        const resultItem = document.createElement('div');
+        const resultImage = document.createElement('img');
+        const resultContent = document.createElement('div');
+        const resultLink = document.createElement('a');
+        const resultDescription = document.createElement('p');
+    
+        resultItem.classList.add('result-item');
+        resultImage.src = result.urlimg;
+        // resultImage.alt = result.nom;
+        // resultLink.href = result.nom;
+        resultLink.textContent = result.nom;
+        resultDescription.textContent = result.description;
+    
+        resultContent.classList.add('result-content');
+        resultContent.appendChild(resultLink);
+        resultContent.appendChild(resultDescription);
+    
+        resultItem.appendChild(resultImage);
+        resultItem.appendChild(resultContent);
+    
+        listItem.appendChild(resultItem);
+        searchResultsList.appendChild(listItem);
+      });
+
 }

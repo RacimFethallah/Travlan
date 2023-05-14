@@ -40,33 +40,7 @@ include_once 'header.php';
     <section id="sectionSearchPage">
     <h2>Search Results for <span id="resulttitle"></span></h2>
     <ul class="search-results">
-        <li>
-            <div class="result-item">
-                <img src="Pics/Background/Egypt.jpg" alt="Result 1">
-                <div class="result-content">
-                    <a href="#">Result 1</a>
-                    <p>Description of result 1</p>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="result-item">
-                <img src="#" alt="Result 2">
-                <div class="result-content">
-                    <a href="#">Result 2</a>
-                    <p>Description of result 2</p>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="result-item">
-                <img src="#" alt="Result 3">
-                <div class="result-content">
-                    <a href="#">Result 1</a>
-                    <p>Description of result 1</p>
-                </div>
-            </div>
-        </li>
+
         <!-- Additional search results -->
     </ul>
 </section>

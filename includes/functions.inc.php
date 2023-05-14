@@ -3,7 +3,6 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once 'db.inc.php';
 
 
 
@@ -251,5 +250,68 @@ function search($conn, $searchTerm)
         echo  json_encode($resultsArray);
     } else {
         echo json_encode(["message" => "Aucun résultat trouvé."]);
+    }
+}
+
+
+
+function fullSearch($conn, $searchQuery)
+{
+
+    $searchQuery = mysqli_real_escape_string($conn, $searchQuery);
+
+    if (strpos($searchQuery, "hôtels") !== false) {
+        // echo "The search query contains the word 'hotel'.";
+
+
+        $queryParts = explode(",", $searchQuery);
+        // Get the first part of the search query
+        $firstPart = trim($queryParts[0]);
+
+
+        $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg
+                  FROM hotels AS h
+                  LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+                  WHERE d.nom LIKE '%$firstPart%'";
+
+
+
+        $result = mysqli_query($conn, $query);
+
+        if ($result->num_rows > 0) {
+            $searchResults = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $searchResults[] = $row;
+            }
+            header('Content-Type: application/json');
+            echo json_encode($searchResults);
+        } else {
+            echo json_encode(["message" => "Aucun résultat trouvé."]);
+        }
+    } else {
+
+        $query = "SELECT d.nom, NULL AS rating, NULL AS price, NULL AS description,NULL AS urlimg
+                  FROM destinations d
+                  WHERE d.nom LIKE '%Paris%'
+                  UNION
+                  SELECT h.nom, h.rating, h.price, h.description, h.urlimg
+                  FROM hotels h
+                  JOIN destinations d ON d.id = h.destination_id
+                  WHERE d.nom LIKE '%Paris%';";
+
+
+
+        $result = mysqli_query($conn, $query);
+
+        if ($result->num_rows > 0) {
+            $searchResults = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $searchResults[] = $row;
+            }
+            header('Content-Type: application/json');
+            echo json_encode($searchResults);
+        } else {
+            echo json_encode(["message" => "Aucun résultat trouvé."]);
+        }
     }
 }
