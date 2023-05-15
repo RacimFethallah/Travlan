@@ -259,8 +259,9 @@ function fullSearch($conn, $searchQuery)
 {
 
     $searchQuery = mysqli_real_escape_string($conn, $searchQuery);
+    $searchQuery = strtolower($searchQuery);
 
-    if (stripos($searchQuery, 'hotel') !== false || stripos($searchQuery, 'hôtel') !== false) {
+    if (strpos($searchQuery, 'hotel') !== false || strpos($searchQuery, 'hôtel') !== false) {
         $queryParts = preg_split("/[, ]+/", $searchQuery);
         // Get the first part of the search query
         $firstPart = trim($queryParts[0]);
@@ -290,12 +291,12 @@ function fullSearch($conn, $searchQuery)
 
         $query = "SELECT d.nom, NULL AS rating, NULL AS price, NULL AS description,NULL AS urlimg
                FROM destinations d
-               WHERE d.nom LIKE '%Paris%'
+               WHERE d.nom LIKE '%$searchQuery%'
                UNION
                SELECT h.nom, h.rating, h.price, h.description, h.urlimg
                FROM hotels h
                JOIN destinations d ON d.id = h.destination_id
-               WHERE d.nom LIKE '%Paris%';";
+               WHERE d.nom LIKE '%$searchQuery%';";
 
 
 
@@ -313,3 +314,4 @@ function fullSearch($conn, $searchQuery)
         }
     }
 }
+
