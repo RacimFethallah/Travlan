@@ -272,7 +272,8 @@ function fullSearch($conn, $searchQuery)
                   LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
                   WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%' 
                   OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                  OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'";
+                  OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+                  ORDER BY h.nom";
     
         $result = mysqli_query($conn, $query);
     
