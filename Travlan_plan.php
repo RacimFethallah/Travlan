@@ -7,9 +7,10 @@ include_once 'header.php';
 
 
 
-<div id="Pays">
-  <form id='pays'>
-    <label>Pays</label>
+<div id="Infos">
+  <form action="includes/test.php" method="POST">
+    <span class="ico"><ion-icon name="earth-outline"></ion-icon></span>
+    <label id="p1">Pays</label>
     <select id="typeP">
       <option value="Japon">Japon</option>
       <option value="Bresil">Bresil</option>
@@ -19,16 +20,18 @@ include_once 'header.php';
       <option value="USA">USA</option>
       <option value="Australie">Australie</option>
     </select>
-  </form>
-</div>
-<div id="Infos">
-  <form action="includes/test.php" method="POST">
+    <span class="ico" id="plane1"><ion-icon name="airplane-outline"></ion-icon></span>
     <label for="Date_depart">Date de depart</label>
     <input type="date" name="datedp" id="Date_depart" class='date'>
+    <span class="ico" id="plane2"><ion-icon name="airplane-outline"></ion-icon></span>
     <label for="Date_retour">Date de retour</label>
     <input type="date" name="dateret" id="Date_retour" class='date'>
-    <label for="Nb_personnes">Nombre de personnes</label>
+    <span class="ico"> <ion-icon name="person-outline"></ion-icon></span>
+    <label for="Nb_personnes">Nombre d'adultes</label>
     <input type="number" name="nbp" id="Nb_personnes" min=0>
+    <span class="ico"><ion-icon name="people-outline"></ion-icon></span>
+    <label for="Nb_personnes1">Nombre d'enfants</label>
+    <input type="number" name="nbp" id="Nb_personnes1" min=0>
     <input type="submit" name="confirmerd" class="bouton" value="confirmer">
   </form>
 </div>

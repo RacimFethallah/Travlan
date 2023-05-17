@@ -1067,13 +1067,13 @@ input[type=range]::-moz-range-thumb {
   border: 2px solid #162938;
   border-radius: 5px;
   padding-left: 10px;
-  top: 20%;
+  top: 25%;
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(5px);
 }
 
 #Activité_container {
-  height: 450px;
+  height: 500px;
 }
 
 #Hebergement_container_hotel2 {
@@ -1212,21 +1212,22 @@ input[type=range]::-moz-range-thumb {
 
 #Infos {
   position: absolute;
-  right: 30px;
+  right: 75px;
   top: 12%;
   border: 1px solid white;
   padding: 6px;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(5px);
-  width: 800px;
+  width: 1377px;
 }
 
 .date {
   margin: 5px;
 }
 
-#Nb_personnes {
+#Nb_personnes,
+#Nb_personnes1 {
   width: 43px;
 }
 
@@ -1246,7 +1247,8 @@ input[type=range]::-moz-range-thumb {
   color: #fff;
 }
 
-select {
+#typeH,
+#offre {
   position: absolute;
   left: 215px;
   top: 60px;
@@ -1450,6 +1452,28 @@ input:checked+.sliderr:before {
   left: 200px;
 }
 
-#pays {
-  position: absolute;
+#typeP {
+  margin: 10px;
+  width: 125px;
+  height: 25px;
+}
+
+#Date_depart,
+#Date_retour,
+#Nb_personnes,
+#typeP,
+#Nb_personnes1 {
+  margin-left: 15px;
+  margin-right: 10px;
+}
+
+.ico {
+  font-size: 30px;
+  position: relative;
+  top: 10px;
+  color: white;
+}
+
+#plane1 {
+  transform: rotateX(45deg);
 }
