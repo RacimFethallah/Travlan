@@ -22,12 +22,15 @@ include_once 'header.php';
   </form>
 </div>
 <div id="Infos">
-  <label for="Date_depart">Date de depart</label>
-  <input type="date" id="Date_depart" class='date'>
-  <label for="Date_retour">Date de retour</label>
-  <input type="date" id="Date_retour" class='date'>
-  <label for="Nb_personnes">Nombre de personnes</label>
-  <input type="number" id="Nb_personnes" min=0>
+  <form action="includes/test.php" method="POST">
+    <label for="Date_depart">Date de depart</label>
+    <input type="date" name="datedp" id="Date_depart" class='date'>
+    <label for="Date_retour">Date de retour</label>
+    <input type="date" name="dateret" id="Date_retour" class='date'>
+    <label for="Nb_personnes">Nombre de personnes</label>
+    <input type="number" name="nbp" id="Nb_personnes" min=0>
+    <input type="submit" name="confirmerd" class="bouton" value="confirmer">
+  </form>
 </div>
 
 <div id="Budget_container">

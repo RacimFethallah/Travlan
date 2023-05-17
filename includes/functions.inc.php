@@ -266,7 +266,7 @@ function fullSearch($conn, $searchQuery)
         // Get the first part of the search query
         $firstPart = trim($queryParts[0]);
         $pluralForm = rtrim($firstPart, "s");
-    
+
         $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg
                   FROM hotels AS h
                   LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
@@ -274,9 +274,9 @@ function fullSearch($conn, $searchQuery)
                   OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
                   OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
                   ORDER BY h.nom";
-    
+
         $result = mysqli_query($conn, $query);
-    
+
         if ($result->num_rows > 0) {
             $searchResults = array();
             while ($row = mysqli_fetch_assoc($result)) {
@@ -287,8 +287,7 @@ function fullSearch($conn, $searchQuery)
         } else {
             echo json_encode(["message" => "Aucun résultat trouvé."]);
         }
-    }
-     else {
+    } else {
 
         $query = "SELECT d.nom, NULL AS rating, NULL AS price, NULL AS description,NULL AS urlimg
                FROM destinations d
@@ -316,3 +315,13 @@ function fullSearch($conn, $searchQuery)
     }
 }
 
+function testt($conn, $dated, $dateret, $nbp)
+{
+    echo $dateret;
+    echo $dated;
+    $query = "INSERT INTO test(dated,dateret,nbp) VALUES('$dated','$dateret',$nbp);";
+
+    mysqli_query($conn, $query);
+    //header("location: ../index.php?error=nono");
+    exit();
+}
