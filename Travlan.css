@@ -1036,7 +1036,7 @@ footer>span {
 }
 
 .linki:hover {
-  color: #0091ff;
+  color: rgb(255, 0, 64);
   font-weight: 725;
   text-decoration: underline;
 }
