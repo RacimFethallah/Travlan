@@ -1048,7 +1048,7 @@ input[type=range]::-moz-range-thumb {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background: indianred;
+  background: rgb(255, 0, 0);
 }
 
 .con {
@@ -1064,11 +1064,12 @@ input[type=range]::-moz-range-thumb {
   position: absolute;
   width: 400px;
   height: 150px;
-  border: 2px solid #162938;
-  border-radius: 5px;
+  border: 1px solid black ;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   padding-left: 10px;
   top: 25%;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5px);
 }
 
@@ -1217,7 +1218,7 @@ input[type=range]::-moz-range-thumb {
   border: 1px solid white;
   padding: 6px;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5px);
   width: 1377px;
 }
@@ -1232,7 +1233,8 @@ input[type=range]::-moz-range-thumb {
 }
 
 #Infos label {
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: 100;
   color: #fff;
 }
 
@@ -1270,7 +1272,7 @@ input[type=range]::-moz-range-thumb {
 .bouton,
 #Valider {
   background-color: transparent;
-  border: 2px solid #162938;
+  border: 2px solid white;
   border-radius: 15px;
   box-sizing: border-box;
   color: white;
@@ -1302,7 +1304,7 @@ input[type=range]::-moz-range-thumb {
 .bouton:hover,
 #Valider:hover {
   color: #fff;
-  background-color: #162938;
+  background-color: #e1a6ff52;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
@@ -1340,8 +1342,8 @@ input[type=range]::-moz-range-thumb {
   left: -5px;
   right: 0;
   bottom: 0;
-  background-color: indianred;
-  border: 2px solid white;
+  background-color: #48020c;
+  border: 2px solid transparent;
   transition: .4s;
   border-radius: 10px;
 }
@@ -1362,7 +1364,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 input:checked+.sliderr {
-  background-color: darkseagreen;
+  background-color: #006743;
 }
 
 input:checked+.sliderr:before {
