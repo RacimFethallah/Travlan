@@ -1051,12 +1051,8 @@ input[type=range]::-moz-range-thumb {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-<<<<<<< HEAD
-  background: rgb(255, 0, 64);
-=======
   background: rgb(70, 10, 236);
   background: rgb(255, 234, 0);
->>>>>>> 08c41632269e7616eb4942d16ea76db1c25efc6c
 }
 
 .con {
