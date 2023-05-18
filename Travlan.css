@@ -1048,11 +1048,7 @@ input[type=range]::-moz-range-thumb {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-<<<<<<< HEAD
-  background: rgb(70, 10, 236);
-=======
-  background: rgb(255, 0, 0);
->>>>>>> 066032115aaf989c7fbec1c436d8f7f8b1ea7b19
+  background: rgb(255, 234, 0);
 }
 
 .con {
@@ -1348,11 +1344,7 @@ input[type=range]::-moz-range-thumb {
   left: -5px;
   right: 0;
   bottom: 0;
-<<<<<<< HEAD
   background-color: #63131f;
-=======
-  background-color: #48020c;
->>>>>>> 066032115aaf989c7fbec1c436d8f7f8b1ea7b19
   border: 2px solid transparent;
   transition: .4s;
   border-radius: 10px;
@@ -1374,11 +1366,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 input:checked+.sliderr {
-<<<<<<< HEAD
   background-color: #45b061;
-=======
-  background-color: #006743;
->>>>>>> 066032115aaf989c7fbec1c436d8f7f8b1ea7b19
 }
 
 input:checked+.sliderr:before {
