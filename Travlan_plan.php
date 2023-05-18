@@ -63,7 +63,7 @@ include_once 'header.php';
 </div>
 
 <div id="Hebergement_container_logement" class="hide">
-  <p>LOGEMENT</p>
+  <p class="pcontainer">LOGEMENT</p>
 
   <label class="c1" id="fnbp">Nombre de pieces</label>
   <input type="number" min=1 class="nb" id="nbp">
@@ -123,7 +123,7 @@ include_once 'header.php';
 
 
 <div id="Hebergement_container_hotel" class="hide">
-  <p>HOTEL</p>
+  <p class="pcontainer">HOTEL</p>
 
   <label class="c1" id="fnbp">Nombre de chambres</label>
   <input type="number" min=1 class="nb" id="nbp">
@@ -194,7 +194,7 @@ include_once 'header.php';
 </div>
 
 <div id="Hebergement_container_hotel2" class="hide">
-  <p>Hotel</p>
+  <p class="pcontainer">HOTEL</p>
 
   <label class="c1" id='fwifi'>Activités sportives</label>
   <label class="switch1">
