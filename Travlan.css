@@ -1048,7 +1048,7 @@ input[type=range]::-moz-range-thumb {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background: rgb(255, 0, 0);
+  background: rgb(255, 234, 0);
 }
 
 .con {
@@ -1075,6 +1075,8 @@ input[type=range]::-moz-range-thumb {
 
 #Activité_container {
   height: 500px;
+  font-weight: 800;
+  font-size: 30px;
 }
 
 #Hebergement_container_hotel2 {
@@ -1342,7 +1344,7 @@ input[type=range]::-moz-range-thumb {
   left: -5px;
   right: 0;
   bottom: 0;
-  background-color: #48020c;
+  background-color: #63131f;
   border: 2px solid transparent;
   transition: .4s;
   border-radius: 10px;
@@ -1364,7 +1366,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 input:checked+.sliderr {
-  background-color: #006743;
+  background-color: #45b061;
 }
 
 input:checked+.sliderr:before {

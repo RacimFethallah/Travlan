@@ -8,7 +8,9 @@ body.search {
 
 
 
-
+body{
+    background-image: url('Pics/Background/');
+}
 
 
 
@@ -73,8 +75,8 @@ body.search main {
     left: 50%;
     transform: translateX(-50%);
     bottom: 20px;
-    background: #3b6480;
-    border: 2px solid #162938;
+    background: #d64a82;
+    border: 1px solid #d73878;
     border-radius: 20px;
     width: 200px;
     height: 35px;
