@@ -187,6 +187,13 @@ include_once 'header.php';
     <input type="submit" value="Planifiez votre voyage !" id="Planifier">
 </a>
 
+<div id="ContactInfo" >
+  <a href="#" id="Instagram"  > <img id="InstagramPic" src = "Pics/UI/Instagram.png"> </a>
+  <a href="#" id="Email" ><img id="EmailPic" src = "Pics/UI/Gmail.png"></a>
+  <a href="#" id="Facebook" ><img id="FacebookPic" src = "Pics/UI/Facebook.png"></a>
+  <a href="#" id="Twitter" ><img id="TwitterPic" src = "Pics/UI/Twitter.png"></a>
+</div>
+
 
 <?php
 include_once 'login.php';
