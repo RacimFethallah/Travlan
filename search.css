@@ -3,13 +3,9 @@ body.search {
     margin: 0;
     padding: 0;
     overflow: auto;
-    background: linear-gradient(to bottom, #fff, grey);
+    background-image:  linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 254, 254, 0.2)), url('Pics/Background/R.jpg');
+    background-attachment: fixed;
 }
-
-
-
-
-
 
 
 
