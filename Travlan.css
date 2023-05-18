@@ -17,7 +17,6 @@
 }
 
 
-
 header {
   box-shadow: 0 0 30px rgba(0, 0, 0, .2);
   background-color: rgba(0, 0, 0, 0.5);
@@ -618,6 +617,9 @@ footer>span {
   box-sizing: border-box;
 }
 
+
+
+
 .login-wrapper .box.login {
   transition: transform .3s ease;
   transform: translateX(0);
@@ -1087,7 +1089,7 @@ body.plan {
 
 .slider {
   -moz-appearance: none;
-  width: 350px;
+  width: 350px; 
   height: 0;
   margin-top: 10px;
   margin-left: 30px;
@@ -1102,7 +1104,8 @@ input[type=range]::-moz-range-thumb {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background: indianred;
+  background: rgb(255, 0, 64);
+
 }
 
 .con {
@@ -1118,16 +1121,19 @@ input[type=range]::-moz-range-thumb {
   position: absolute;
   width: 400px;
   height: 150px;
-  border: 2px solid #162938;
-  border-radius: 5px;
+  border: 1px solid black ;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   padding-left: 10px;
   top: 25%;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5px);
 }
 
 #Activité_container {
   height: 500px;
+  font-weight: 800;
+  font-size: 30px;
 }
 
 #Hebergement_container_hotel2 {
@@ -1271,7 +1277,7 @@ input[type=range]::-moz-range-thumb {
   border: 1px solid white;
   padding: 6px;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5px);
   width: 1377px;
 }
@@ -1286,7 +1292,8 @@ input[type=range]::-moz-range-thumb {
 }
 
 #Infos label {
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: 100;
   color: #fff;
 }
 
@@ -1300,6 +1307,14 @@ input[type=range]::-moz-range-thumb {
   font-weight: 800;
   color: #fff;
 }
+
+select{
+  border: none;
+  padding: 5px;
+  background: white;
+  border-radius: 5px;
+}
+
 
 #typeH,
 #offre {
@@ -1315,7 +1330,7 @@ input[type=range]::-moz-range-thumb {
 .pcontainer {
   text-decoration: none;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 800;
   color: white;
   text-align: center;
   margin-top: 10px;
@@ -1324,7 +1339,7 @@ input[type=range]::-moz-range-thumb {
 .bouton,
 #Valider {
   background-color: transparent;
-  border: 2px solid #162938;
+  border: 2px solid white;
   border-radius: 15px;
   box-sizing: border-box;
   color: white;
@@ -1356,7 +1371,7 @@ input[type=range]::-moz-range-thumb {
 .bouton:hover,
 #Valider:hover {
   color: #fff;
-  background-color: #162938;
+  background-color: rgb(255, 0, 64);
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
@@ -1394,8 +1409,8 @@ input[type=range]::-moz-range-thumb {
   left: -5px;
   right: 0;
   bottom: 0;
-  background-color: indianred;
-  border: 2px solid white;
+  background-color: rgb(255, 0, 64);
+  border: 2px solid transparent;
   transition: .4s;
   border-radius: 10px;
 }
@@ -1416,7 +1431,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 input:checked+.sliderr {
-  background-color: darkseagreen;
+  background-color: #45b061;
 }
 
 input:checked+.sliderr:before {
@@ -1531,4 +1546,7 @@ input:checked+.sliderr:before {
 #plane1 {
   transform: rotateX(45deg);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 19737910b55c66004ff11a9235421f62a9dbc971

@@ -268,12 +268,15 @@ function fullSearch($conn, $searchQuery)
         $pluralForm = rtrim($firstPart, "s");
 
         $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg
-                  FROM hotels AS h
-                  LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
-                  WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%' 
-                  OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                  OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
-                  ORDER BY h.nom";
+          FROM hotels AS h
+          LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+          LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+          WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+          OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+          OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+          OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+          ORDER BY h.nom";
+
 
         $result = mysqli_query($conn, $query);
 

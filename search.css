@@ -3,14 +3,9 @@ body.search {
     margin: 0;
     padding: 0;
     overflow: auto;
-    background: linear-gradient(to bottom, #fff, grey);
+    background-image:  linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 254, 254, 0.2)), url('Pics/Background/R.jpg');
+    background-attachment: fixed;
 }
-
-
-
-
-
-
 
 
 
@@ -19,6 +14,10 @@ body.search {
 body.search main {
     display: flex;
     overflow: hidden;
+    background-image:  linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 254, 254, 0.2)), url('Pics/Background/R.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
 
 #asideSearchPage {
@@ -29,10 +28,11 @@ body.search main {
     display: flex;
     flex-direction: column;
     float: left;
+    margin-left: 10px;
     flex: 0 0 250px;
     background: linear-gradient(to bottom, #fff, #e6f5ff);
     padding: 20px;
-    height: 85vh;
+    height: 500px;
     margin-top: 85px;
     border-radius: 20px;
 }
@@ -40,7 +40,7 @@ body.search main {
 #asideSearchPage h2 {
     margin-bottom: 30px;
     margin-top: 10px;
-    border-bottom: 1.5px solid #5A97C1;
+    border-bottom: 1.5px solid #2aaf9f;
     padding-bottom: 10px;
 }
 
@@ -73,8 +73,8 @@ body.search main {
     left: 50%;
     transform: translateX(-50%);
     bottom: 20px;
-    background: #3b6480;
-    border: 2px solid #162938;
+    background: #2aaf9f;
+    border: 1px solid #2aaf9f;
     border-radius: 20px;
     width: 200px;
     height: 35px;
@@ -86,14 +86,15 @@ body.search main {
 }
 
 #applyFilter:hover {
-    box-shadow: inset 0 0 200px 200px #162938;
+    box-shadow: inset 0 0 200px 200px #006b5e;
+    border: 1px solid #006b5e;
 }
 
 #resetFiltersButton {
     background-color: #fff;
     border: none;
     font: inherit;
-    color: #5A97C1;
+    color: #2aaf9f;
     cursor: pointer;
     margin-top: 13.5px;
     float: right;
@@ -143,7 +144,7 @@ body.search main {
     background-position: 10px center;
     background-repeat: no-repeat;
     outline: none;
-    border: 3px solid #295171;
+    border: 3px solid transparent;
     position: absolute;
     padding-right: 30px;
     height: 40px;
@@ -157,7 +158,7 @@ body.search main {
 
 #searchbtnB {
     font-size: 14px;
-    background-color: #295171;
+    background-color: #2aaf9f;
     position: absolute;
     width: 63px;
     height: 30px;
@@ -171,7 +172,7 @@ body.search main {
 }
 
 #searchbtnB:hover {
-    box-shadow: inset 0 0 200px 200px #162938;
+    box-shadow: inset 0 0 200px 200px #006b5e;
 }
 
 #resultsContainerB {
@@ -185,8 +186,8 @@ body.search main {
     top: 140px;
     width: 1135px;
     background-color: #fff;
-    border: 2px solid #162938;
-    color: #162938;
+    border: 2px solid #006b5e;
+    color: #006b5e;
     font-size: 20px;
     outline: none;
     border-radius: 10px;
@@ -206,7 +207,7 @@ body.search main {
     background-color: #fff;
     opacity: 0.7;
     margin-bottom: 10px;
-    border-bottom: 1.5px solid #162938;
+    border-bottom: 1.5px solid #006b5e;
     padding-bottom: 10px;
     cursor: pointer;
 }
