@@ -36,7 +36,7 @@ if (isset($_SESSION["username"])) {
             
 
 
-            <img src="Pics/Background/user (1).png" id="Anonym">
+            <img src="Pics/Background/user.png" id="Anonym">
             <?= $_SESSION["username"] ?? "" ? "<span id='floatright'>Hi,<br>{$_SESSION["username"]}</span>" : "" ?>
 
 
