@@ -1545,7 +1545,4 @@ input:checked+.sliderr:before {
   color: white;
 }
 
-#plane1 {
-  transform: rotateX(45deg);
-}
 
