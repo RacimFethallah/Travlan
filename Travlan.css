@@ -1033,7 +1033,7 @@ body.plan {
 
 .slider {
   -moz-appearance: none;
-  width: 350px;
+  width: 350px; 
   height: 0;
   margin-top: 10px;
   margin-left: 30px;
@@ -1048,7 +1048,7 @@ input[type=range]::-moz-range-thumb {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background: rgb(255, 234, 0);
+  background: rgb(255, 0, 64);
 }
 
 .con {
@@ -1306,7 +1306,7 @@ input[type=range]::-moz-range-thumb {
 .bouton:hover,
 #Valider:hover {
   color: #fff;
-  background-color: #e1a6ff52;
+  background-color: rgb(255, 0, 64);
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
@@ -1344,7 +1344,7 @@ input[type=range]::-moz-range-thumb {
   left: -5px;
   right: 0;
   bottom: 0;
-  background-color: #63131f;
+  background-color: rgb(255, 0, 64);
   border: 2px solid transparent;
   transition: .4s;
   border-radius: 10px;
