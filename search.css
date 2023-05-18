@@ -30,7 +30,6 @@ body.search main {
     float: left;
     margin-left: 10px;
     flex: 0 0 250px;
-    /*background-color: rgba(255, 255, 255, 0.3);*/
     background: linear-gradient(to bottom, #fff, #e6f5ff);
     padding: 20px;
     height: 500px;
@@ -41,7 +40,7 @@ body.search main {
 #asideSearchPage h2 {
     margin-bottom: 30px;
     margin-top: 10px;
-    border-bottom: 1.5px solid #5A97C1;
+    border-bottom: 1.5px solid #2aaf9f;
     padding-bottom: 10px;
 }
 
@@ -95,7 +94,7 @@ body.search main {
     background-color: #fff;
     border: none;
     font: inherit;
-    color: #5A97C1;
+    color: #2aaf9f;
     cursor: pointer;
     margin-top: 13.5px;
     float: right;
@@ -187,8 +186,8 @@ body.search main {
     top: 140px;
     width: 1135px;
     background-color: #fff;
-    border: 2px solid #162938;
-    color: #162938;
+    border: 2px solid #006b5e;
+    color: #006b5e;
     font-size: 20px;
     outline: none;
     border-radius: 10px;
@@ -208,7 +207,7 @@ body.search main {
     background-color: #fff;
     opacity: 0.7;
     margin-bottom: 10px;
-    border-bottom: 1.5px solid #162938;
+    border-bottom: 1.5px solid #006b5e;
     padding-bottom: 10px;
     cursor: pointer;
 }
