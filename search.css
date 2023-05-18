@@ -18,7 +18,7 @@ body.search {
 body.search main {
     display: flex;
     overflow: hidden;
-    background-image:  linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 254, 254, 0.2)), url('Pics/Background/fond-decran-ordinateur-3.jpg');
+    background-image:  linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 254, 254, 0.2)), url('Pics/Background/R.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 
