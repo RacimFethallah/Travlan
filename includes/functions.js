@@ -166,7 +166,8 @@ function passwordValidity(input) {
 
 
     const minLength = 8;
-    const pattern = /(?=.*\d)(?=.*[a-z])/;
+    const pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/;
+
 
 
     if (input.value.length < minLength) {
