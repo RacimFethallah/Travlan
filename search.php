@@ -13,7 +13,7 @@ include_once 'header.php';
         <!-- Filter options, checkboxes, dropdowns, etc. -->
         <label>
             <input type="checkbox" name="filter1" value="value1">
-            Filter 1
+            Filtre1
         </label>
         <label>
             <input type="checkbox" name="filter2" value="value2">
