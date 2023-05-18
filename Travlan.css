@@ -564,6 +564,9 @@ footer>span {
   box-sizing: border-box;
 }
 
+
+
+
 .login-wrapper .box.login {
   transition: transform .3s ease;
   transform: translateX(0);
