@@ -6,6 +6,11 @@ body.search {
     background: linear-gradient(to bottom, #fff, grey);
 }
 
+
+
+
+
+
 body.search main {
     display: flex;
     overflow: hidden;
