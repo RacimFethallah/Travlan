@@ -32,10 +32,12 @@ body.search main {
     display: flex;
     flex-direction: column;
     float: left;
+    margin-left: 10px;
     flex: 0 0 250px;
+    /*background-color: rgba(255, 255, 255, 0.3);*/
     background: linear-gradient(to bottom, #fff, #e6f5ff);
     padding: 20px;
-    height: 85vh;
+    height: 500px;
     margin-top: 85px;
     border-radius: 20px;
 }
@@ -76,8 +78,8 @@ body.search main {
     left: 50%;
     transform: translateX(-50%);
     bottom: 20px;
-    background: #d64a82;
-    border: 1px solid #d73878;
+    background: #2aaf9f;
+    border: 1px solid #2aaf9f;
     border-radius: 20px;
     width: 200px;
     height: 35px;
@@ -89,7 +91,8 @@ body.search main {
 }
 
 #applyFilter:hover {
-    box-shadow: inset 0 0 200px 200px #162938;
+    box-shadow: inset 0 0 200px 200px #006b5e;
+    border: 1px solid #006b5e;
 }
 
 #resetFiltersButton {
@@ -146,7 +149,7 @@ body.search main {
     background-position: 10px center;
     background-repeat: no-repeat;
     outline: none;
-    border: 3px solid #295171;
+    border: 3px solid transparent;
     position: absolute;
     padding-right: 30px;
     height: 40px;
@@ -160,7 +163,7 @@ body.search main {
 
 #searchbtnB {
     font-size: 14px;
-    background-color: #295171;
+    background-color: #2aaf9f;
     position: absolute;
     width: 63px;
     height: 30px;
@@ -174,7 +177,7 @@ body.search main {
 }
 
 #searchbtnB:hover {
-    box-shadow: inset 0 0 200px 200px #162938;
+    box-shadow: inset 0 0 200px 200px #006b5e;
 }
 
 #resultsContainerB {
