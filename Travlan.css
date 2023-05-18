@@ -168,9 +168,10 @@ header {
 
 
 #searchBar {
-  background-image: url('Pics/Background/search.svg');
+  background-image: url('Pics/Background/loupe.png');
   background-position: left center;
   background-repeat: no-repeat;
+  background-size: 7%;
   padding-left: 30px;
   position: absolute;
   right: 275px;
@@ -179,7 +180,7 @@ header {
   height: 30px;
   background-color: #fff;
   opacity: 0.5;
-  border: 2px solid #162938;
+  border: 1px solid #fff;
   color: #162938;
   font-size: 18px;
   outline: none;
