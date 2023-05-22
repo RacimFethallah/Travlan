@@ -3,7 +3,7 @@
 
 
 
-if (window.location.href === 'http://localhost/travlan/' || window.location.href.indexOf('index.php') !== -1) {
+if (window.location.href === 'http://localhost/travlan/' || window.location.href.indexOf('index.php') !== -1 || window.location.href === 'http://localhost/travlan/#') {
     let sliderInterval;
     showImage(1);
     sliderInterval = setInterval(slideImages, Delay);
