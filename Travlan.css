@@ -1140,7 +1140,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 #Hebergement_container_hotel2 {
-  height: 400px;
+  height: 300px;
   font-weight: 800;
   font-size: 30px;
 }
@@ -1159,6 +1159,14 @@ input[type=range]::-moz-range-thumb {
   font-size: 15px;
   left: 40px;
   color: white;
+}
+
+#fnbm22,.switch10{
+  top:92px;
+}
+
+#fnbp1,.switch9{
+  top:52px;
 }
 
 #fwifi,
@@ -1253,20 +1261,29 @@ input[type=range]::-moz-range-thumb {
 }
 
 
-#plus {
+#plus,.Retour {
   position: absolute;
-  top: 103px;
-  right: 15px;
   background: transparent;
   color: white;
   border: transparent;
   text-decoration: underline;
   cursor: pointer;
 }
+#plus{
+  top: 103px;
+  right: 15px;
+}
+.Retour{
+  bottom:20px;
+  right:20px;
+}
+#Retour2{
+  left:20px;
+}
 
-#plus:hover {
+#plus:hover,.Retour:hover {
   background: white;
-  color: #162938;
+  color: rgb(255, 0, 64);
 }
 
 .bye {
@@ -1340,7 +1357,7 @@ select{
 }
 
 .bouton,
-#Valider {
+.Valider {
   background-color: transparent;
   border: 2px solid white;
   border-radius: 15px;
@@ -1364,7 +1381,7 @@ select{
   right: 12px;
 }
 
-#Valider {
+.Valider {
   position: absolute;
   left: 20px;
   bottom: 10px;
@@ -1372,7 +1389,7 @@ select{
 
 
 .bouton:hover,
-#Valider:hover {
+.Valider:hover {
   color: #fff;
   background-color: rgb(255, 0, 64);
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
@@ -1389,7 +1406,7 @@ select{
 .switch6,
 .switch7,
 .switch8,
-.switchh {
+.switchh,.switch9,.switch10 {
   font-size: 11px;
   display: inline-block;
   width: 50px;
@@ -1457,7 +1474,7 @@ input:checked+.sliderr:before {
 .switch6,
 .switch7,
 .switch8,
-.switchh {
+.switchh,.switch9,.switch10 {
   left: 280px;
 }
 

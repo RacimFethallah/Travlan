@@ -45,7 +45,7 @@ include_once 'header.php';
     </form>
   </div>
   <button id="plus">+ Voir plus</button>
-  <button id="Valider">Valider</button>
+  <button class="Valider">Valider</button>
 </div>
 
 
@@ -114,9 +114,9 @@ include_once 'header.php';
     <input type="checkbox">
     <span class="sliderr"></span>
   </label>
-
-  <button id="Valider">Valider</button>
-
+  
+  <button class="Retour" id="Retour1"><- Retour</button>
+  <button class="Valider" id="Val1" class="appear">Valider</button>
 
 </div>
 
@@ -187,7 +187,8 @@ include_once 'header.php';
     <input type="checkbox">
     <span class="sliderr"></span>
   </label>
-
+  
+  <button class="Retour" id="Retour2"><- Retour</button>
   <button class="bouton" id="Suiv">Suivant</button>
 
 
@@ -196,6 +197,16 @@ include_once 'header.php';
 <div id="Hebergement_container_hotel2" class="hide">
   <p class="pcontainer">HOTEL</p>
 
+  <label class="c1" id="fnbp1">Toboggans</label>
+  <label class="switch9">
+    <input type="checkbox">
+    <span class="sliderr"></span>
+  </label>
+  <label class="c1" id="fnbm22">Salle de jeu</label>
+  <label class="switch10">
+    <input type="checkbox">
+    <span class="sliderr"></span>
+  </label> 
   <label class="c1" id='fwifi'>Activités sportives</label>
   <label class="switch1">
     <input type="checkbox">
@@ -214,20 +225,8 @@ include_once 'header.php';
     <span class="sliderr"></span>
   </label>
 
-  <label class="c1" id='fbal'>Salle de jeu</label>
-  <label class="switch4">
-    <input type="checkbox">
-    <span class="sliderr"></span>
-  </label>
-
-  <label class="c1" id='fparking'>Toboggans</label>
-  <label class="switch5">
-    <input type="checkbox">
-    <span class="sliderr"></span>
-  </label>
-
-
-  <button id="Valider">Valider</button>
+  <button class="Retour" id="Retour3"><- Retour</button>
+  <button class="Valider">Valider</button>
 
 
 </div>
@@ -236,16 +235,16 @@ include_once 'header.php';
 <div id="Activité_container">
   <p class="pcontainer"> ACTIVITES </p>
 
-  <!--<label class="c1" id="fnbp">Blabla</label>
+  <label class="c1" id="fnbp1">Croisière</label>
   <label class="switch9">
     <input type="checkbox">
     <span class="sliderr"></span>
   </label>
-  <label class="c1" id="fnbm2">blabla2</label>
+  <label class="c1" id="fnbm22">Pêche</label>
   <label class="switch10">
     <input type="checkbox">
     <span class="sliderr"></span>
-  </label> -->
+  </label> 
 
   <label class="c1" id='fani'>Parc d'attraction</label>
   <label class="switch6">
@@ -288,7 +287,13 @@ include_once 'header.php';
     <span class="sliderr"></span>
   </label>
 
-  <button id="Valider">Valider</button>
+  <label class="c1" id='fresto'>Animaux</label>
+  <label class="switch8">
+    <input type="checkbox">
+    <span class="sliderr"></span>
+  </label>
+
+  <button class="Valider">Valider</button>
 
 </div>
 

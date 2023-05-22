@@ -174,25 +174,36 @@ if (location.href.indexOf('Travlan_plan') !== -1) {
     var heb_con = document.getElementById('Hebergement_container');
     var heb_log_con = document.getElementById('Hebergement_container_logement');
     var heb_hot_con = document.getElementById('Hebergement_container_hotel');
-
+    var V1= document.getElementById('Val1');
+    var retour1= document.getElementById("Retour1"); 
+    var retour2= document.getElementById("Retour2"); 
+    var retour3= document.getElementById("Retour3"); 
+     
+    
     confirmer.addEventListener('click', heb_log);
     suivant.addEventListener('click', heb_hot);
+    retour1.addEventListener('click',retour_e_a);
+    retour2.addEventListener('click',retour_e_a);
+    retour3.addEventListener('click',retour_e_a);
+    
 
     function heb_log() {
+        heb_con.classList.remove('appear');
+                heb_con.className = 'hide';
         switch (selectHebergement.value) {
             case "Logement":
-                heb_con.classList.remove('appear');
-                heb_con.className = 'hide';
                 heb_log_con.classList.remove('hide');
                 heb_log_con.className = 'appear';
                 break;
             case "Hotel":
-                heb_con.classList.remove('appear');
-                heb_con.className = 'hide';
                 heb_hot_con.classList.remove('hide');
                 heb_hot_con.className = 'appear';
                 break;
-            case "deux":
+            case "Deux":
+                heb_log_con.classList.remove('hide');
+                heb_log_con.className = 'appear';
+                V1.innerHTML="Suivant";
+                V1.addEventListener('click',suivv);
                 break;
         }
     }
@@ -204,4 +215,39 @@ if (location.href.indexOf('Travlan_plan') !== -1) {
         heb_hot2_con.className = 'appear';
 
     }
+
+    function suivv() {
+        heb_log_con.classList.remove('appear');
+                heb_log_con.className = 'hide';
+        heb_hot_con.classList.remove('hide');
+        heb_hot_con.className = 'appear';
+    }
+}
+
+
+function retour_e_a(event){
+    var e=event.target; 
+    switch(e.id) { 
+        case "Retour1" : 
+        heb_con.classList.remove('hide');
+        heb_con.className = 'appear';
+        heb_log_con.classList.remove('appear');
+        heb_log_con.className = 'hide';
+        break;
+        case "Retour2":
+            heb_con.classList.remove('hide');
+            heb_con.className = 'appear';
+            heb_hot_con.classList.remove('appear');
+                heb_hot_con.className = 'hide'; 
+        break;
+        case "Retour3":
+            heb_hot_con.classList.remove('hide');
+                heb_hot_con.className = 'appear'; 
+                heb_hot2_con.classList.remove('appear');
+                heb_hot2_con.className = 'hide';
+
+    }
+
+    
+    
 }
