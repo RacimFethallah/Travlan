@@ -180,7 +180,7 @@ header {
   height: 30px;
   background-color: #fff;
   opacity: 0.5;
-  border: 1px solid #fff;
+  border: 1px solid ;
   color: #162938;
   font-size: 18px;
   outline: none;
@@ -1037,7 +1037,7 @@ footer>span {
 }
 
 .linki:hover {
-  color: rgb(255, 0, 64);
+  color: #0091ff;
   font-weight: 725;
   text-decoration: underline;
 }
@@ -1546,4 +1546,7 @@ input:checked+.sliderr:before {
   color: white;
 }
 
+#plane1 {
+  transform: rotateX(45deg);
+}
 
