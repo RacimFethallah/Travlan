@@ -31,7 +31,6 @@ include_once 'header.php';
 
         .account-settings .user-profile .user-avatar {
             margin: 0 0 1rem 0;
-            /* background-image: url('Pics/Background/user.png'); */
 
         }
 
@@ -89,6 +88,7 @@ include_once 'header.php';
             width: 120px;
 
         }
+
         .btn-secondary {
             position: absolute;
             /* positioner un elemnt par raport a la balise mere */
@@ -101,7 +101,17 @@ include_once 'header.php';
 
         }
 
-        
+        .profile-image {
+            /* width: 150px;
+            height: 150px;
+            border-radius: 50%; */
+            object-fit: cover;
+            width: 90px;
+            height: 90px;
+            -webkit-border-radius: 100px;
+            -moz-border-radius: 100px;
+            border-radius: 100px;
+        }
     </style>
 </head>
 
@@ -114,7 +124,11 @@ include_once 'header.php';
                         <div class="account-settings">
                             <div class="user-profile">
                                 <div class="user-avatar">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Maxwell Admin">
+                                    <!-- <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Maxwell Admin"> -->
+                                    <input type="file" accept="image/*" onchange="changeProfileImage(event)">
+                                    <br>
+                                    <img id="profile-image" class="profile-image" src="Pics/Background/user.png"
+                                        alt="Photo de profil">
                                 </div>
                                 <h5 class="user-name">Nom</h5>
                                 <h6 class="user-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
@@ -218,6 +232,20 @@ include_once 'header.php';
                 </div>
             </div>
         </div>
+
+        <script>
+            function changeProfileImage(event) {
+                var input = event.target;
+                var reader = new FileReader();
+
+                reader.onload = function () {
+                    var image = document.getElementById('profile-image');
+                    image.src = reader.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        </script>
         <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
