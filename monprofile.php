@@ -112,6 +112,10 @@ include_once 'header.php';
             -moz-border-radius: 100px;
             border-radius: 100px;
         }
+
+        #bimg {
+            overflow: hidden ;
+        }
     </style>
 </head>
 
@@ -125,10 +129,10 @@ include_once 'header.php';
                             <div class="user-profile">
                                 <div class="user-avatar">
                                     <!-- <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Maxwell Admin"> -->
-                                    <input type="file" accept="image/*" onchange="changeProfileImage(event)">
-                                    <br>
                                     <img id="profile-image" class="profile-image" src="Pics/Background/user.png"
                                         alt="Photo de profil">
+                                        <br>
+                                    <input  id="bimg" type="file" accept="image/*" onchange="changeProfileImage(event)">
                                 </div>
                                 <h5 class="user-name">Nom</h5>
                                 <h6 class="user-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
