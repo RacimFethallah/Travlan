@@ -3,19 +3,22 @@
 
 
 
-if (window.location.href === 'http://localhost/travlan/' || window.location.href.indexOf('index.php') !== -1 || window.location.href === 'http://localhost/travlan/#') {
+// Simplified if condition
+if (/^http:\/\/localhost\/travlan\/(#|index\.php)?$/.test(window.location.href)) {
     let sliderInterval;
     showImage(1);
     sliderInterval = setInterval(slideImages, Delay);
     boxes.forEach(box => {
-        box.addEventListener('mouseover', () => {
-            clearInterval(sliderInterval);
-        })
-        box.addEventListener('mouseout', () => {
-            sliderInterval = setInterval(slideImages, Delay);
-        })
+      // Ternary operator
+      box.addEventListener('mouseover', () => {
+        sliderInterval = sliderInterval ? clearInterval(sliderInterval) : sliderInterval;
+      })
+      box.addEventListener('mouseout', () => {
+        sliderInterval = sliderInterval ? sliderInterval : setInterval(slideImages, Delay);
+      })
     });
-}
+  }
+  
 
 
 document.addEventListener('DOMContentLoaded', () => {
