@@ -10,6 +10,8 @@ let body = document.querySelector('body');
 let currentImageIndex = 0;
 let Delay = 3000;
 
+
+const help = document.getElementById('help');
 const wrapper = document.querySelector('.login-wrapper');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');

@@ -4,7 +4,7 @@
    </span>
 
    <div class="box login">
-      <h2>Se connecter</h2>
+      <h1>Se connecter</h1>
       <form method="post" action="includes/login.inc.php">
          <div class="input-box">
             <span class="logico">
