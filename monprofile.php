@@ -18,10 +18,23 @@ include_once 'header.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
         body {
-            margin-top: 150px;
+            margin-top: 200px;
             color: #bcd0f7;
             background: #1A233A;
+            /* background-image: url('Pics/Background/cappadocia-tour.jpg'); */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("Pics/Background/cappadocia-tour.jpg");
+            background-repeat: no-repeat;
+            opacity: 1;
+            background-size: cover;
+            height: 77vh;
+
         }
+
+        /* .container{
+            color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        } */
+        
 
         .account-settings .user-profile {
             margin: 0 0 1rem 0;
@@ -50,21 +63,27 @@ include_once 'header.php';
             margin: 0;
             font-size: 0.8rem;
             font-weight: 400;
+
         }
 
         .account-settings .about {
             margin: 1rem 0 0 0;
             font-size: 0.8rem;
             text-align: center;
+            color: white;
         }
 
         .card {
-            background: #272E48;
+            /* background: #272E48; */
             -webkit-border-radius: 5px;
             -moz-border-radius: 5px;
             border-radius: 5px;
             border: 0;
             margin-bottom: 1rem;
+            backdrop-filter: blur(5px);
+            background:rgba(255, 255, 255, 0.2);
+            border: 1px solid black;
+            background-attachment: fixed;
         }
 
         .form-control .custom-select {
@@ -114,7 +133,13 @@ include_once 'header.php';
         }
 
         #bimg {
-            overflow: hidden ;
+            overflow: hidden;
+        }
+        label {
+            color: white;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            font-size: medium;
         }
     </style>
 </head>
@@ -124,15 +149,15 @@ include_once 'header.php';
         <div class="row gutters">
             <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
                 <div class="card h-100">
-                    <div class="card-body">
+                    <div class="">
                         <div class="account-settings">
                             <div class="user-profile">
                                 <div class="user-avatar">
                                     <!-- <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Maxwell Admin"> -->
                                     <img id="profile-image" class="profile-image" src="Pics/Background/user.png"
                                         alt="Photo de profil">
-                                        <br>
-                                    <input  id="bimg" type="file" accept="image/*" onchange="changeProfileImage(event)">
+                                    <br>
+                                    <input id="bimg" type="file" accept="image/*" onchange="changeProfileImage(event)">
                                 </div>
                                 <h5 class="user-name">Nom</h5>
                                 <h6 class="user-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
@@ -154,7 +179,7 @@ include_once 'header.php';
                     <div class="card-body">
                         <div class="row gutters">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h6 class="mb-3 text-primary">Profile</h6>
+                                <h6 class="mb-3 text-primary">PROFILE</h6>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
