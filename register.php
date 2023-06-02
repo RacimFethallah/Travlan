@@ -1,5 +1,5 @@
 <div class="box register">
-      <h2>S'inscrire</h2>
+      <h1>S'inscrire</h1>
       <form action="includes/register.inc.php" method="post">
          <div class="input-box">
             <span class="logico">

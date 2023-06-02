@@ -3,7 +3,7 @@ require_once 'functions.inc.php';
 if (isset($_GET["error"])) {
     if ($_GET["error"] == "invalidemail") {
         echo "<div class='login-wrapper hidden'>
-            <div class='box login'> <h2>Email invalide !</h2> <ion-icon name='close-circle' class='closebtn'></ion-icon> </div></div>";
+            <div class='box login'> <h1>Email invalide !</h1> <ion-icon name='close-circle' class='closebtn'></ion-icon> </div></div>";
         echo "<script>
                     document.querySelector('.closebtn').addEventListener('click', function() {
                         var parentElement = this.parentNode.parentNode;
@@ -16,7 +16,7 @@ if (isset($_GET["error"])) {
         resetmailpage();
     } else if ($_GET["error"] == "usernametaken") {
         echo "<div class='login-wrapper hidden'>
-            <div class='box login'> <h2>Nom d'utilisateur ou email existe déjà !</h2> <ion-icon name='close-circle' class='closebtn'></ion-icon> </div></div>";
+            <div class='box login'> <h1>Nom d'utilisateur ou email existe déjà !</h1> <ion-icon name='close-circle' class='closebtn'></ion-icon> </div></div>";
         echo "<script>
                     document.querySelector('.closebtn').addEventListener('click', function() {
                         var parentElement = this.parentNode.parentNode;
@@ -39,7 +39,7 @@ if (isset($_GET["error"])) {
                   </script>";
     } else if ($_GET["error"] == "rnone") {
         echo "<div class='login-wrapper hidden'>
-            <div class='box login'> <h2>Inscription réussi !</h2> <ion-icon name='checkmark-circle' class='closebtn'></ion-icon> </div></div>";
+            <div class='box login'> <h1>Inscription réussi !</h1> <ion-icon name='checkmark-circle' class='closebtn'></ion-icon> </div></div>";
         echo "<script>
             document.querySelector('.closebtn').addEventListener('click', function() {
                         var parentElement = this.parentNode.parentNode;
@@ -49,7 +49,7 @@ if (isset($_GET["error"])) {
                   </script>";
     } else if ($_GET["error"] == "lnone") {
         echo "<div class='login-wrapper hidden'>
-            <div class='box login'> <h2>Connexion réussi !</h2><ion-icon name='checkmark-circle' class='closebtn'></ion-icon></div></div>";
+            <div class='box login'> <h1>Connexion réussi !</h1><ion-icon name='checkmark-circle' class='closebtn'></ion-icon></div></div>";
         echo "<script>
                     document.querySelector('.closebtn').addEventListener('click', function() {
                         var parentElement = this.parentNode.parentNode;

@@ -662,13 +662,15 @@ footer>span {
 }
 
 .box h2 {
-  font-size: 2em;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  font-size: 1.3em;
   color: #162938;
   text-align: center;
 }
 
 .box h1 {
-  font-size: 1.5em;
+  font-size: 1.8em;
   color: #162938;
   text-align: center;
 }
