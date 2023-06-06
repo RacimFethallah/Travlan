@@ -564,7 +564,7 @@ footer>span {
   }
 }
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 600px) {
 
   #Options,
   .Authentification:nth-of-type(2),
