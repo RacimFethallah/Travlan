@@ -9,8 +9,8 @@ if (isset($_POST['confirmerd'])) {
     $nbp = $_POST["nbp"];
 
 
-    testt($conn, $dated, $dateret, $nbp);
+    Criteres($conn, $dated, $dateret, $nbp);
 } else {
-    header("location: ../index.php?error=searcherror");
+    //header("location: ../index.php?error=searcherror");
     exit();
 }
