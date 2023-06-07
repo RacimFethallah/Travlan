@@ -318,7 +318,7 @@ function fullSearch($conn, $searchQuery)
     }
 }
 
-function testt($conn, $dated, $dateret, $nbp)
+function Criteres($conn, $dated, $dateret, $nbp)
 {
     echo $dateret;
     echo $dated;
