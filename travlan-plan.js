@@ -222,6 +222,13 @@ if (location.href.indexOf('Travlan_plan') !== -1) {
         heb_hot_con.classList.remove('hide');
         heb_hot_con.className = 'appear';
     }
+  var confirmer=document.getElementById("Valider_c");
+  confirmer.addEventListener('submit',Validation);
+
+function Validation(){
+ console.log ("hello");
+}
+
 }
 
 
@@ -246,8 +253,6 @@ function retour_e_a(event){
                 heb_hot2_con.classList.remove('appear');
                 heb_hot2_con.className = 'hide';
 
-    }
-
-    
+    }   
     
 }

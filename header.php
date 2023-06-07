@@ -80,9 +80,9 @@ if (isset($_SESSION["username"])) {
         
         <ul id="Consultation_list">
             <form>
-                <li><input type="submit" id="Hebergement" value="Hebergement"></li>
-                <li><input type="submit" id="Restaurant" value="Restaurants"></li>
-                <li><input type="submit" id="Activites" value="Activités"></li>
+                <li><a href="search.php" id="Hebergement">Hebergement </a></li>
+                <li><a href="search.php" id="Restaurant">Restaurants </a></li>
+                <li><a href="search.php" id="Activites">Activités</a></li>
             </form>
         </ul>
 

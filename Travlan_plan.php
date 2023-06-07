@@ -8,10 +8,10 @@ include_once 'header.php';
 
 
 <div id="Infos">
-  <form action="includes/test.php" method="POST">
+  <form action="includes/test.php" method="POST" id="Valider_c">
     <span class="ico"><ion-icon name="earth-outline"></ion-icon></span>
     <label id="p1">Pays</label>
-    <select id="typeP">
+    <select id="typeP" name="pays">
       <option value="Japon">Japon</option>
       <option value="Bresil">Bresil</option>
       <option value="Tchequie">Tchequie</option>
@@ -40,7 +40,7 @@ include_once 'header.php';
   <div id="Bg_con">
     <form action="" method="POST">
       <label>Votre bugdet maximal</label>
-      <input type="range" min=500 max=3000 value=500 class="slider" id="Budget_general">
+      <input type="range" min=20000 max=1000000 value=500 class="slider" id="Budget_general">
       <input type="number" id="BG" value="500" class="valeur">
     </form>
   </div>
