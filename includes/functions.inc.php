@@ -332,7 +332,7 @@ function Criteres($conn, $dated, $dateret, $nbp, $pays)
 
 
 
-function saveprofile($conn, $nomutilisateur,$numtel,$rue,$ville,$pays, $codepostal){
+function saveprofile($conn, $nomutilisateur,$numtel,$rue,$ville,$pays, $codepostal,$id){
     $sql = "UPDATE users SET username = ?, numtel = ?, rue = ?, ville = ?, pays = ?, codepostal = ? WHERE id = ?";
 
     $stmt = mysqli_stmt_init($conn);
@@ -342,7 +342,7 @@ function saveprofile($conn, $nomutilisateur,$numtel,$rue,$ville,$pays, $codepost
     }
 
 
-    mysqli_stmt_bind_param($stmt, "sisssi", $nomutilisateur,$numtel,$rue,$ville,$pays, $codepostal);
+    mysqli_stmt_bind_param($stmt, "sisssii", $nomutilisateur,$numtel,$rue,$ville,$pays, $codepostal,$id);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../monprofile.php?error=no");
