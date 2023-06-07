@@ -11,7 +11,7 @@ include_once 'header.php';
   <form action="includes/test.php" method="POST" id="Valider_c">
     <span class="ico"><ion-icon name="earth-outline"></ion-icon></span>
     <label id="p1">Pays</label>
-    <select id="typeP">
+    <select id="typeP" name="pays">
       <option value="Japon">Japon</option>
       <option value="Bresil">Bresil</option>
       <option value="Tchequie">Tchequie</option>

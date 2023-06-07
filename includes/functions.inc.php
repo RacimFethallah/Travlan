@@ -318,13 +318,11 @@ function fullSearch($conn, $searchQuery)
     }
 }
 
-function Criteres($conn, $dated, $dateret, $nbp)
+function Criteres($conn, $dated, $dateret, $nbp, $pays)
 {
-    echo $dateret;
-    echo $dated;
-    $query = "INSERT INTO test(dated,dateret,nbp) VALUES('$dated','$dateret',$nbp);";
+    $query = "INSERT INTO activites (id_A) VALUES(1)";
 
     mysqli_query($conn, $query);
-    //header("location: ../index.php?error=nono");
+    header("location: ../travlan_conf.php");
     exit();
 }
