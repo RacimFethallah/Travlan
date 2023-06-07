@@ -668,6 +668,9 @@ footer>span {
   color: #162938;
   text-align: center;
 }
+.box p{
+  color: #162938;
+}
 
 .box h1 {
   font-size: 1.8em;
