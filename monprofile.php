@@ -158,6 +158,7 @@ include_once 'header.php';
 </head>
 
 <body>
+    <form action="includes/profile.inc.php" method="post">
     <div class="container">
         <div class="row gutters">
             <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -204,7 +205,7 @@ include_once 'header.php';
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
     <label for="eMail">Email</label>
-    <input type="email" class="form-control" id="eMail" placeholder="Entrez votre adresse mail" value="<?= $_SESSION["email"] ?? "" ?>">
+    <input type="email" class="form-control" id="eMail" placeholder="Entrez votre adresse mail" value="<?= $_SESSION["email"] ?? "" ?>" readonly>
 </div>
 
                             </div>
@@ -256,9 +257,9 @@ include_once 'header.php';
                             <div class="row gutters">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="text-right">
-                                        <button type="button" id="submit" name="submit"
+                                        <button type="button" id="rein" name="submit"
                                             class="btn btn-secondary">Réinitialiser</button>
-                                        <button type="button" id="submit" name="submit"
+                                        <button type="button" id="save" name="saveprofile"
                                             class="btn btn-primary">Enregistrer</button>
                                     </div>
                                 </div>
@@ -268,6 +269,7 @@ include_once 'header.php';
                 </div>
             </div>
         </div>
+        </form>
 
         <script>
             function changeProfileImage(event) {

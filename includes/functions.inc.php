@@ -328,3 +328,24 @@ function Criteres($conn, $dated, $dateret, $nbp, $pays)
     header("location: ../travlan_conf.php");
     exit();
 }
+
+
+
+
+function saveprofile($conn, $nomutilisateur,$numtel,$rue,$ville,$pays, $codepostal){
+    $sql = "UPDATE users SET username = ?, numtel = ?, rue = ?, ville = ?, pays = ?, codepostal = ? WHERE id = ?";
+
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../index.php?error=stmterror");
+        exit();
+    }
+
+
+    mysqli_stmt_bind_param($stmt, "sisssi", $nomutilisateur,$numtel,$rue,$ville,$pays, $codepostal);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../monprofile.php?error=no");
+    exit();
+
+}
