@@ -180,7 +180,7 @@ header {
   height: 30px;
   background-color: #fff;
   opacity: 0.5;
-  border: 1px solid #fff;
+  border: 1px solid ;
   color: #162938;
   font-size: 18px;
   outline: none;
@@ -564,7 +564,7 @@ footer>span {
   }
 }
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 600px) {
 
   #Options,
   .Authentification:nth-of-type(2),
@@ -662,13 +662,18 @@ footer>span {
 }
 
 .box h2 {
-  font-size: 2em;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  font-size: 1.3em;
   color: #162938;
   text-align: center;
 }
+.box p{
+  color: #162938;
+}
 
 .box h1 {
-  font-size: 1.5em;
+  font-size: 1.8em;
   color: #162938;
   text-align: center;
 }
@@ -1037,7 +1042,7 @@ footer>span {
 }
 
 .linki:hover {
-  color: rgb(255, 0, 64);
+  color: #0091ff;
   font-weight: 725;
   text-decoration: underline;
 }
@@ -1563,4 +1568,7 @@ input:checked+.sliderr:before {
   color: white;
 }
 
+#plane1 {
+  transform: rotateX(45deg);
+}
 
