@@ -220,6 +220,8 @@ function displaySearchResults(searchResults){
             const resultContent = document.createElement('div');
             const resultLink = document.createElement('a');
             const resultDescription = document.createElement('p');
+            const buttonDetails = document.createElement('button');
+            const buttonSave = document.createElement('button');
         
             resultItem.classList.add('result-item');
             resultImage.src = result.urlimg;
@@ -227,11 +229,27 @@ function displaySearchResults(searchResults){
             // resultLink.href = result.nom;
             resultLink.textContent = result.nom;
             resultDescription.textContent = result.description;
+
+
+            buttonDetails.classList.add('resultButtons');
+            buttonSave.classList.add('resultButtons');
+            buttonDetails.innerHTML = "Plus de détails";
+            buttonSave.innerHTML = "sauvegarder pour plus tard";
+
+
+
+
         
             resultContent.classList.add('result-content');
             resultContent.appendChild(resultLink);
             resultContent.appendChild(resultDescription);
-        
+            
+
+            resultItem.appendChild(buttonDetails);
+            resultItem.appendChild(buttonSave);
+
+
+
             resultItem.appendChild(resultImage);
             resultItem.appendChild(resultContent);
         
