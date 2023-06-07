@@ -401,6 +401,7 @@ footer>span {
 #hebergement,
 #Restaurant,
 #Activites {
+  text-decoration: none;
   position: absolute;
   background-color: transparent;
   outline: none;
@@ -408,9 +409,11 @@ footer>span {
   border-top: transparent;
   width: 150px;
   height: 40px;
-  top: 15px;
+  top: 22px;
   color: white;
   font-size: 20px;
+  display: flex;
+  align-items: center;
 }
 
 #hebergement:hover,
