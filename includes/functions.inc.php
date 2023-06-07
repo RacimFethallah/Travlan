@@ -320,8 +320,10 @@ function fullSearch($conn, $searchQuery)
 
 function Criteres($conn, $dated, $dateret, $nbp, $pays)
 {
-    $query = "INSERT INTO activites (id_A) VALUES(1)";
-
+    $query = "INSERT INTO activites (id_A) 
+    SELECT id
+        FROM destinations
+        WHERE type = 'pays' AND nom = '$pays'";
     mysqli_query($conn, $query);
     header("location: ../travlan_conf.php");
     exit();
