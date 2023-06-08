@@ -344,10 +344,15 @@ margin-left: 750px;
 
 
 #sort{
-    margin-left: 600px;
+    position: absolute;
+left: 960px;
 }
 
 #sort select{
     margin-left: 10px;
     width: 80px;
+}
+
+#resultnumber{
+    font-size: 20px;
 }

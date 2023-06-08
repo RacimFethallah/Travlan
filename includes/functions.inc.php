@@ -289,12 +289,15 @@ function fullSearch($conn, $searchQuery)
 
 
         $result = mysqli_query($conn, $query);
+        $numResults = $result->num_rows;
 
         if ($result->num_rows > 0) {
             $searchResults = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 $searchResults[] = $row;
             }
+            session_start();
+            $_SESSION['numResults'] = $numResults;
             header('Content-Type: application/json');
             echo json_encode($searchResults);
         } else {
@@ -353,12 +356,11 @@ function saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal,
     }
 
 
-    mysqli_stmt_bind_param($stmt, "ssssssss",$numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio);
+    mysqli_stmt_bind_param($stmt, "ssssssss", $numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../monprofile.php");
     exit();
-
 }
 function saveprofile2($conn, $nomutilisateur, $img)
 {
@@ -376,5 +378,4 @@ function saveprofile2($conn, $nomutilisateur, $img)
     mysqli_stmt_close($stmt);
     header("location: ../monprofile.php");
     exit();
-
 }

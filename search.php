@@ -16,26 +16,26 @@ include_once 'header.php';
             Hotel
         </label>
         <label>
-        <label class="filter">
-            <input type="checkbox" name="1-star" value="value2">
-            <img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
-        </label>
-        <label class="filter">
-            <input type="checkbox" name="2-star" value="value3">
-            <img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
-        </label>
-        <label class="filter">
-            <input type="checkbox" name="3-star" value="value4">
-            <img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
-        </label>
-        <label class="filter">
-            <input type="checkbox" name="4-star" value="value5">
-            <img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
-        </label>
-        <label class="filter">
-            <input type="checkbox" name="5-star" value="value6">
-            <img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
-        </label>
+            <label class="filter">
+                <input type="checkbox" name="1-star" value="value2">
+                <img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
+            </label>
+            <label class="filter">
+                <input type="checkbox" name="2-star" value="value3">
+                <img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
+            </label>
+            <label class="filter">
+                <input type="checkbox" name="3-star" value="value4">
+                <img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
+            </label>
+            <label class="filter">
+                <input type="checkbox" name="4-star" value="value5">
+                <img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
+            </label>
+            <label class="filter">
+                <input type="checkbox" name="5-star" value="value6">
+                <img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
+            </label>
         </label>
         <label class="filter">
             <input type="checkbox" name="Hebergement" value="value4">
@@ -62,7 +62,7 @@ include_once 'header.php';
             Bord de mer
         </label>
         <label class="filter">
-            <input type="checkbox" name="Picine" value="value10">
+            <input type="checkbox" name="Piscine" value="value10">
             Picine
         </label>
         <!-- Additional filters -->
@@ -76,20 +76,26 @@ include_once 'header.php';
 <div class="content-wrapper">
     <section id="sectionSearchPage1">
         <form action="search.php" method="POST" id="searchform">
-        <input type="text"  placeholder="Search" id="searchBarB">
-        <button type="submit" id="searchbtnB">Search</button>
+            <input type="text" placeholder="Search" id="searchBarB">
+            <button type="submit" id="searchbtnB">Search</button>
         </form>
     </section>
     <div id="resultsContainerB"></div>
 
 
     <section id="sectionSearchPage">
-    <h2>Results for <span id="resulttitle"></span> <span id="resultnumber"></span> <span id="sort">Trier par<select><option value="Nom">Nom</option><option value="Prix">Prix</option><option value="Note">Note</option></select></span></h2>
-    <ul class="search-results">
+        <h2>Results for <span id="resulttitle"></span> <?php $numResults = $_SESSION['numResults'] ?? 0;echo '<span id="resultnumber"> (' . $numResults . ')</span>';?>
+            <span id="sort">Trier par<select>
+                    <option value="Nom">Nom</option>
+                    <option value="Prix">Prix</option>
+                    <option value="Note">Note</option>
+                </select></span>
+        </h2>
+        <ul class="search-results">
 
-        <!-- Additional search results -->
-    </ul>
-</section>
+            <!-- Additional search results -->
+        </ul>
+    </section>
 
 </div>
 
