@@ -235,7 +235,7 @@ function displaySearchResults(searchResults){
             buttonDetails.classList.add('resultButtons');
             buttonSave.classList.add('resultButtons');
             buttonDetails.innerHTML = "Plus de détails";
-            buttonSave.innerHTML = "Sauvegarder pour plus tard";
+            buttonSave.innerHTML = "<ion-icon name='heart-outline'></ion-icon> Sauvegarder pour plus tard";
 
             buttonContent.classList.add('buttonContent');
             buttonContent.appendChild(buttonDetails);
