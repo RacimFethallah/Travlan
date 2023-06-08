@@ -78,6 +78,16 @@ function loginUser($conn, $email, $pwd)
         $_SESSION['logged_in'] = true;
         $_SESSION["username"] = $userExists["username"];
         $_SESSION["email"] = $userExists["email"];
+        $_SESSION["numtel"] = $userExists["numtel"];
+        $_SESSION["origine"] = $userExists["origine"];
+        $_SESSION["rue"] = $userExists["rue"];
+        $_SESSION["ville"] = $userExists["ville"];
+        $_SESSION["pays"] = $userExists["pays"];
+        $_SESSION["codepostal"] = $userExists["codepostal"];
+        $_SESSION["bio"] = $userExists["bio"];
+        $_SESSION["urlimg"] = $userExists["urlimg"];
+
+
 
         header("location: ../index.php?error=lnone");
         exit();
@@ -247,7 +257,7 @@ function search($conn, $searchTerm)
             $resultsArray[] = $row['resultat'];
         }
         // Encode the results as JSON and echo the response
-        echo  json_encode($resultsArray);
+        echo json_encode($resultsArray);
     } else {
         echo json_encode(["message" => "Aucun résultat trouvé."]);
     }
@@ -332,8 +342,9 @@ function Criteres($conn, $dated, $dateret, $nbp, $pays)
 
 
 
-function saveprofile($conn, $nomutilisateur,$numtel,$rue,$ville,$pays, $codepostal,$id){
-    $sql = "UPDATE users SET username = ?, numtel = ?, rue = ?, ville = ?, pays = ?, codepostal = ? WHERE id = ?";
+function saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio, $img)
+{
+    $sql = "UPDATE users SET  numtel = ?, origine = ?, rue = ?, ville = ?, pays = ?, codepostal = ?, bio = ? , urlimg = ? WHERE username = ?";
 
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -342,10 +353,10 @@ function saveprofile($conn, $nomutilisateur,$numtel,$rue,$ville,$pays, $codepost
     }
 
 
-    mysqli_stmt_bind_param($stmt, "sisssii", $nomutilisateur,$numtel,$rue,$ville,$pays, $codepostal,$id);
+    mysqli_stmt_bind_param($stmt, "sssssssss",$numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio, $img);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../monprofile.php?error=no");
+    header("location: ../monprofile.php");
     exit();
 
 }
