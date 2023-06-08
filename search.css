@@ -176,7 +176,7 @@ body.search main {
 }
 
 #resultsContainerB {
-    z-index: 1;
+    z-index: 1; 
     box-shadow: 0 0 50px rgba(0, 0, 0, .2);
     max-height: 300px;
     overflow-y: auto;

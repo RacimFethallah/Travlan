@@ -272,10 +272,14 @@ function displaySearchResults(searchResults) {
                 if (!buttonSave.classList.contains('saved')) {
                     buttonSave.innerHTML = "<ion-icon name='checkmark-done-outline'></ion-icon>";
                     buttonSave.classList.add('saved');
+                    buttonSave.style.background = "#006b5e";
+                    buttonSave.style.color = "#fff";
                 }
                 else {
                     buttonSave.innerHTML = "<ion-icon name='heart-outline'></ion-icon> Sauvegarder pour plus tard";
                     buttonSave.classList.remove('saved');
+                    buttonSave.style.background = "#f1f1f1";
+                    buttonSave.style.color = "#162938";
                 }
             };
             buttonDetails.onclick = function () {
