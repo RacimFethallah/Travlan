@@ -333,3 +333,10 @@ body.search main {
 margin-bottom: 0px;
 margin-left: 750px;
 }
+
+
+#one-star{
+    margin: 5px;
+    width : 25px; 
+    height : 25px;
+}
