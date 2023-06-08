@@ -283,7 +283,7 @@ body.search main {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    margin-top: 115px;
+    margin-top: 15px;
     border-top: 0.5px solid #888;
     padding-top: 10px;
     width: 100%;
@@ -325,4 +325,11 @@ body.search main {
 
 .resultButtons:nth-child(2):hover {
     color: #fff;
+}
+
+
+.spanPrice{
+    margin-top: 90px;
+margin-bottom: 0px;
+margin-left: 750px;
 }

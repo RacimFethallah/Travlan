@@ -214,6 +214,7 @@ function displaySearchResults(searchResults){
 
     if (Array.isArray(searchResults)) {
         searchResults.forEach(function(result) {
+            const spanPrice = document.createElement('span');
             const listItem = document.createElement('li');
             const resultItem = document.createElement('div');
             const resultImage = document.createElement('img');
@@ -242,12 +243,15 @@ function displaySearchResults(searchResults){
             buttonContent.appendChild(buttonSave);
 
 
-
-        
+            spanPrice.classList.add('spanPrice');
+            spanPrice.textContent = "€" + result.price;
             resultContent.classList.add('result-content');
+            
             resultContent.appendChild(resultLink);
             resultContent.appendChild(resultDescription);
+            resultContent.appendChild(spanPrice);
             resultContent.appendChild(buttonContent);
+            
             
             
 
