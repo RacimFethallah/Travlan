@@ -191,7 +191,7 @@ include_once 'header.php';
 </head>
 
 <body>
-    <form action="includes/profile.inc.php" method="post">
+    <form action="includes/profile.inc.php" enctype="multipart/form-data" method="post">
         <div class="container">
             <div class="row gutters">
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -208,6 +208,7 @@ include_once 'header.php';
                                     </div>
                                     <!-- <h5 class="user-name">Nom</h5> -->
                                     <?= $_SESSION["username"] ?? "" ? "<span id='nom'>Hi,<br>{$_SESSION["username"]}</span>" : "" ?>
+                                    <br><br>
 
                                     <!-- <h6 class="user-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
                                         data-cfemail="cdb4b8a6a48d80acb5baa8a1a1e3aea2a0">[email&#160;protected]</a>

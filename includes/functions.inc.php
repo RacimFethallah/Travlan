@@ -342,9 +342,9 @@ function Criteres($conn, $dated, $dateret, $nbp, $pays)
 
 
 
-function saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio, $img)
+function saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio)
 {
-    $sql = "UPDATE users SET  numtel = ?, origine = ?, rue = ?, ville = ?, pays = ?, codepostal = ?, bio = ? , urlimg = ? WHERE username = ?";
+    $sql = "UPDATE users SET  numtel = ?, origine = ?, rue = ?, ville = ?, pays = ?, codepostal = ?, bio = ?  WHERE username = ?";
 
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -353,7 +353,25 @@ function saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal,
     }
 
 
-    mysqli_stmt_bind_param($stmt, "sssssssss",$numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio, $img);
+    mysqli_stmt_bind_param($stmt, "ssssssss",$numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../monprofile.php");
+    exit();
+
+}
+function saveprofile2($conn, $nomutilisateur, $img)
+{
+    $sql = "UPDATE users SET  urlimg= ?  WHERE username = ?";
+
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../index.php?error=stmterror");
+        exit();
+    }
+
+
+    mysqli_stmt_bind_param($stmt, "ss", $nomutilisateur, $img);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../monprofile.php");

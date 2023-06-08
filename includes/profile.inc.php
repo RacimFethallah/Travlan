@@ -15,7 +15,7 @@ if (isset($_POST["saveprofile"])) {
     $ville = $_POST["ville"];
     $pays = $_POST["pays"];
     $codepostal = $_POST["codepostal"];
-    $img = $_POST["img"];
+    $img = $_FILES["img"];
 
 
 
@@ -23,5 +23,20 @@ if (isset($_POST["saveprofile"])) {
     require_once 'db.inc.php';
     require_once 'functions.inc.php';
 
-    saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio, $img);
+    saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio);
+}
+
+if (isset($_FILES["saveprofile"])) {
+
+
+    $nomutilisateur = $_POST["username"];
+    $img = $_FILES["img"];
+
+
+
+
+    require_once 'db.inc.php';
+    require_once 'functions.inc.php';
+
+    saveprofile2($conn,  $nomutilisateur, $img);
 }
