@@ -32,7 +32,7 @@ body.search main {
     flex: 0 0 250px;
     background: linear-gradient(to bottom, #fff, #e6f5ff);
     padding: 20px;
-    height: 500px;
+    height: 700px;
     margin-top: 85px;
     border-radius: 20px;
 }
@@ -272,4 +272,14 @@ body.search main {
 .noResult {
     font-size: 25px;
     margin-top: 50px;
+}
+
+#one-star{
+    margin: 5px;
+    width : 25px; 
+    height : 25px;
+}
+
+.filter{
+    padding: 1px;
 }
