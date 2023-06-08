@@ -101,21 +101,21 @@ function searchDestinations(searchTerm, resultContainer, bar, btn) {
 
 //fonction pour defiller les images
 function showImage(n) {
-  const images = document.getElementsByClassName('slider-image');
-  const buttons = document.getElementsByClassName('Bg-button');
-  const slides = document.querySelectorAll('.appear, .hide');
-  let bgInactiveColor = '#fff';
-  let bgActiveColor = 'rgb(2, 56, 126)';
+    const images = document.getElementsByClassName('slider-image');
+    const buttons = document.getElementsByClassName('Bg-button');
+    const slides = document.querySelectorAll('.appear, .hide');
+    let bgInactiveColor = '#fff';
+    let bgActiveColor = 'rgb(2, 56, 126)';
 
-  Array.prototype.forEach.call(images, (image, i) => {
-    image.classList.toggle('active', i === n - 1);
-    buttons[i].classList.toggle('active', i === n - 1);
-    slides[i].classList.toggle('appear', i === n - 1);
-    slides[i].classList.toggle('hide', i !== n - 1);
-    buttons[i].style.setProperty('--bg-color', i === n - 1 ? bgActiveColor : bgInactiveColor);
-  });
+    Array.prototype.forEach.call(images, (image, i) => {
+        image.classList.toggle('active', i === n - 1);
+        buttons[i].classList.toggle('active', i === n - 1);
+        slides[i].classList.toggle('appear', i === n - 1);
+        slides[i].classList.toggle('hide', i !== n - 1);
+        buttons[i].style.setProperty('--bg-color', i === n - 1 ? bgActiveColor : bgInactiveColor);
+    });
 
-  currentImageIndex = n;
+    currentImageIndex = n;
 }
 
 //fonction pour defiller les images
@@ -204,7 +204,7 @@ function usernameValidity(username) {
 
 
 
-function displaySearchResults(searchResults){
+function displaySearchResults(searchResults) {
     const searchResultsList = document.querySelector('#sectionSearchPage .search-results');
 
 
@@ -213,7 +213,7 @@ function displaySearchResults(searchResults){
 
 
     if (Array.isArray(searchResults)) {
-        searchResults.forEach(function(result) {
+        searchResults.forEach(function (result) {
             const spanPrice = document.createElement('span');
             const listItem = document.createElement('li');
             const resultItem = document.createElement('div');
@@ -224,7 +224,7 @@ function displaySearchResults(searchResults){
             const resultDescription = document.createElement('p');
             const buttonDetails = document.createElement('button');
             const buttonSave = document.createElement('button');
-        
+
             resultItem.classList.add('result-item');
             resultImage.src = result.urlimg;
             // resultImage.alt = result.nom;
@@ -235,13 +235,9 @@ function displaySearchResults(searchResults){
 
             buttonDetails.classList.add('resultButtons');
             buttonSave.classList.add('resultButtons');
-            buttonSave.onclick = function () {
-                buttonSave.innerHTML = "<ion-icon name='checkmark-done-outline'></ion-icon>";
-            }
+
             buttonDetails.innerHTML = "<ion-icon name='earth-outline'></ion-icon> Site web";
-            buttonDetails.onclick = function() {
-                window.open(result.url, '_blank');
-              };
+
             buttonSave.innerHTML = "<ion-icon name='heart-outline'></ion-icon> Sauvegarder pour plus tard";
 
             buttonContent.classList.add('buttonContent');
@@ -254,23 +250,32 @@ function displaySearchResults(searchResults){
             resultContent.classList.add('result-content');
 
 
-            
+
             resultContent.appendChild(resultLink);
             resultContent.appendChild(resultDescription);
             resultContent.appendChild(spanPrice);
             resultContent.appendChild(buttonContent);
-            
-            
-            
+
+
+
 
 
             resultItem.appendChild(resultImage);
             resultItem.appendChild(resultContent);
-        
+
             listItem.appendChild(resultItem);
             searchResultsList.appendChild(listItem);
-          });
-    }else {
+
+
+
+            buttonSave.onclick = function () {
+                buttonSave.innerHTML = "<ion-icon name='checkmark-done-outline'></ion-icon>";
+            };
+            buttonDetails.onclick = function () {
+                window.open(result.url, '_blank');
+            };
+        });
+    } else {
         const NolistItem = document.createElement('li');
         const NoresultDescription = document.createElement('p');
         NoresultDescription.textContent = "No results found.";
@@ -278,6 +283,6 @@ function displaySearchResults(searchResults){
         NolistItem.appendChild(NoresultDescription);
         searchResultsList.appendChild(NolistItem);
     }
-    
+
 
 }
