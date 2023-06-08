@@ -166,8 +166,7 @@ background:#eee;
 <li><br></li>
 <li>
 <div class="btn-group-vertical btn-block">
-<a href class="btn btn-default"><i class="fa fa-cog pull-right"></i>Edit Account</a>
-<a href class="btn btn-default"><i class="fa fa-sign-out pull-right"></i>Logout</a>
+<a href="monprofile.php" target="" class="btn btn-default" id="profile"><i class="fa fa-cog pull-right"></i>Edit Account</a>
 </div>
 </li>
 </ul>
@@ -175,7 +174,7 @@ background:#eee;
 </div>
 </div>
 <div class="panel panel-theme rounded shadow">
-<div class="panel-heading">
+<!-- <div class="panel-heading">
 <div class="pull-left">
 <h3 class="panel-title">Contact</h3>
 </div>
@@ -185,14 +184,14 @@ background:#eee;
 <a href="#" class="btn btn-sm btn-success"><i class="fa fa-google-plus"></i></a>
 </div>
 <div class="clearfix"></div>
-</div>
-<div class="panel-body no-padding rounded">
+</div> -->
+<!-- <div class="panel-body no-padding rounded">
 <ul class="list-group no-margin">
 <li class="list-group-item"><i class="fa fa-envelope mr-5"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4f3c3a3f3f203d3b0f2d20203b2b2a36612c2022">[email&#160;protected]</a></li>
 <li class="list-group-item"><i class="fa fa-globe mr-5"></i> www.bootdey.com</li>
 <li class="list-group-item"><i class="fa fa-phone mr-5"></i> +6281 903 xxx xxx</li>
 </ul>
-</div>
+</div> -->
 </div>
 </div>
 <div class="col-lg-9 col-md-9 col-sm-8">
@@ -208,7 +207,7 @@ background:#eee;
 <li class="active"><a href="#"><i class="fa fa-fw fa-clock-o"></i> <span>Timeline</span></a></li>
 <li><a href="#"><i class="fa fa-fw fa-user"></i> <span>About</span></a></li>
 <li><a href="#"><i class="fa fa-fw fa-photo"></i> <span>Photos</span> <small>(98)</small></a></li>
-<li><a href="#"><i class="fa fa-fw fa-users"></i><span> Friends </span><small>(23)</small></a></li>
+<!-- <li><a href="#"><i class="fa fa-fw fa-users"></i><span> Friends </span><small>(23)</small></a></li> -->
 <li><a href="#"><i class="fa fa-fw fa-envelope"></i> <span>Messages</span> <small>(7 new)</small></a></li>
 </ul>
 </div>
@@ -218,7 +217,7 @@ background:#eee;
 <li class="active"><a href="#"><i class="fa fa-fw fa-clock-o"></i> <span>Timeline</span></a></li>
 <li><a href="#"><i class="fa fa-fw fa-user"></i> <span>About</span></a></li>
 <li><a href="#"><i class="fa fa-fw fa-photo"></i> <span>Photos</span> <small>(98)</small></a></li>
-<li><a href="#"><i class="fa fa-fw fa-users"></i><span> Friends </span><small>(23)</small></a></li>
+<!-- <li><a href="#"><i class="fa fa-fw fa-users"></i><span> Friends </span><small>(23)</small></a></li> -->
 </ul>
 </div>
 </div>
