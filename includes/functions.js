@@ -235,7 +235,10 @@ function displaySearchResults(searchResults){
 
             buttonDetails.classList.add('resultButtons');
             buttonSave.classList.add('resultButtons');
-            buttonDetails.innerHTML = "Plus de détails";
+            buttonDetails.innerHTML = "<ion-icon name='earth-outline'></ion-icon> Site web";
+            buttonDetails.onclick = function() {
+                window.open(result.url, '_blank');
+              };
             buttonSave.innerHTML = "<ion-icon name='heart-outline'></ion-icon> Sauvegarder pour plus tard";
 
             buttonContent.classList.add('buttonContent');
@@ -247,7 +250,7 @@ function displaySearchResults(searchResults){
             spanPrice.textContent = "€" + result.price;
             resultContent.classList.add('result-content');
 
-            
+
             
             resultContent.appendChild(resultLink);
             resultContent.appendChild(resultDescription);

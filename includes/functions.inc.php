@@ -277,7 +277,7 @@ function fullSearch($conn, $searchQuery)
         $firstPart = trim($queryParts[0]);
         $pluralForm = rtrim($firstPart, "s");
 
-        $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg
+        $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
           FROM hotels AS h
           LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
           LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
