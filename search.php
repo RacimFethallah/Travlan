@@ -84,7 +84,7 @@ include_once 'header.php';
 
 
     <section id="sectionSearchPage">
-    <h2>Results for <span id="resulttitle"></span> <span id="resultnumber"></span></h2>
+    <h2>Results for <span id="resulttitle"></span> <span id="resultnumber"></span> <span id="sort">Trier<select><option value="Nom">Nom</option><option value="Prix">Prix</option><option value="Note">Note</option></select></span></h2>
     <ul class="search-results">
 
         <!-- Additional search results -->
