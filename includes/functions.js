@@ -218,6 +218,7 @@ function displaySearchResults(searchResults){
             const resultItem = document.createElement('div');
             const resultImage = document.createElement('img');
             const resultContent = document.createElement('div');
+            const buttonContent = document.createElement('div');
             const resultLink = document.createElement('a');
             const resultDescription = document.createElement('p');
             const buttonDetails = document.createElement('button');
@@ -234,8 +235,11 @@ function displaySearchResults(searchResults){
             buttonDetails.classList.add('resultButtons');
             buttonSave.classList.add('resultButtons');
             buttonDetails.innerHTML = "Plus de détails";
-            buttonSave.innerHTML = "sauvegarder pour plus tard";
+            buttonSave.innerHTML = "Sauvegarder pour plus tard";
 
+            buttonContent.classList.add('buttonContent');
+            buttonContent.appendChild(buttonDetails);
+            buttonContent.appendChild(buttonSave);
 
 
 
@@ -243,11 +247,9 @@ function displaySearchResults(searchResults){
             resultContent.classList.add('result-content');
             resultContent.appendChild(resultLink);
             resultContent.appendChild(resultDescription);
+            resultContent.appendChild(buttonContent);
             
-
-            resultItem.appendChild(buttonDetails);
-            resultItem.appendChild(buttonSave);
-
+            
 
 
             resultItem.appendChild(resultImage);

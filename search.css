@@ -3,7 +3,7 @@ body.search {
     margin: 0;
     padding: 0;
     overflow: auto;
-    background-image:  linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 254, 254, 0.2)), url('Pics/Background/R.jpg');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 254, 254, 0.2)), url('Pics/Background/R.jpg');
     background-attachment: fixed;
 }
 
@@ -14,7 +14,7 @@ body.search {
 body.search main {
     display: flex;
     overflow: hidden;
-    background-image:  linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 254, 254, 0.2)), url('Pics/Background/R.jpg');
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 254, 254, 0.2)), url('Pics/Background/R.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 
@@ -222,15 +222,7 @@ body.search main {
     padding: 0;
 }
 
-.result-item {
-    background-color: #f9f9f9;
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    min-height: 250px;
-    margin-top: 30px;
-}
+
 
 .result-item img {
     width: 250px;
@@ -240,10 +232,7 @@ body.search main {
     border-radius: 20px 0 0 20px;
 }
 
-.result-content {
-    display: flex;
-    flex-direction: column;
-}
+
 
 .result-content a {
     font-size: 18px;
@@ -274,9 +263,34 @@ body.search main {
     margin-top: 50px;
 }
 
+.result-item {
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    min-height: 250px;
+    margin-top: 30px;
+}
+
+.result-content {
+    display: flex;
+    flex-direction: column;
+}
 
 
+.buttonContent {
+    display: flex;
+flex-direction: row;
+align-items: flex-start;
+margin-top: 130px;
+border-top: 0.5px solid #888;
+padding-top: 10px;
+width: 100%;
+}
 
-.resultButtons{
-    
+.resultButtons {
+    margin-right: 30px;
+width: 395px;
+height: 30px;
 }
