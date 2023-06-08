@@ -235,6 +235,9 @@ function displaySearchResults(searchResults){
 
             buttonDetails.classList.add('resultButtons');
             buttonSave.classList.add('resultButtons');
+            buttonSave.onclick = function () {
+                buttonSave.innerHTML = "<ion-icon name='checkmark-done-outline'></ion-icon>";
+            }
             buttonDetails.innerHTML = "<ion-icon name='earth-outline'></ion-icon> Site web";
             buttonDetails.onclick = function() {
                 window.open(result.url, '_blank');
