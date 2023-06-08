@@ -214,6 +214,7 @@ function displaySearchResults(searchResults){
 
     if (Array.isArray(searchResults)) {
         searchResults.forEach(function(result) {
+            const spanPrice = document.createElement('span');
             const listItem = document.createElement('li');
             const resultItem = document.createElement('div');
             const resultImage = document.createElement('img');
@@ -234,20 +235,31 @@ function displaySearchResults(searchResults){
 
             buttonDetails.classList.add('resultButtons');
             buttonSave.classList.add('resultButtons');
-            buttonDetails.innerHTML = "Plus de détails";
-            buttonSave.innerHTML = "Sauvegarder pour plus tard";
+            buttonSave.onclick = function () {
+                buttonSave.innerHTML = "<ion-icon name='checkmark-done-outline'></ion-icon>";
+            }
+            buttonDetails.innerHTML = "<ion-icon name='earth-outline'></ion-icon> Site web";
+            buttonDetails.onclick = function() {
+                window.open(result.url, '_blank');
+              };
+            buttonSave.innerHTML = "<ion-icon name='heart-outline'></ion-icon> Sauvegarder pour plus tard";
 
             buttonContent.classList.add('buttonContent');
             buttonContent.appendChild(buttonDetails);
             buttonContent.appendChild(buttonSave);
 
 
-
-        
+            spanPrice.classList.add('spanPrice');
+            spanPrice.textContent = "€" + result.price;
             resultContent.classList.add('result-content');
+
+
+            
             resultContent.appendChild(resultLink);
             resultContent.appendChild(resultDescription);
+            resultContent.appendChild(spanPrice);
             resultContent.appendChild(buttonContent);
+            
             
             
 

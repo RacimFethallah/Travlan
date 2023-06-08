@@ -11,13 +11,59 @@ include_once 'header.php';
     </h2>
     <form action="filter.php" method="GET" id="filterForm">
         <!-- Filter options, checkboxes, dropdowns, etc. -->
-        <label>
-            <input type="checkbox" name="filter1" value="value1">
-            Filtre1
+        <label class="filter">
+            <input type="checkbox" name="Hotel" value="value1">
+            Hotel
         </label>
         <label>
-            <input type="checkbox" name="filter2" value="value2">
-            Filter 2
+        <label class="filter">
+            <input type="checkbox" name="1-star" value="value2">
+            <img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
+        </label>
+        <label class="filter">
+            <input type="checkbox" name="2-star" value="value3">
+            <img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
+        </label>
+        <label class="filter">
+            <input type="checkbox" name="3-star" value="value4">
+            <img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
+        </label>
+        <label class="filter">
+            <input type="checkbox" name="4-star" value="value5">
+            <img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
+        </label>
+        <label class="filter">
+            <input type="checkbox" name="5-star" value="value6">
+            <img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star"><img  src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">
+        </label>
+        </label>
+        <label class="filter">
+            <input type="checkbox" name="Hebergement" value="value4">
+            Hebergement
+        </label>
+        <label class="filter">
+            <input type="checkbox" name="All inclusive" value="value5">
+            All inclusive
+        </label>
+        <label class="filter">
+            <input type="checkbox" name="Pension Complete" value="value6">
+            Pension Complete
+        </label>
+        <label class="filter">
+            <input type="checkbox" name="Demi-Pension" value="value7">
+            Demi-Pension
+        </label>
+        <label class="filter">
+            <input type="checkbox" name="Petit-Dejeuner" value="value8">
+            Petit-Dejeuner
+        </label>
+        <label class="filter">
+            <input type="checkbox" name="Bord-de-mer" value="value9">
+            Bord de mer
+        </label>
+        <label class="filter">
+            <input type="checkbox" name="Picine" value="value10">
+            Picine
         </label>
         <!-- Additional filters -->
 
@@ -38,7 +84,7 @@ include_once 'header.php';
 
 
     <section id="sectionSearchPage">
-    <h2>Results for <span id="resulttitle"></span> <span id="resultnumber"></span></h2>
+    <h2>Results for <span id="resulttitle"></span> <span id="resultnumber"></span> <span id="sort">Trier<select><option value="Nom">Nom</option><option value="Prix">Prix</option><option value="Note">Note</option></select></span></h2>
     <ul class="search-results">
 
         <!-- Additional search results -->
