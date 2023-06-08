@@ -269,7 +269,6 @@ body.search main {
     height : 25px;
 }
 
-<<<<<<< HEAD
 .result-content {
     display: flex;
     flex-direction: column;
@@ -329,8 +328,4 @@ body.search main {
     margin-top: 90px;
 margin-bottom: 0px;
 margin-left: 750px;
-=======
-.filter{
-    padding: 1px;
->>>>>>> 0ab86c52f72592214be4ccfa66b8539a3c8743a3
 }
