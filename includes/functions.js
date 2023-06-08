@@ -218,8 +218,11 @@ function displaySearchResults(searchResults){
             const resultItem = document.createElement('div');
             const resultImage = document.createElement('img');
             const resultContent = document.createElement('div');
+            const buttonContent = document.createElement('div');
             const resultLink = document.createElement('a');
             const resultDescription = document.createElement('p');
+            const buttonDetails = document.createElement('button');
+            const buttonSave = document.createElement('button');
         
             resultItem.classList.add('result-item');
             resultImage.src = result.urlimg;
@@ -227,11 +230,28 @@ function displaySearchResults(searchResults){
             // resultLink.href = result.nom;
             resultLink.textContent = result.nom;
             resultDescription.textContent = result.description;
+
+
+            buttonDetails.classList.add('resultButtons');
+            buttonSave.classList.add('resultButtons');
+            buttonDetails.innerHTML = "Plus de détails";
+            buttonSave.innerHTML = "<ion-icon name='heart-outline'></ion-icon> Sauvegarder pour plus tard";
+
+            buttonContent.classList.add('buttonContent');
+            buttonContent.appendChild(buttonDetails);
+            buttonContent.appendChild(buttonSave);
+
+
+
         
             resultContent.classList.add('result-content');
             resultContent.appendChild(resultLink);
             resultContent.appendChild(resultDescription);
-        
+            resultContent.appendChild(buttonContent);
+            
+            
+
+
             resultItem.appendChild(resultImage);
             resultItem.appendChild(resultContent);
         
