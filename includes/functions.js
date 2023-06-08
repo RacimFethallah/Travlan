@@ -269,7 +269,14 @@ function displaySearchResults(searchResults) {
 
 
             buttonSave.onclick = function () {
-                buttonSave.innerHTML = "<ion-icon name='checkmark-done-outline'></ion-icon>";
+                if (!buttonSave.classList.contains('saved')) {
+                    buttonSave.innerHTML = "<ion-icon name='checkmark-done-outline'></ion-icon>";
+                    buttonSave.classList.add('saved');
+                }
+                else {
+                    buttonSave.innerHTML = "<ion-icon name='heart-outline'></ion-icon> Sauvegarder pour plus tard";
+                    buttonSave.classList.remove('saved');
+                }
             };
             buttonDetails.onclick = function () {
                 window.open(result.url, '_blank');
