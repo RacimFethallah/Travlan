@@ -32,7 +32,7 @@ body.search main {
     flex: 0 0 250px;
     background: linear-gradient(to bottom, #fff, #e6f5ff);
     padding: 20px;
-    height: 700px;
+    height: 500px;
     margin-top: 85px;
     border-radius: 20px;
 }
@@ -263,10 +263,14 @@ body.search main {
     margin-top: 50px;
 }
 
-#one-star{
-    margin: 5px;
-    width : 25px; 
-    height : 25px;
+.result-item {
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    min-height: 250px;
+    margin-top: 30px;
 }
 
 .result-content {
