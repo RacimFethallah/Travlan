@@ -62,6 +62,36 @@ if (location.href.indexOf('search') !== -1) {
     });
 
 
+    sortOptions.addEventListener('change', () => {
+        const sortBy = sortOptions.value;
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const searchQuery = urlParams.get('search');
+        fetch('includes/search.inc.php', {
+            method: 'POST',
+            body: new URLSearchParams({
+                searchQuery: searchQuery,
+                sortBy: sortBy
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                const numResults = data.numResults;
+                const searchResults = data.searchResults;
+
+                // Update the <span> element with the number of results
+                const resultNumberSpan = document.getElementById('resultnumber');
+                resultNumberSpan.textContent = '(' + numResults + ')';
+
+                // Call a function to display the search results
+                displaySearchResults(searchResults);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    })
+
+
 
 
 

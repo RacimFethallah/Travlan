@@ -22,7 +22,7 @@ const resultsContainer = document.getElementById('resultsContainer');
 const searchBar = document.getElementById('searchBar');
 const storedPassword = getCookie('rememberedPassword');
 const searchformS = document.getElementById('searchFormS');
-
+const sortOptions = document.querySelector('#sortOptions');
 
 
 
@@ -175,7 +175,7 @@ function passwordValidity(input) {
     if (input.value.length < minLength) {
         input.setCustomValidity(`Le mot de passe doit contenir au moins ${minLength} caractères`);
     } else if (!pattern.test(input.value)) {
-        input.setCustomValidity("Le mot de passe doit contenir au moins une lettre et un chiffre");
+        input.setCustomValidity("Le mot de passe doit contenir au moins une majuscule, une minuscule et un chiffre");
     } else {
         input.setCustomValidity("");
     }
@@ -218,6 +218,7 @@ function displaySearchResults(searchResults) {
             const spanPrice = document.createElement('span');
             const listItem = document.createElement('li');
             const resultItem = document.createElement('div');
+            const divImg = document.createElement('div');
             const resultImage = document.createElement('img');
             const resultContent = document.createElement('div');
             const buttonContent = document.createElement('div');
@@ -225,6 +226,65 @@ function displaySearchResults(searchResults) {
             const resultDescription = document.createElement('p');
             const buttonDetails = document.createElement('button');
             const buttonSave = document.createElement('button');
+            const buttonComment = document.createElement('button');
+
+
+
+
+
+
+
+
+            const commentSection = document.createElement('div');
+            const hiddenInput = document.createElement('input');
+
+            const commentForm = document.createElement('form');
+            commentForm.method = "post";
+            if (window.location.href.indexOf('h%C3%B4tels') !== -1) {
+                commentForm.action = "includes/comment.inc.php?hôtels";
+                hiddenInput.className = "commentInput";
+                hiddenInput.type = "hidden";
+                hiddenInput.name = "hotelName";
+                hiddenInput.value = result.nom;
+            } else if (window.location.href.indexOf('restaurants')) {
+                commentForm.action = "includes/comment.inc.php?restaurants";
+                hiddenInput.className = "commentInput";
+                hiddenInput.type = "hidden";
+                hiddenInput.name = "restaurantName";
+                hiddenInput.value = result.nom;
+            }
+
+
+            const commentInput = document.createElement('input');
+            commentInput.className = "commentInput";
+            commentInput.placeholder = "Veuiller saisir un commentaire";
+            commentInput.type = "text";
+            commentInput.name = "comment";
+            const addComment = document.createElement('button');
+            addComment.type = "submit";
+            addComment.name = "addComment";
+            addComment.className = "addComment";
+            addComment.innerHTML = "<ion-icon name='send-outline'></ion-icon>";
+            commentSection.appendChild(commentForm);
+            commentForm.appendChild(commentInput);
+            commentForm.appendChild(hiddenInput);
+            commentForm.appendChild(addComment);
+
+            commentForm.addEventListener('submit', (event) => {
+                if (sessionStorage.getItem('logged_in') !== 'true') {
+                    alert('Vous devez être connecté pour publier un avis.');
+                    if (wrapper.classList.contains('hidden') === false) {
+                        wrapper.classList.add('hidden');
+                    }
+                    event.preventDefault();
+                    return; // Stop form submission
+                }
+            });
+
+
+
+            commentSection.className = "comments";
+
 
             resultItem.classList.add('result-item');
             resultImage.src = result.urlimg;
@@ -234,40 +294,54 @@ function displaySearchResults(searchResults) {
 
             buttonDetails.classList.add('resultButtons');
             buttonSave.classList.add('resultButtons');
+            buttonComment.classList.add('resultButtons');
+            buttonComment.id = "fetchResultsButton";
 
             buttonDetails.innerHTML = "<ion-icon name='earth-outline'></ion-icon> Site web";
 
             buttonSave.innerHTML = "<ion-icon name='heart-outline'></ion-icon> Sauvegarder pour plus tard";
+            buttonComment.innerHTML = "<ion-icon name='create-outline'></ion-icon>";
 
             buttonContent.classList.add('buttonContent');
             buttonContent.appendChild(buttonDetails);
             buttonContent.appendChild(buttonSave);
+            buttonContent.appendChild(buttonComment);
 
 
             spanPrice.classList.add('spanPrice');
-            spanPrice.textContent = "€" + result.price;
+            if (window.location.href.indexOf('h%C3%B4tels') !== -1) {
+                spanPrice.textContent = "€" + result.price;
+            }
+            
             resultContent.classList.add('result-content');
 
 
 
             resultContent.appendChild(resultLink);
             resultContent.appendChild(resultDescription);
+            
             resultContent.appendChild(spanPrice);
             resultContent.appendChild(buttonContent);
 
 
-
-
-
-            resultItem.appendChild(resultImage);
+            divImg.appendChild(resultImage);
+            resultItem.appendChild(divImg);
             resultItem.appendChild(resultContent);
+            resultItem.appendChild(commentSection);
 
             listItem.appendChild(resultItem);
             searchResultsList.appendChild(listItem);
 
 
-
+            //Bouton poour sauvegarder pour plus tard
             buttonSave.onclick = function () {
+                if (sessionStorage.getItem('logged_in') !== 'true') {
+                    alert('Vous devez être connecté pour enregistrer.');
+                    if (wrapper.classList.contains('hidden') === false) {
+                        wrapper.classList.add('hidden');
+                    }
+                    return; // Stop form submission
+                }
                 if (!buttonSave.classList.contains('saved')) {
                     buttonSave.innerHTML = "<ion-icon name='checkmark-done-outline'></ion-icon>";
                     buttonSave.classList.add('saved');
@@ -281,9 +355,89 @@ function displaySearchResults(searchResults) {
                     buttonSave.style.color = "#162938";
                 }
             };
+
+            // Bouton pour ouvrire site web 
             buttonDetails.onclick = function () {
                 window.open(result.url, '_blank');
             };
+
+
+            // Boutton pour les avis
+            buttonComment.onclick = function () {
+                if (!buttonComment.classList.contains('opened')) {
+                    buttonComment.innerHTML = "<ion-icon name='close-outline'></ion-icon>";
+                    buttonComment.classList.add('opened');
+                    buttonComment.style.background = "#006b5e";
+                    buttonComment.style.color = "#fff";
+                    commentSection.style.display = "block";
+
+                    
+                    
+                    const ul = document.createElement('ul');
+                    ul.className = "commentUl";
+                    commentSection.appendChild(ul);
+
+
+                    let selectedHotel;
+                    let selectedRestaurant;
+                    let requestBody;
+                    let fetchUrl;
+
+                    if (window.location.href.indexOf('h%C3%B4tels') !== -1) {
+                        selectedHotel = result.nom;
+                        fetchUrl = "includes/comment.inc.php?hôtels";
+                        requestBody = new URLSearchParams({
+                            commentQuery: selectedHotel
+                        });
+                    } else if (window.location.href.indexOf('restaurants') !== -1) {
+                        selectedRestaurant = result.nom;
+                        fetchUrl = "includes/comment.inc.php?restaurants";
+                        requestBody = new URLSearchParams({
+                            commentQuery: selectedRestaurant
+                        });
+                    }
+                    fetch(fetchUrl, {
+                        method: 'POST',
+                        body: requestBody
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            data.forEach(comment => {
+                                // Create a new comment element
+                                const li = document.createElement('li');
+                                li.className = "commentLi";
+                                const spanText = document.createElement('span');
+                                spanText.className = "commentText";
+                                const spanUser = document.createElement('span');
+                                spanUser.className = "userComment";
+                                const spanDate = document.createElement('span');
+                                spanDate.className = "commentDate";
+                                spanUser.className = "userComment";
+                                spanDate.textContent = comment.Date_a;
+                                spanUser.textContent = comment.username;
+                                spanText.textContent = comment.texte;
+                                li.appendChild(spanUser);
+                                li.appendChild(spanDate);
+                                li.appendChild(spanText);
+                                ul.appendChild(li);
+                            });
+                        })
+                        .catch(error => {
+                            console.log('An error occurred:', error);
+                        });
+                }
+                else {
+                    buttonComment.innerHTML = "<ion-icon name='create-outline'></ion-icon>";
+                    buttonComment.classList.remove('opened');
+                    buttonComment.style.background = "#f1f1f1";
+                    buttonComment.style.color = "#162938";
+                    commentSection.style.display = "none";
+                    const ul = commentSection.querySelector('ul');
+                    if (ul) {
+                        ul.parentNode.removeChild(ul);
+                    }
+                }
+            }
         });
     } else {
         const NolistItem = document.createElement('li');

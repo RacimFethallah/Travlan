@@ -23,6 +23,7 @@ if (/^http:\/\/localhost\/travlan\/(#|index\.php)?$/.test(window.location.href))
 
 document.addEventListener('DOMContentLoaded', () => {
     if (window.location.href.indexOf('search.php') !== -1) {
+        const sortBy = sortOptions.value;
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
 
@@ -36,7 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch('includes/search.inc.php', {
             method: 'POST',
             body: new URLSearchParams({
-                searchQuery: searchQuery
+                searchQuery: searchQuery,
+                sortBy: sortBy
             })
         })
             .then(response => response.json())

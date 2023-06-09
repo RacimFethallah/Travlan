@@ -16,10 +16,11 @@ if (isset($_POST['searchTerm'])) {
 
 
     $searchQuery = $_POST['searchQuery'];
+    $sortby = $_POST['sortBy'];
 
 
 
-    fullSearch($conn, $searchQuery);
+    fullSearch($conn, $searchQuery, $sortby);
 
 }
 else {

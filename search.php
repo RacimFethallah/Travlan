@@ -85,9 +85,11 @@ include_once 'header.php';
 
     <section id="sectionSearchPage">
         <h2>Results for <span id="resulttitle"></span> <span id="resultnumber"></span>
-            <span id="sort">Trier par<select>
-                    <option value="Nom">Nom</option>
-                    <option value="Prix">Prix</option>
+            <span id="sort">Trier par<select id="sortOptions">
+                    <option value="Nom A-Z">Nom A-Z</option>
+                    <option value="Nom Z-A">Nom Z-A</option>
+                    <option value="Prix asc">Prix asc</option>
+                    <option value="Prix desc">Prix desc</option>
                     <option value="Note">Note</option>
                 </select></span>
         </h2>
