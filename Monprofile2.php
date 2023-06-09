@@ -1,3 +1,7 @@
+<?php
+include_once 'header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -259,3 +263,25 @@
 </body>
 
 </html>
+
+
+<?php
+include_once 'login.php';
+?>
+
+<?php
+include_once 'register.php';
+?>
+
+<?php
+include_once 'passwordReset.php';
+?>
+
+<?php
+include_once 'includes/errors.php';
+?>
+
+
+<?php
+include_once 'footer.php';
+?>

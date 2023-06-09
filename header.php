@@ -66,7 +66,7 @@ if (isset($_SESSION["username"])) {
                     ?>
                 </span>
                 <ul id="DP">
-                    <li> <span class="usermenubtn 1"><ion-icon name="person-outline"></ion-icon></span><a href="Monprofile2.php" target=""> Mon Profil </a> </li>
+                    <li> <span class="usermenubtn 1"><ion-icon name="person-outline"></ion-icon></span><a href="monprofile.php" target=""> Mon Profil </a> </li>
                     <li> <span class="usermenubtn 2"><ion-icon name="settings-outline"></ion-icon></span><a href="index.php?id=1021"> Changer mot de passe</a> </li>
                     <li> <span  class="usermenubtn 3"><ion-icon name="information-circle-outline"></ion-icon></span><a id="help" href="#"> Aide et confidentialité</a> </li>
                     <li> <span class="usermenubtn 4"><ion-icon name="log-out-outline"></ion-icon></span><a href="includes/logout.inc.php"> Se deconnecter </a></li>
