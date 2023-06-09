@@ -225,6 +225,33 @@ function displaySearchResults(searchResults) {
             const resultDescription = document.createElement('p');
             const buttonDetails = document.createElement('button');
             const buttonSave = document.createElement('button');
+            const buttonComment = document.createElement('button');
+            
+            
+
+
+
+
+
+            const commentSection = document.createElement('div');
+            const commentForm = document.createElement('form');
+            commentForm.method = "post";
+            commentForm.action = "includes/comment.inc.php";
+            const commentInput = document.createElement('input');
+            commentInput.className = "commentInput";
+            commentInput.placeholder = "Veuiller saisir un commentaire";
+            commentInput.type = "text";
+            commentInput.name = "comment";
+            const addComment = document.createElement('button');
+            addComment.type = "submit";
+            addComment.className = "addComment";
+            addComment.innerHTML = "<ion-icon name='send-outline'></ion-icon>";
+            commentSection.appendChild(commentForm);
+            commentForm.appendChild(commentInput);
+            commentForm.appendChild(addComment);
+
+            commentSection.className = "comments";
+
 
             resultItem.classList.add('result-item');
             resultImage.src = result.urlimg;
@@ -234,14 +261,17 @@ function displaySearchResults(searchResults) {
 
             buttonDetails.classList.add('resultButtons');
             buttonSave.classList.add('resultButtons');
+            buttonComment.classList.add('resultButtons');
 
             buttonDetails.innerHTML = "<ion-icon name='earth-outline'></ion-icon> Site web";
 
             buttonSave.innerHTML = "<ion-icon name='heart-outline'></ion-icon> Sauvegarder pour plus tard";
+            buttonComment.innerHTML = "<ion-icon name='create-outline'></ion-icon>";
 
             buttonContent.classList.add('buttonContent');
             buttonContent.appendChild(buttonDetails);
             buttonContent.appendChild(buttonSave);
+            buttonContent.appendChild(buttonComment);
 
 
             spanPrice.classList.add('spanPrice');
@@ -254,19 +284,20 @@ function displaySearchResults(searchResults) {
             resultContent.appendChild(resultDescription);
             resultContent.appendChild(spanPrice);
             resultContent.appendChild(buttonContent);
-
+            resultContent.appendChild(commentSection);
 
 
 
 
             resultItem.appendChild(resultImage);
             resultItem.appendChild(resultContent);
+            
 
             listItem.appendChild(resultItem);
             searchResultsList.appendChild(listItem);
 
 
-
+            //Bouton poour sauvegarder pour plus tard
             buttonSave.onclick = function () {
                 if (!buttonSave.classList.contains('saved')) {
                     buttonSave.innerHTML = "<ion-icon name='checkmark-done-outline'></ion-icon>";
@@ -281,9 +312,30 @@ function displaySearchResults(searchResults) {
                     buttonSave.style.color = "#162938";
                 }
             };
+
+            // Bouton pour ouvrire site web 
             buttonDetails.onclick = function () {
                 window.open(result.url, '_blank');
             };
+
+
+            // Boutton pour les avis
+            buttonComment.onclick = function () {
+                if (!buttonComment.classList.contains('opened')) {
+                    buttonComment.innerHTML = "<ion-icon name='close-outline'></ion-icon>";
+                    buttonComment.classList.add('opened');
+                    buttonComment.style.background = "#006b5e";
+                    buttonComment.style.color = "#fff";
+                    commentSection.style.display = "block";
+                }
+                else {
+                    buttonComment.innerHTML = "<ion-icon name='create-outline'></ion-icon>";
+                    buttonComment.classList.remove('opened');
+                    buttonComment.style.background = "#f1f1f1";
+                    buttonComment.style.color = "#162938";
+                    commentSection.style.display = "none";
+                }
+            }
         });
     } else {
         const NolistItem = document.createElement('li');
