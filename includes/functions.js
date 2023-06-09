@@ -228,8 +228,6 @@ function displaySearchResults(searchResults) {
 
             resultItem.classList.add('result-item');
             resultImage.src = result.urlimg;
-            // resultImage.alt = result.nom;
-            // resultLink.href = result.nom;
             resultLink.textContent = result.nom;
             resultDescription.textContent = result.description;
 
