@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-
+require_once 'db.inc.php';
+require_once 'functions.inc.php';
 if(isset($_POST["addComment"])){
 
 
@@ -10,8 +11,7 @@ if(isset($_POST["addComment"])){
     $idusr = $_SESSION["idUser"];
 
 
-    require_once 'db.inc.php';
-    require_once 'functions.inc.php';
+    
 
 
     
@@ -21,8 +21,9 @@ if(isset($_POST["addComment"])){
     header("location: $originalPage");
 
 
-}else if (isset($_POST['searchQuery'])) {
-    $hotelName = $_POST['searchQuery'];
+}else if (isset($_POST['commentQuery'])) {
+    
+    $hotelName = $_POST['commentQuery'];
 
 
     displayComments($conn, $hotelName);

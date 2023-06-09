@@ -339,26 +339,32 @@ function displaySearchResults(searchResults) {
                     buttonComment.style.background = "#006b5e";
                     buttonComment.style.color = "#fff";
                     commentSection.style.display = "block";
-                    const selectedHotel = "Hôtel La Réserve Paris";
+                    const selectedHotel = result.nom;
+                    const ul = document.createElement('ul');
+                    ul.className = "commentUl";
+                    commentSection.appendChild(ul);
                     fetch('includes/comment.inc.php', {
                         method: 'POST',
                         body: new URLSearchParams({
-                            searchQuery: selectedHotel
+                            commentQuery: selectedHotel
                         })
                     })
                         .then(response => response.json())
                         .then(data => {
                             data.forEach(comment => {
                                 // Create a new comment element
-                                const ul = document.createElement('ul');
                                 const li = document.createElement('li');
-                                const span = document.createElement('span');
-                                span.textContent = comment.texte;
-                                li.appendChild(span);
+                                li.className = "commentLi";
+                                const spanText = document.createElement('span');
+                                spanText.className = "commentText";
+                                const spanUser = document.createElement('span');
+                                spanUser.className = "userComment";
+                                spanUser.textContent = comment.username;
+                                spanText.textContent = comment.texte;
+                                li.appendChild(spanUser);
+                                li.appendChild(spanText);
                                 ul.appendChild(li);
-                                commentSection.appendChild(ul);
-                               
-                              });
+                            });
                         })
                         .catch(error => {
                             console.log('An error occurred:', error);
@@ -370,6 +376,10 @@ function displaySearchResults(searchResults) {
                     buttonComment.style.background = "#f1f1f1";
                     buttonComment.style.color = "#162938";
                     commentSection.style.display = "none";
+                    const ul = commentSection.querySelector('ul');
+                    if (ul) {
+                        ul.parentNode.removeChild(ul);
+                    }
                 }
             }
         });

@@ -376,6 +376,7 @@ body.search main {
 
 
 .comments{
+    border-radius: 12px;
     margin-top: 20px;
     border: 1px solid #ccc;
     padding: 10px;
@@ -396,4 +397,33 @@ height: 25px;
 height: 25px;
 background: #006b5e;
 color: white;
+}
+
+
+.commentLi{
+    margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 12px;
+background: #f1f1f1;
+}
+
+.commentUl{
+    margin-top: 20px;
+    list-style-type: none;
+  padding: 0;
+}
+
+
+.commentText{
+    display: block;
+  color: black;
+}
+
+
+.userComment{
+    margin-bottom: 5px;
+    display: block;
+  font-weight: bold;
+  color: #162938;
 }

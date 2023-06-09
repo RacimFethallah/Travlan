@@ -462,9 +462,10 @@ function displayComments($conn, $hotelName){
        
         
        
-        $sql = "SELECT a.texte
+        $sql = "SELECT a.texte, u.username
          FROM avis AS a
          LEFT JOIN hotels AS h ON h.id = a.idhotel
+         LEFT JOIN users as u ON a.idusr = u.id
          WHERE h.nom = '$hotelName'";
         $result = mysqli_query($conn, $sql);
 
@@ -474,11 +475,8 @@ function displayComments($conn, $hotelName){
             while ($row = mysqli_fetch_assoc($result)) {
                 $commentResult[] = $row;
             }
-
             header('Content-Type: application/json');
             echo json_encode($commentResult);
-        } else {
-            echo json_encode(["message" => "Aucun résultat trouvé."]);
         }
 
 }
