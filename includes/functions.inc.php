@@ -76,7 +76,7 @@ function loginUser($conn, $email, $pwd)
     } else if ($checkpwd === true) {
         session_start();
         $_SESSION['logged_in'] = true;
-        $_SESSION["id"] = $userExists["id"];
+        $_SESSION["idUser"] = $userExists["id"];
         $_SESSION["username"] = $userExists["username"];
         $_SESSION["email"] = $userExists["email"];
         $_SESSION["numtel"] = $userExists["numtel"];
@@ -428,4 +428,57 @@ function saveprofile2($conn, $nomutilisateur, $img)
     mysqli_stmt_close($stmt);
     header("location: ../monprofile.php");
     exit();
+}
+
+
+
+
+function postComment($conn, $idusr, $comment, $hotel)
+{
+    $url = $_SERVER['REQUEST_URI'];
+    $decodedQueryString = urldecode($url);
+
+
+
+    if (strpos($decodedQueryString, "hôtels") !== false) {
+
+
+        $findhotel = "SELECT id FROM hotels WHERE nom = '$hotel'";
+        $result = mysqli_query($conn, $findhotel);
+        $row = mysqli_fetch_assoc($result);
+        $idhotel = $row['id'];
+        $sql = "INSERT INTO avis(texte,Date_a, idusr,idhotel) VALUES('$comment',NOW(),$idusr, $idhotel)";
+        mysqli_query($conn, $sql);
+    } else {
+        echo "The URL does not contain the word 'hotel'.";
+    }
+}
+
+
+
+
+function displayComments($conn, $hotelName){
+
+       
+        
+       
+        $sql = "SELECT a.texte
+         FROM avis AS a
+         LEFT JOIN hotels AS h ON h.id = a.idhotel
+         WHERE h.nom = '$hotelName'";
+        $result = mysqli_query($conn, $sql);
+
+        
+        if ($result->num_rows > 0) {
+            $commentResult = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $commentResult[] = $row;
+            }
+
+            header('Content-Type: application/json');
+            echo json_encode($commentResult);
+        } else {
+            echo json_encode(["message" => "Aucun résultat trouvé."]);
+        }
+
 }

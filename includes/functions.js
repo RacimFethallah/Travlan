@@ -226,8 +226,9 @@ function displaySearchResults(searchResults) {
             const buttonDetails = document.createElement('button');
             const buttonSave = document.createElement('button');
             const buttonComment = document.createElement('button');
-            
-            
+
+
+
 
 
 
@@ -236,7 +237,15 @@ function displaySearchResults(searchResults) {
             const commentSection = document.createElement('div');
             const commentForm = document.createElement('form');
             commentForm.method = "post";
-            commentForm.action = "includes/comment.inc.php";
+            if (window.location.href.indexOf('h%C3%B4tels') !== -1) {
+                commentForm.action = "includes/comment.inc.php?hôtels";
+            }
+
+            const hiddenInput = document.createElement('input');
+            hiddenInput.className = "commentInput";
+            hiddenInput.type = "hidden";
+            hiddenInput.name = "hotelName";
+            hiddenInput.value = result.nom;
             const commentInput = document.createElement('input');
             commentInput.className = "commentInput";
             commentInput.placeholder = "Veuiller saisir un commentaire";
@@ -244,10 +253,12 @@ function displaySearchResults(searchResults) {
             commentInput.name = "comment";
             const addComment = document.createElement('button');
             addComment.type = "submit";
+            addComment.name = "addComment";
             addComment.className = "addComment";
             addComment.innerHTML = "<ion-icon name='send-outline'></ion-icon>";
             commentSection.appendChild(commentForm);
             commentForm.appendChild(commentInput);
+            commentForm.appendChild(hiddenInput);
             commentForm.appendChild(addComment);
 
             commentSection.className = "comments";
@@ -262,6 +273,7 @@ function displaySearchResults(searchResults) {
             buttonDetails.classList.add('resultButtons');
             buttonSave.classList.add('resultButtons');
             buttonComment.classList.add('resultButtons');
+            buttonComment.id = "fetchResultsButton";
 
             buttonDetails.innerHTML = "<ion-icon name='earth-outline'></ion-icon> Site web";
 
@@ -291,7 +303,7 @@ function displaySearchResults(searchResults) {
 
             resultItem.appendChild(resultImage);
             resultItem.appendChild(resultContent);
-            
+
 
             listItem.appendChild(resultItem);
             searchResultsList.appendChild(listItem);
@@ -327,6 +339,30 @@ function displaySearchResults(searchResults) {
                     buttonComment.style.background = "#006b5e";
                     buttonComment.style.color = "#fff";
                     commentSection.style.display = "block";
+                    const selectedHotel = "Hôtel La Réserve Paris";
+                    fetch('includes/comment.inc.php', {
+                        method: 'POST',
+                        body: new URLSearchParams({
+                            searchQuery: selectedHotel
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            data.forEach(comment => {
+                                // Create a new comment element
+                                const ul = document.createElement('ul');
+                                const li = document.createElement('li');
+                                const span = document.createElement('span');
+                                span.textContent = comment.texte;
+                                li.appendChild(span);
+                                ul.appendChild(li);
+                                commentSection.appendChild(ul);
+                               
+                              });
+                        })
+                        .catch(error => {
+                            console.log('An error occurred:', error);
+                        });
                 }
                 else {
                     buttonComment.innerHTML = "<ion-icon name='create-outline'></ion-icon>";
