@@ -175,7 +175,7 @@ function passwordValidity(input) {
     if (input.value.length < minLength) {
         input.setCustomValidity(`Le mot de passe doit contenir au moins ${minLength} caractères`);
     } else if (!pattern.test(input.value)) {
-        input.setCustomValidity("Le mot de passe doit contenir au moins une lettre et un chiffre");
+        input.setCustomValidity("Le mot de passe doit contenir au moins une majuscule, une minuscule et un chiffre");
     } else {
         input.setCustomValidity("");
     }
