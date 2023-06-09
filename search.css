@@ -377,24 +377,27 @@ body.search main {
 
 .comments{
     border-radius: 12px;
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    display: none;
+margin-top: 270px;
+border: 1px solid #ccc;
+padding: 10px;
+display: none;
+margin-left: -1074px;
+width: 1077px;
+margin-bottom: 10px;
 }
 .commentInput{
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 755px;
+    width: 1025px;
 margin-right: 10px;
-height: 25px;
+height: 35px;
 }
 .addComment{
     border: 1px solid #006b5e;
     border-radius: 5px;
     cursor: pointer;
-    width: 25px;
-height: 25px;
+    width: 35px;
+height: 35px;
 background: #006b5e;
 color: white;
 }
@@ -409,9 +412,11 @@ background: #f1f1f1;
 }
 
 .commentUl{
-    margin-top: 20px;
+    margin-top: 15px;
     list-style-type: none;
   padding: 0;
+  overflow-y: auto;
+max-height: 300px;
 }
 
 

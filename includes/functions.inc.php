@@ -447,7 +447,7 @@ function postComment($conn, $idusr, $comment, $hotel)
         $result = mysqli_query($conn, $findhotel);
         $row = mysqli_fetch_assoc($result);
         $idhotel = $row['id'];
-        $sql = "INSERT INTO avis(texte,Date_a, idusr,idhotel) VALUES('$comment',NOW(),$idusr, $idhotel)";
+        $sql = "INSERT INTO avis(texte, Date_a, idusr, idhotel) VALUES(\"$comment\", NOW(), $idusr, $idhotel)";
         mysqli_query($conn, $sql);
     } else {
         echo "The URL does not contain the word 'hotel'.";

@@ -218,6 +218,7 @@ function displaySearchResults(searchResults) {
             const spanPrice = document.createElement('span');
             const listItem = document.createElement('li');
             const resultItem = document.createElement('div');
+            const divImg = document.createElement('div');
             const resultImage = document.createElement('img');
             const resultContent = document.createElement('div');
             const buttonContent = document.createElement('div');
@@ -235,6 +236,7 @@ function displaySearchResults(searchResults) {
 
 
             const commentSection = document.createElement('div');
+            
             const commentForm = document.createElement('form');
             commentForm.method = "post";
             if (window.location.href.indexOf('h%C3%B4tels') !== -1) {
@@ -260,6 +262,19 @@ function displaySearchResults(searchResults) {
             commentForm.appendChild(commentInput);
             commentForm.appendChild(hiddenInput);
             commentForm.appendChild(addComment);
+
+            commentForm.addEventListener('submit', (event)=>{
+                if (sessionStorage.getItem('logged_in') !== 'true') {
+                    alert('Vous devez être connecté pour publier un avis.');
+                    if (wrapper.classList.contains('hidden') === false) {
+                        wrapper.classList.add('hidden');
+                    }
+                    event.preventDefault();
+                    return; // Stop form submission
+                  }
+            });
+
+
 
             commentSection.className = "comments";
 
@@ -296,14 +311,12 @@ function displaySearchResults(searchResults) {
             resultContent.appendChild(resultDescription);
             resultContent.appendChild(spanPrice);
             resultContent.appendChild(buttonContent);
-            resultContent.appendChild(commentSection);
 
 
-
-
-            resultItem.appendChild(resultImage);
+            divImg.appendChild(resultImage);
+            resultItem.appendChild(divImg);
             resultItem.appendChild(resultContent);
-
+            resultItem.appendChild(commentSection);
 
             listItem.appendChild(resultItem);
             searchResultsList.appendChild(listItem);
@@ -311,6 +324,13 @@ function displaySearchResults(searchResults) {
 
             //Bouton poour sauvegarder pour plus tard
             buttonSave.onclick = function () {
+                if (sessionStorage.getItem('logged_in') !== 'true') {
+                    alert('Vous devez être connecté pour enregistrer.');
+                    if (wrapper.classList.contains('hidden') === false) {
+                        wrapper.classList.add('hidden');
+                    }
+                    return; // Stop form submission
+                  }
                 if (!buttonSave.classList.contains('saved')) {
                     buttonSave.innerHTML = "<ion-icon name='checkmark-done-outline'></ion-icon>";
                     buttonSave.classList.add('saved');
