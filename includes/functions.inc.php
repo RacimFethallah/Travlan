@@ -76,6 +76,7 @@ function loginUser($conn, $email, $pwd)
     } else if ($checkpwd === true) {
         session_start();
         $_SESSION['logged_in'] = true;
+        $_SESSION["id"] = $userExists["id"];
         $_SESSION["username"] = $userExists["username"];
         $_SESSION["email"] = $userExists["email"];
         $_SESSION["numtel"] = $userExists["numtel"];
