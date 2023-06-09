@@ -22,7 +22,7 @@ const resultsContainer = document.getElementById('resultsContainer');
 const searchBar = document.getElementById('searchBar');
 const storedPassword = getCookie('rememberedPassword');
 const searchformS = document.getElementById('searchFormS');
-
+const sortOptions = document.querySelector('#sortOptions');
 
 
 

@@ -266,7 +266,7 @@ function search($conn, $searchTerm)
 
 
 
-function fullSearch($conn, $searchQuery)
+function fullSearch($conn, $searchQuery, $sortby)
 {
 
     $searchQuery = mysqli_real_escape_string($conn, $searchQuery);
@@ -278,15 +278,75 @@ function fullSearch($conn, $searchQuery)
         $firstPart = trim($queryParts[0]);
         $pluralForm = rtrim($firstPart, "s");
 
-        $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
-          FROM hotels AS h
-          LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
-          LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
-          WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-          OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-          OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-          OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
-          ORDER BY h.nom";
+        switch ($sortby) {
+            case 'Nom A-Z':
+                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
+                    FROM hotels AS h
+                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+                    ORDER BY h.nom ASC";
+                break;
+            case 'Nom Z-A':
+                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
+                    FROM hotels AS h
+                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+                    ORDER BY h.nom DESC";
+                break;
+            case 'Prix asc':
+                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
+                    FROM hotels AS h
+                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+                    ORDER BY h.price ASC";
+                break;
+            case 'Prix desc':
+                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
+                    FROM hotels AS h
+                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+                    ORDER BY h.price DESC";
+                break;
+            case 'Note':
+                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
+                    FROM hotels AS h
+                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+                    ORDER BY h.rating DESC";
+                break;
+            default:
+                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
+                    FROM hotels AS h
+                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+                    ORDER BY h.nom";
+                break;
+        }
+
 
         $result = mysqli_query($conn, $query);
         $numResults = mysqli_num_rows($result);
@@ -433,7 +493,7 @@ function saveprofile2($conn, $nomutilisateur, $img)
 
 
 
-function postComment($conn, $idusr, $comment, $hotel,$restaurant)
+function postComment($conn, $idusr, $comment, $hotel, $restaurant)
 {
     $url = $_SERVER['REQUEST_URI'];
     $decodedQueryString = urldecode($url);
@@ -462,26 +522,26 @@ function postComment($conn, $idusr, $comment, $hotel,$restaurant)
 
 
 
-function displayComments($conn, $hotelName){
+function displayComments($conn, $hotelName)
+{
 
-       
-        
-       
-        $sql = "SELECT a.texte, u.username
+
+
+
+    $sql = "SELECT a.texte, u.username
          FROM avis AS a
          LEFT JOIN hotels AS h ON h.id = a.idhotel
          LEFT JOIN users as u ON a.idusr = u.id
          WHERE h.nom = '$hotelName'";
-        $result = mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql);
 
-        
-        if ($result->num_rows > 0) {
-            $commentResult = array();
-            while ($row = mysqli_fetch_assoc($result)) {
-                $commentResult[] = $row;
-            }
-            header('Content-Type: application/json');
-            echo json_encode($commentResult);
+
+    if ($result->num_rows > 0) {
+        $commentResult = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $commentResult[] = $row;
         }
-
+        header('Content-Type: application/json');
+        echo json_encode($commentResult);
+    }
 }
