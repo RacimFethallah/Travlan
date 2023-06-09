@@ -331,17 +331,17 @@ function fullSearch($conn, $searchQuery)
     }
 }
 
-function Criteres($conn, $dated, $dateret, $nbp, $pays)
-{
-    $query = "INSERT INTO activites (id_A) 
-    SELECT id
-        FROM destinations
-        WHERE type = 'pays' AND nom = '$pays'";
+function   Criteres($conn, $dated, $dateret, $nbp , $pays, $croisiere,$peche,$parc_att,$cinema,$Randonnée,$Plongée,$touriste,$soirée,$Aquarium,
+$Ateliers)
+{ 
+    $query = "INSERT INTO reserver_a (numero,id_A) 
+    SELECT id,numero
+        FROM destinations,activites
+        WHERE destinations.type = 'pays' AND nom = '$pays' and activites.id_A=destinations.id; ";
     mysqli_query($conn, $query);
     header("location: ../travlan_conf.php");
     exit();
 }
-
 
 
 
