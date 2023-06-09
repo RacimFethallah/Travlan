@@ -528,7 +528,7 @@ function displayComments($conn, $hotelName)
 
 
 
-    $sql = "SELECT a.texte, u.username
+    $sql = "SELECT a.texte, u.username, a.Date_a
          FROM avis AS a
          LEFT JOIN hotels AS h ON h.id = a.idhotel
          LEFT JOIN users as u ON a.idusr = u.id

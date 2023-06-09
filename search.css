@@ -432,3 +432,9 @@ max-height: 300px;
   font-weight: bold;
   color: #162938;
 }
+
+
+.commentDate{
+    float: right;
+margin-top: -25px;
+}

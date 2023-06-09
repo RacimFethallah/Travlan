@@ -386,9 +386,14 @@ function displaySearchResults(searchResults) {
                                 spanText.className = "commentText";
                                 const spanUser = document.createElement('span');
                                 spanUser.className = "userComment";
+                                const spanDate = document.createElement('span');
+                                spanDate.className = "commentDate";
+                                spanUser.className = "userComment";
+                                spanDate.textContent = comment.Date_a;
                                 spanUser.textContent = comment.username;
                                 spanText.textContent = comment.texte;
                                 li.appendChild(spanUser);
+                                li.appendChild(spanDate);
                                 li.appendChild(spanText);
                                 ul.appendChild(li);
                             });
