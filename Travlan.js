@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const searchQuery = urlParams.get('search');
 
-
         if (searchQuery.trim() === '') {
             return; // Exit the function without making the AJAX request
         }
@@ -42,19 +41,22 @@ document.addEventListener('DOMContentLoaded', () => {
         })
             .then(response => response.json())
             .then(data => {
+                const numResults = data.numResults;
+                const searchResults = data.searchResults;
+
+                // Update the <span> element with the number of results
+                const resultNumberSpan = document.getElementById('resultnumber');
+                resultNumberSpan.textContent = '(' + numResults + ')';
+
                 // Call a function to display the search results
-                // window.location.href = `search.php?search=${encodeURIComponent(searchQuery)}`;
-
-
-                displaySearchResults(data);
-
-
+                displaySearchResults(searchResults);
             })
             .catch(error => {
                 console.error('Error:', error);
             });
     }
 });
+
 
 
 // vider le resultcontainer quand on clique ailleur

@@ -287,17 +287,52 @@ function fullSearch($conn, $searchQuery)
           OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
           ORDER BY h.nom";
 
-
         $result = mysqli_query($conn, $query);
-        $numResults = $result->num_rows;
+        $numResults = mysqli_num_rows($result);
 
         if ($result->num_rows > 0) {
             $searchResults = array();
             while ($row = mysqli_fetch_assoc($result)) {
                 $searchResults[] = $row;
             }
-            session_start();
-            $_SESSION['numResults'] = $numResults;
+            header('Content-Type: application/json');
+            echo json_encode([
+                'numResults' => $numResults,
+                'searchResults' => $searchResults
+            ]);
+        } else {
+            echo json_encode([
+                'numResults' => $numResults,
+                'message' => 'Aucun résultat trouvé.'
+            ]);
+        }
+    } else if (strpos($searchQuery, 'restaurants') !== false || strpos($searchQuery, 'restaurant') !== false) {
+        $queryParts = preg_split("/[, ]+/", $searchQuery);
+        // Get the first part of the search query
+        $firstPart = trim($queryParts[0]);
+        $pluralForm = rtrim($firstPart, "s");
+
+        $query = "SELECT r.nom_R, r.etoiles
+          FROM restaurants AS r
+          LEFT JOIN destinations AS d ON (r.destination_id = d.id) 
+          LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+          WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+          OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+          OR r.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+          OR r.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+          ORDER BY r.nom";
+
+
+
+        $result = mysqli_query($conn, $query);
+
+
+        if ($result->num_rows > 0) {
+            $searchResults = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $searchResults[] = $row;
+            }
+
             header('Content-Type: application/json');
             echo json_encode($searchResults);
         } else {
@@ -331,9 +366,23 @@ function fullSearch($conn, $searchQuery)
     }
 }
 
-function   Criteres($conn, $dated, $dateret, $nbp , $pays, $croisiere,$peche,$parc_att,$cinema,$Randonnée,$Plongée,$touriste,$soirée,$Aquarium,
-$Ateliers)
-{ 
+function   Criteres(
+    $conn,
+    $dated,
+    $dateret,
+    $nbp,
+    $pays,
+    $croisiere,
+    $peche,
+    $parc_att,
+    $cinema,
+    $Randonnée,
+    $Plongée,
+    $touriste,
+    $soirée,
+    $Aquarium,
+    $Ateliers
+) {
     $query = "INSERT INTO reserver_a (numero,id_A) 
     SELECT id,numero
         FROM destinations,activites

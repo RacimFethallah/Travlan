@@ -247,7 +247,7 @@ function displaySearchResults(searchResults) {
 
 
             spanPrice.classList.add('spanPrice');
-            spanPrice.textContent = "€" + result.nbr;
+            spanPrice.textContent = "€" + result.price;
             resultContent.classList.add('result-content');
 
 

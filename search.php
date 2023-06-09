@@ -84,7 +84,7 @@ include_once 'header.php';
 
 
     <section id="sectionSearchPage">
-        <h2>Results for <span id="resulttitle"></span> <?php $numResults = $_SESSION['numResults'] ?? 0;echo '<span id="resultnumber"> (' . $numResults . ')</span>';?>
+        <h2>Results for <span id="resulttitle"></span> <span id="resultnumber"></span>
             <span id="sort">Trier par<select>
                     <option value="Nom">Nom</option>
                     <option value="Prix">Prix</option>
