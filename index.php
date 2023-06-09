@@ -2,7 +2,8 @@
 include_once 'header.php';
 ?>
 
-
+<div class="scroll-container"> 
+    <div class="scroll-page">
 <div class="slider-container">
     <div id="image1" class="slider-image"></div>
     <div id="image2" class="slider-image"></div>
@@ -183,17 +184,34 @@ include_once 'header.php';
 </div>
 
 
+</div>
 <a href="#" onclick="checkSession(event)">
     <input type="submit" value="Planifiez votre voyage !" id="Planifier">
 </a>
 
 <div id="ContactInfo" >
-  <a href="javascript:void(0);" onclick="window.open('https://www.instagram.com/tra.vlan/', '_blank')" id="Instagram"  > <img id="InstagramPic" src = "Pics/UI/Instagram.png"> </a>
+  <a href="#" id="Instagram"  > <img id="InstagramPic" src = "Pics/UI/Instagram.png"> </a>
   <a href="mailto:travlan.webmaster@gmail.com" id="Email" ><img id="EmailPic" src = "Pics/UI/Gmail.png"></a>
   <a href="#" id="Facebook" ><img id="FacebookPic" src = "Pics/UI/Facebook.png"></a>
   <a href="#" id="Twitter" ><img id="TwitterPic" src = "Pics/UI/Twitter.png"></a>
 </div>
 
+<div id="Aide" class="scroll-page"> 
+    <div id="Aide1"> 
+    <img width="64" height="64" src="https://img.icons8.com/wired/64/floating-island-beach.png" alt="floating-island-beach"/>
+        <h1> QUI SOMMES NOUS ? <h1>
+        <p> we're bitches <p>  
+    </div> 
+    <div id="Aide2"> 
+        <h1> QUI SOMMES NOUS ? <h1>
+        <p> we're bitches <p>  
+    </div>      
+    <div id="Aide4"> 
+        <h1> QUI SOMMES NOUS ? <h1>
+        <p> we're bitches <p>  
+    </div> 
+</div> 
+</div>
 
 <?php
 include_once 'login.php';
