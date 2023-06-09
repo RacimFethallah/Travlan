@@ -247,7 +247,7 @@ function displaySearchResults(searchResults) {
                 hiddenInput.name = "hotelName";
                 hiddenInput.value = result.nom;
             } else if (window.location.href.indexOf('restaurants')) {
-                commentForm.action = "includes/comment.inc.php?restaurants";              
+                commentForm.action = "includes/comment.inc.php?restaurants";
                 hiddenInput.className = "commentInput";
                 hiddenInput.type = "hidden";
                 hiddenInput.name = "restaurantName";
@@ -309,13 +309,17 @@ function displaySearchResults(searchResults) {
 
 
             spanPrice.classList.add('spanPrice');
-            spanPrice.textContent = "€" + result.price;
+            if (window.location.href.indexOf('h%C3%B4tels') !== -1) {
+                spanPrice.textContent = "€" + result.price;
+            }
+            
             resultContent.classList.add('result-content');
 
 
 
             resultContent.appendChild(resultLink);
             resultContent.appendChild(resultDescription);
+            
             resultContent.appendChild(spanPrice);
             resultContent.appendChild(buttonContent);
 
@@ -366,15 +370,35 @@ function displaySearchResults(searchResults) {
                     buttonComment.style.background = "#006b5e";
                     buttonComment.style.color = "#fff";
                     commentSection.style.display = "block";
-                    const selectedHotel = result.nom;
+
+                    
+                    
                     const ul = document.createElement('ul');
                     ul.className = "commentUl";
                     commentSection.appendChild(ul);
-                    fetch('includes/comment.inc.php', {
-                        method: 'POST',
-                        body: new URLSearchParams({
+
+
+                    let selectedHotel;
+                    let selectedRestaurant;
+                    let requestBody;
+                    let fetchUrl;
+
+                    if (window.location.href.indexOf('h%C3%B4tels') !== -1) {
+                        selectedHotel = result.nom;
+                        fetchUrl = "includes/comment.inc.php?hôtels";
+                        requestBody = new URLSearchParams({
                             commentQuery: selectedHotel
-                        })
+                        });
+                    } else if (window.location.href.indexOf('restaurants') !== -1) {
+                        selectedRestaurant = result.nom;
+                        fetchUrl = "includes/comment.inc.php?restaurants";
+                        requestBody = new URLSearchParams({
+                            commentQuery: selectedRestaurant
+                        });
+                    }
+                    fetch(fetchUrl, {
+                        method: 'POST',
+                        body: requestBody
                     })
                         .then(response => response.json())
                         .then(data => {

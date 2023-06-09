@@ -23,10 +23,8 @@ if(isset($_POST["addComment"])){
 
 }else if (isset($_POST['commentQuery'])) {
     
-    $hotelName = $_POST['commentQuery'];
-
-
-    displayComments($conn, $hotelName);
+    $commentQuery = $_POST['commentQuery'];
+        displayComments($conn, $commentQuery);
 }
 else{
     header("location: ../index.php");
