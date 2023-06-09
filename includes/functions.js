@@ -236,18 +236,25 @@ function displaySearchResults(searchResults) {
 
 
             const commentSection = document.createElement('div');
-            
+            const hiddenInput = document.createElement('input');
+
             const commentForm = document.createElement('form');
             commentForm.method = "post";
             if (window.location.href.indexOf('h%C3%B4tels') !== -1) {
                 commentForm.action = "includes/comment.inc.php?hôtels";
+                hiddenInput.className = "commentInput";
+                hiddenInput.type = "hidden";
+                hiddenInput.name = "hotelName";
+                hiddenInput.value = result.nom;
+            } else if (window.location.href.indexOf('restaurants')) {
+                commentForm.action = "includes/comment.inc.php?restaurants";              
+                hiddenInput.className = "commentInput";
+                hiddenInput.type = "hidden";
+                hiddenInput.name = "restaurantName";
+                hiddenInput.value = result.nom;
             }
 
-            const hiddenInput = document.createElement('input');
-            hiddenInput.className = "commentInput";
-            hiddenInput.type = "hidden";
-            hiddenInput.name = "hotelName";
-            hiddenInput.value = result.nom;
+
             const commentInput = document.createElement('input');
             commentInput.className = "commentInput";
             commentInput.placeholder = "Veuiller saisir un commentaire";
@@ -263,7 +270,7 @@ function displaySearchResults(searchResults) {
             commentForm.appendChild(hiddenInput);
             commentForm.appendChild(addComment);
 
-            commentForm.addEventListener('submit', (event)=>{
+            commentForm.addEventListener('submit', (event) => {
                 if (sessionStorage.getItem('logged_in') !== 'true') {
                     alert('Vous devez être connecté pour publier un avis.');
                     if (wrapper.classList.contains('hidden') === false) {
@@ -271,7 +278,7 @@ function displaySearchResults(searchResults) {
                     }
                     event.preventDefault();
                     return; // Stop form submission
-                  }
+                }
             });
 
 
@@ -330,7 +337,7 @@ function displaySearchResults(searchResults) {
                         wrapper.classList.add('hidden');
                     }
                     return; // Stop form submission
-                  }
+                }
                 if (!buttonSave.classList.contains('saved')) {
                     buttonSave.innerHTML = "<ion-icon name='checkmark-done-outline'></ion-icon>";
                     buttonSave.classList.add('saved');

@@ -433,7 +433,7 @@ function saveprofile2($conn, $nomutilisateur, $img)
 
 
 
-function postComment($conn, $idusr, $comment, $hotel)
+function postComment($conn, $idusr, $comment, $hotel,$restaurant)
 {
     $url = $_SERVER['REQUEST_URI'];
     $decodedQueryString = urldecode($url);
@@ -449,8 +449,13 @@ function postComment($conn, $idusr, $comment, $hotel)
         $idhotel = $row['id'];
         $sql = "INSERT INTO avis(texte, Date_a, idusr, idhotel) VALUES(\"$comment\", NOW(), $idusr, $idhotel)";
         mysqli_query($conn, $sql);
-    } else {
-        echo "The URL does not contain the word 'hotel'.";
+    } else if (strpos($decodedQueryString, "restaurants") !== false) {
+        $findresto = "SELECT idR FROM restaurants WHERE nom_R = '$restaurant'";
+        $result = mysqli_query($conn, $findresto);
+        $row = mysqli_fetch_assoc($result);
+        $idresto = $row['id'];
+        $sql = "INSERT INTO avis(texte, Date_a, idusr, idhotel) VALUES(\"$comment\", NOW(), $idusr, $idresto)";
+        mysqli_query($conn, $sql);
     }
 }
 
