@@ -21,7 +21,7 @@ header {
   box-shadow: 0 0 30px rgba(0, 0, 0, .2);
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
-  height: 60px;
+  height: 50px;
   width: 100%;
   padding: 10px;
   position: fixed;
@@ -383,18 +383,21 @@ footer>span {
 #hebergement {
   left: 250px;
   border-left: transparent;
+  padding-right: 10px;
+  padding-left: 10px;
   border-right: 1px solid white;
 }
 
 #Restaurant {
-  left: 400px;
-  border-left: 1px solid white;
+  left: 392px;
+  padding-left: 8px;
   border-right: 1px solid white;
 }
 
 #Activites {
-  left: 550px;
-  border-left: 1px solid white;
+  left: 520px;
+  padding-left:10px ;
+  border-left: transparent;
   border-right: transparent;
 }
 
@@ -407,13 +410,14 @@ footer>span {
   outline: none;
   border-bottom: transparent;
   border-top: transparent;
-  width: 150px;
+  width: 120px;
   height: 40px;
-  top: 22px;
+  top: 15px;
   color: white;
   font-size: 20px;
   display: flex;
   align-items: center;
+
 }
 
 #hebergement:hover,
@@ -433,7 +437,7 @@ footer>span {
 
 
 .slider-container {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -1079,8 +1083,29 @@ footer>span {
   color: #fff;
 }
 
+.scroll-container{
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.307);
+}
+#Aide1,#Aide2,#Aide3,#Aide4{
+  height:500px; 
+  width:495px;
+  margin: 7px;
+  display:inline-block;
+  justify-content: center;
+}
+#Aide1{ 
+  background-color: #f7e5ab;
+}
+
+#Aide2{
+  background-color: rgb(248, 188, 188);
+}
 
 
+#Aide4{
+  background-color: rgb(255, 196, 125);
+} 
 
 /* travlan plan page style */
 
