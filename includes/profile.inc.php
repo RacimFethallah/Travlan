@@ -1,5 +1,9 @@
 <?php
+require_once 'db.inc.php';
+require_once 'functions.inc.php';
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 // if (isset($_POST['saveprofile'])) {
 //     // Récupération des données du formulaire soumises par l'utilisateur
 //     $nomutilisateur = $_POST["username"];
@@ -28,9 +32,7 @@ if (isset($_POST["saveprofile"])) {
 
     session_start();
 
-    $nomutilisateur = $_SESSION["username"];
-    $email = $_POST["email"];
-    $pwd = $_POST["password"];
+    $username = $_POST["username"];
     $numtel = $_POST["numtel"];
     $origine = $_POST["origine"];
     $bio = $_POST["bio"];
@@ -43,11 +45,11 @@ if (isset($_POST["saveprofile"])) {
 
 
 
-    require_once 'db.inc.php';
-    require_once 'functions.inc.php';
+    
 
-    saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio);
+    saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal, $bio, $username);
 }
+mysqli_close($conn);
 
 // if (isset($_FILES['profileImage'])) 
 //     $profileImage = $_FILES['profileImage'];

@@ -395,20 +395,11 @@ function   Criteres(
 
 
 
-function saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio)
+function saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal, $bio, $username)
 {
-    $sql = "UPDATE users SET  numtel = ?, origine = ?, rue = ?, ville = ?, pays = ?, codepostal = ?, username = ? , bio = ?  WHERE  {$_SESSION["idUser"]}";
+    $sql = "UPDATE users SET  numtel =' $numtel', origine = '$origine', rue = '$rue', ville = '$ville', pays = '$pays', codepostal = '$codepostal', bio = '$bio'  WHERE username= '$username';";
 
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../index.php?error=stmterror");
-        exit();
-    }
-
-
-    mysqli_stmt_bind_param($stmt, "ssssssss", $numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+    mysqli_query($conn, $sql);
     header("location: ../monprofile.php");
     exit();
 }

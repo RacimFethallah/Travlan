@@ -1618,24 +1618,28 @@ input:checked+.sliderr:before {
   backdrop-filter: blur(5px);
   color: white;
   font-size: x-large;
-
-}
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    
+  
+  }
 
 .conflab{
   font-weight: 600;
-  color: rgb(255, 0, 64);
+  color: rgb(218, 143, 162);
   font-size: x-large;
   margin:40px;
-  font-family: 'fantasy';
-  font-style:italic;
+  font-family: 'Roboto', sans-serif;
 }
 
 .conf{
   color: white;
-  margin-left:100px;
+  font-size: xx-large;
   margin-bottom:25px;
-  font-family: 'fantasy';
-  font-style:italic;
-  font-size: larger;
-  text-decoration: underline;
+  font-family: 'Roboto', sans-serif;
+}
+ 
+#Recap_container span {
+  color: rgb(241, 220, 220);
+  padding-top: 50px;
 }
