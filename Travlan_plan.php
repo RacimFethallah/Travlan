@@ -11,13 +11,16 @@ include_once 'header.php';
     <span class="ico"><ion-icon name="earth-outline"></ion-icon></span>
     <label id="p1">Pays</label>
     <select id="typeP">
-      <option value="Japon">Japon</option>
-      <option value="Bresil">Italie</option>
       <option value="France">France</option>
-      <option value="Egypte">Egypte</option>
-      <option value="Irelande">Irelande</option>
-      <option value="USA">USA</option>
+      <option value="Italie">Italie</option>
+      <option value="Espagne">Espagne</option>
+      <option value="États-Unis">États-Unis</option>
+      <option value="Allemagne">Allemagne</option>
+      <option value="Japon">Japon</option>
       <option value="Australie">Australie</option>
+      <option value="Brésil">Brésil</option>
+      <option value="Canada">Canada</option>
+      <option value="Chine">Chine</option>
     </select>
     <span class="ico" id="plane1"><ion-icon name="airplane-outline"></ion-icon></span>
     <label for="Date_depart">Date de depart</label>
