@@ -8,7 +8,7 @@ if(isset($_POST["addComment"])){
     $restaurant = $_POST["restaurantName"];
     $hotel = $_POST["hotelName"];
     $comment = $_POST["comment"];
-    $idusr = $_SESSION["idUser"];
+    $idusr = $_SESSION["id"];
 
 
     
