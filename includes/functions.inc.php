@@ -538,7 +538,7 @@ function displayComments($conn, $commentQuery)
          LEFT JOIN hotels AS h ON h.id = a.idhotel
          LEFT JOIN users as u ON a.idusr = u.id
          WHERE h.nom = '$commentQuery'";
-    }else if (strpos($decodedQueryString, "restaurants") !== false) {
+    } else if (strpos($decodedQueryString, "restaurants") !== false) {
         $sql = "SELECT a.texte, u.username, a.Date_a
          FROM avis AS a
          LEFT JOIN restaurants AS r ON r.id = a.idresto
@@ -547,7 +547,7 @@ function displayComments($conn, $commentQuery)
     }
 
 
-    
+
     $result = mysqli_query($conn, $sql);
 
 
@@ -561,17 +561,23 @@ function displayComments($conn, $commentQuery)
     }
 }
 
-function csearch($conn, $searchQuery1){
+function csearch($conn, $searchQuery1)
+{ //Recherche avec les c
+
+    $searchQuery1 = mysqli_real_escape_string($conn, $searchQuery1);
+    $queryParts = preg_split("/[&=]+/", $searchQuery1);
+    // Get the first part of the search query
+    $pays = trim($queryParts[0]);
+    $budget = trim($queryParts[2]);
 
 
     $query = "SELECT h.nom,h.rating,h.price,h.description,h.urlimg
-    From hotels as h 
-    Left join destinations as d on (h.destination_id=d.id) 
-    Left join destinations as d2 on (d2.id=d.parentID)
-    WHERE d.nom = '$searchQuery1' OR d2.nom='$searchQuery1'; "; 
+    From hotels as h
+    Left join destinations as d on (h.destination_id = d.id) 
+    Left join destinations as d2 on (d2.id=d.parentID) 
+    WHERE (d.nom = '$pays' OR d2.nom='$pays') ; ";
 
-
-
+    // and h.price<=$budget
     $result1 = mysqli_query($conn, $query);
 
     if ($result1->num_rows > 0) {
@@ -585,6 +591,3 @@ function csearch($conn, $searchQuery1){
         echo json_encode(["message" => "Aucun résultat trouvé."]);
     }
 }
-
-
-

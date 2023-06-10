@@ -45,4 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+    var restaurant = document.getElementById('restaurant1');
+    restaurant.addEventListener('submit',)
+
 })
