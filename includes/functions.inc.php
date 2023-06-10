@@ -423,9 +423,106 @@ function saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal,
 //     }
 
 
-//     mysqli_stmt_bind_param($stmt, "ss", $nomutilisateur, $img);
-//     mysqli_stmt_execute($stmt);
-//     mysqli_stmt_close($stmt);
-//     header("location: ../monprofile.php");
-//     exit();
-// }
+    // mysqli_stmt_bind_param($stmt, "ss", $nomutilisateur, $img);
+    // mysqli_stmt_execute($stmt);
+    // mysqli_stmt_close($stmt);
+    // header("location: ../monprofile.php");
+    // exit();
+
+
+
+
+
+function postComment($conn, $idusr, $comment, $hotel, $restaurant)
+{
+    $url = $_SERVER['REQUEST_URI'];
+    $decodedQueryString = urldecode($url);
+
+
+
+    if (strpos($decodedQueryString, "hôtels") !== false) {
+
+
+        $findhotel = "SELECT id FROM hotels WHERE nom = '$hotel'";
+        $result = mysqli_query($conn, $findhotel);
+        $row = mysqli_fetch_assoc($result);
+        $idhotel = $row['id'];
+        $sql = "INSERT INTO avis(texte, Date_a, idusr, idhotel) VALUES(\"$comment\", NOW(), $idusr, $idhotel)";
+        mysqli_query($conn, $sql);
+    } else if (strpos($decodedQueryString, "restaurants") !== false) {
+        $findresto = "SELECT id FROM restaurants WHERE nom = '$restaurant'";
+        $result = mysqli_query($conn, $findresto);
+        $row = mysqli_fetch_assoc($result);
+        $idresto = $row['id'];
+        $sql = "INSERT INTO avis(texte, Date_a, idusr, idresto) VALUES(\"$comment\", NOW(), $idusr, $idresto)";
+        mysqli_query($conn, $sql);
+    }
+}
+
+
+
+
+function displayComments($conn, $commentQuery)
+{
+
+    $url = $_SERVER['REQUEST_URI'];
+    $decodedQueryString = urldecode($url);
+
+
+
+    if (strpos($decodedQueryString, "hôtels") !== false) {
+        $sql = "SELECT a.texte, u.username, a.Date_a
+         FROM avis AS a
+         LEFT JOIN hotels AS h ON h.id = a.idhotel
+         LEFT JOIN users as u ON a.idusr = u.id
+         WHERE h.nom = '$commentQuery'";
+    }else if (strpos($decodedQueryString, "restaurants") !== false) {
+        $sql = "SELECT a.texte, u.username, a.Date_a
+         FROM avis AS a
+         LEFT JOIN restaurants AS r ON r.id = a.idresto
+         LEFT JOIN users as u ON a.idusr = u.id
+         WHERE r.nom = '$commentQuery'";
+    }
+
+
+    
+    $result = mysqli_query($conn, $sql);
+
+
+    if ($result->num_rows > 0) {
+        $commentResult = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $commentResult[] = $row;
+        }
+        header('Content-Type: application/json');
+        echo json_encode($commentResult);
+    }
+}
+
+function csearch($conn, $searchQuery1){
+
+
+    $query = "SELECT h.nom,h.rating,h.price,h.description,h.urlimg
+    From hotels as h 
+    Left join destinations as d on (h.destination_id=d.id) 
+    Left join destinations as d2 on (d2.id=d.parentID)
+    WHERE d.nom = '$searchQuery1' OR d2.nom='$searchQuery1'; "; 
+
+
+
+    $result1 = mysqli_query($conn, $query);
+
+    if ($result1->num_rows > 0) {
+        $searchResults1 = array();
+        while ($row1 = mysqli_fetch_assoc($result1)) {
+            $searchResults1[] = $row1;
+        }
+        header('Content-Type: application/json');
+        echo json_encode($searchResults1);
+    } else {
+        echo json_encode(["message" => "Aucun résultat trouvé."]);
+    }
+}
+
+
+

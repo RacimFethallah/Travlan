@@ -438,3 +438,37 @@ max-height: 300px;
     float: right;
 margin-top: -25px;
 }
+
+.argent{
+    border: 1px solid #006b5e ;
+    text-align: center;
+    font-size: 20px;
+    margin: 5px;
+}
+
+#asideSearchPage > label{
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin: 10px;
+}
+
+#hebergement1,#restaurant1,#activite1{
+    width:370px; 
+    height:70px;
+    background-color: transparent;
+    font-weight: 800;
+    color:#006b5e; 
+    font-size: 25px;
+    border-bottom: transparent;
+    border-top:transparent;
+    border-left:transparent;
+    border-right: 2px solid #00342e; 
+
+}
+
+#hebergement1:hover,#restaurant1:hover,#activite1:hover{
+    cursor:pointer;
+    background-color: white;
+    transition: all 0.5s ease;
+}
