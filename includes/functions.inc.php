@@ -516,7 +516,7 @@ function postComment($conn, $idusr, $comment, $hotel, $restaurant)
         $result = mysqli_query($conn, $findresto);
         $row = mysqli_fetch_assoc($result);
         $idresto = $row['id'];
-        $sql = "INSERT INTO avis(texte, Date_a, idusr, idhotel) VALUES(\"$comment\", NOW(), $idusr, $idresto)";
+        $sql = "INSERT INTO avis(texte, Date_a, idusr, idresto) VALUES(\"$comment\", NOW(), $idusr, $idresto)";
         mysqli_query($conn, $sql);
     }
 }
