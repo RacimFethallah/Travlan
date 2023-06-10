@@ -190,10 +190,10 @@ include_once 'header.php';
 </a>
 
 <div id="ContactInfo" >
-  <a href="#" id="Instagram"  > <img id="InstagramPic" src = "Pics/UI/Instagram.png"> </a>
+  <a href="https://www.instagram.com/tra.vlan/" id="Instagram"  > <img id="InstagramPic" src = "Pics/UI/Instagram.png"> </a>
   <a href="mailto:travlan.webmaster@gmail.com" id="Email" ><img id="EmailPic" src = "Pics/UI/Gmail.png"></a>
-  <a href="#" id="Facebook" ><img id="FacebookPic" src = "Pics/UI/Facebook.png"></a>
-  <a href="#" id="Twitter" ><img id="TwitterPic" src = "Pics/UI/Twitter.png"></a>
+  <a href="https://web.facebook.com/profile.php?id=100093256038009" id="Facebook" ><img id="FacebookPic" src = "Pics/UI/Facebook.png"></a>
+  <a href="https://twitter.com/Travlann" id="Twitter" ><img id="TwitterPic" src = "Pics/UI/Twitter.png"></a>
 </div>
 
 <div id="Aide" class="scroll-page"> 

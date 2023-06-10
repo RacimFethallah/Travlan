@@ -1639,27 +1639,31 @@ input:checked+.sliderr:before {
   backdrop-filter: blur(5px);
   color: white;
   font-size: x-large;
-
-}
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    
+  
+  }
 
 .conflab {
   display: inline-block;
   font-weight: 600;
-  color: rgb(255, 0, 64);
+  color: rgb(218, 143, 162);
   font-size: x-large;
-  margin: 20px;
-  font-family: 'fantasy';
-  font-style: italic;
-  margin-top: 40px;
+  margin:40px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .conf {
   position: absolute;
   left: 500px;
   color: white;
-  margin-left: 100px;
-  font-family: 'fantasy';
-  font-style: italic;
-  font-size: larger;
-  text-decoration: underline;
+  font-size: xx-large;
+  margin-bottom:25px;
+  font-family: 'Roboto', sans-serif;
+}
+ 
+#Recap_container span {
+  color: rgb(241, 220, 220);
+  padding-top: 50px;
 }

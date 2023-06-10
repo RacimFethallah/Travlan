@@ -9,7 +9,7 @@ include_once 'header.php';
 <link rel="stylesheet" href="monprofile.css"> 
 </head>
 
-    <form action="includes/profile.inc.php" enctype="multipart/form-data" method="post">
+    <form method="POST" action="includes/profile.inc.php" enctype="multipart/form-data" >
         <div class="container">
             <div class="row gutters">
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -21,9 +21,8 @@ include_once 'header.php';
                                         <img id="profile-image" class="profile-image" src="Pics/Background/user.png"
                                             alt="Photo de profil" >
                                         <br>
-                                        <input id="bimg" type="file" accept="image/*"
-                                            onchange="changeProfileImage(event)" name="img" value="<?= $_SESSION["img"] ?? "" ?>">
-                                    </div>
+                                        <input type="file" accept="image/*" onchange="changeProfileImage(event)" name="profileImage">
+                                      </div>
                                     <!-- <h5 class="user-name">Nom</h5> -->
                                     <?= $_SESSION["username"] ?? "" ? "<span id='nom'>Hi,<br>{$_SESSION["username"]}</span>" : "" ?>
                                     <br><br>
@@ -34,8 +33,8 @@ include_once 'header.php';
                                 </div>
                                 <div class="about">
                                     <h5 class="mb-2 text-primary">Bio</h5>
-                                    <textarea id="profile_form_biography" name="bio" class="form-control"
-                                        placeholder="Biographie" value="<?= $_SESSION["bio"] ?? "" ?>"></textarea>
+                                    <input id="profile_form_biography" name="bio" class="form-control"
+                                        placeholder="Biographie" value="<?= $_SESSION["bio"] ?? "" ?>"></input>
                                 </div>
                             </div>
                         </div>
@@ -66,66 +65,23 @@ include_once 'header.php';
 
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label for="phone">Téléphone</label>
-                                        <input type="text" class="form-control" id="phone" name="numtel"
-                                            placeholder="Entrez votre numero de téléphone"
-                                            value="<?= $_SESSION["numtel"] ?? "" ?>">
-                                    </div>
-                                </div>
+                               <div class="form-group">
+                                    <label for="numtel">Téléphone</label>
+                                      <input type="text" class="form-control" id="idnumtel" name="numtel"
+                                        placeholder="Entrez votre numero de téléphone"
+                                        value="<?= $_SESSION["numtel"] ?? "" ?>">
+                                 </div>
+                               </div>
+
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="nationnalite">Nationnalité</label>
+                                        <label for="origine">Nationnalité</label>
                                         <!-- <input type="url" class="form-control" id="nationnalite" placeholder="Nationnalité"> -->
-                                        <select id="profile_form_country_id" name="origine" class="form-control"
+                                        <input id="idorigine" name="origine" class="form-control"
                                             placeholder="Entrez votre pays d'origine"
                                             value="<?= $_SESSION["origine"] ?? "" ?>">
-                                            <option value=""></option>
-                                            <option value="Afghanistan">Afghanistan</option>
-                                            <option value="Afrique du Sud">Afrique du Sud</option>
-                                            <option value="Åland">Åland</option>
-                                            <option value="Albanie">Albanie</option>
-                                            <option value="Algérie">Algérie</option>
-                                            <option value="Allemagne">Allemagne</option>
-                                            <option value="Samoa Américaines">Samoa Américaines</option>
-                                            <option value="Andorre">Andorre</option>
-                                            <option value="Angola">Angola</option>
-                                            <option value="Anguilla">Anguilla</option>
-                                            <option value="Antarctique">Antarctique</option>
-                                            <option value="Antigua-et-Barbuda">Antigua-et-Barbuda</option>
-                                            <option value="Arabie Saoudite">Arabie Saoudite</option>
-                                            <option value="Argentine">Argentine</option>
-                                            <option value="Arménie">Arménie</option>
-                                            <option value="Aruba">Aruba</option>
-                                            <option value="Australie">Australie</option>
-                                            <option value="Autriche">Autriche</option>
-                                            <option value="Azerbaïdjan">Azerbaïdjan</option>
-                                            <option value="Bahamas">Bahamas</option>
-                                            <option value="Bahreïn">Bahreïn</option>
-                                            <option value="Bangladesh">Bangladesh</option>
-                                            <option value="Barbade">Barbade</option>
-                                            <option value="Bélarus">Bélarus</option>
-                                            <option value="Belgique">Belgique</option>
-                                            <option value="Belize">Belize</option>
-                                            <option value="Bénin">Bénin</option>
-                                            <option value="Bermudes">Bermudes</option>
-                                            <option value="Bhoutan">Bhoutan</option>
-                                            <option value="Venezuela">Venezuela</option>
-                                            <option value="Bolivie">Bolivie</option>
-                                            <option value="Bonaire, Saint-Eustache et Saba">Bonaire, Saint-Eustache et
-                                                Saba</option>
-                                            <option value="Bosnie-Herzégovine">Bosnie-Herzégovine</option>
-                                            <option value="Botswana">Botswana</option>
-                                            <option value="Île Bouvet">Île Bouvet</option>
-                                            <option value="Brésil">Brésil</option>
-                                            <option value="Territoire Britannique de l'océan Indien">Territoire
-                                                Britannique de l'océan Indien</option>
-                                            <option value="Îles Vierges britanniques">Îles Vierges britanniques</option>
-                                            <option value="Brunei Darussalam">Brunei Darussalam</option>
-                                            <option value="Bulgarie">Bulgarie</option>
-                                            <option value="Zambie">Zambie</option>
-                                            <option value="Zimbabwe">Zimbabwe</option>
-                                        </select>
+                                           
+                                       </input>
                                     </div>
 
                                 </div>
@@ -153,54 +109,10 @@ include_once 'header.php';
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
                                         <label for="sTate">Pays</label>
-                                        <select id="profile_form_country_id" name="pays" class="form-control"
+                                        <input id="profile_form_country_id" name="pays" class="form-control"
                                             placeholder="Entrez votre pays" value="<?= $_SESSION["pays"] ?? "" ?>">
-                                            <option value=""></option>
-                                            <option value="Afghanistan">Afghanistan</option>
-                                            <option value="Afrique du Sud">Afrique du Sud</option>
-                                            <option value="Åland">Åland</option>
-                                            <option value="Albanie">Albanie</option>
-                                            <option value="Algérie">Algérie</option>
-                                            <option value="Allemagne">Allemagne</option>
-                                            <option value="Samoa Américaines">Samoa Américaines</option>
-                                            <option value="Andorre">Andorre</option>
-                                            <option value="Angola">Angola</option>
-                                            <option value="Anguilla">Anguilla</option>
-                                            <option value="Antarctique">Antarctique</option>
-                                            <option value="Antigua-et-Barbuda">Antigua-et-Barbuda</option>
-                                            <option value="Arabie Saoudite">Arabie Saoudite</option>
-                                            <option value="Argentine">Argentine</option>
-                                            <option value="Arménie">Arménie</option>
-                                            <option value="Aruba">Aruba</option>
-                                            <option value="Australie">Australie</option>
-                                            <option value="Autriche">Autriche</option>
-                                            <option value="Azerbaïdjan">Azerbaïdjan</option>
-                                            <option value="Bahamas">Bahamas</option>
-                                            <option value="Bahreïn">Bahreïn</option>
-                                            <option value="Bangladesh">Bangladesh</option>
-                                            <option value="Barbade">Barbade</option>
-                                            <option value="Bélarus">Bélarus</option>
-                                            <option value="Belgique">Belgique</option>
-                                            <option value="Belize">Belize</option>
-                                            <option value="Bénin">Bénin</option>
-                                            <option value="Bermudes">Bermudes</option>
-                                            <option value="Bhoutan">Bhoutan</option>
-                                            <option value="Venezuela">Venezuela</option>
-                                            <option value="Bolivie">Bolivie</option>
-                                            <option value="Bonaire, Saint-Eustache et Saba">Bonaire, Saint-Eustache et
-                                                Saba</option>
-                                            <option value="Bosnie-Herzégovine">Bosnie-Herzégovine</option>
-                                            <option value="Botswana">Botswana</option>
-                                            <option value="Île Bouvet">Île Bouvet</option>
-                                            <option value="Brésil">Brésil</option>
-                                            <option value="Territoire Britannique de l'océan Indien">Territoire
-                                                Britannique de l'océan Indien</option>
-                                            <option value="Îles Vierges britanniques">Îles Vierges britanniques</option>
-                                            <option value="Brunei Darussalam">Brunei Darussalam</option>
-                                            <option value="Bulgarie">Bulgarie</option>
-                                            <option value="Zambie">Zambie</option>
-                                            <option value="Zimbabwe">Zimbabwe</option>
-                                        </select>
+                                           
+</input>
                                         <!-- <input type="text" class="form-control" id="sTate" placeholder="Entrez votre pays">
 </div> -->
                                     </div>
@@ -219,6 +131,8 @@ include_once 'header.php';
                                             class="btn btn-secondary">Réinitialiser</button> -->
                                             <button type="submit" id="save" name="saveprofile"
                                                 class="btn btn-primary">Enregistrer</button>
+
+                                                <div id="result"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -228,6 +142,25 @@ include_once 'header.php';
                 </div>
             </div>
     </form>
+
+
+    <script>
+    function changeProfileImage(event) {
+      var input = event.target;
+      var reader = new FileReader();
+      
+      reader.onload = function(){
+        var image = document.getElementById('profile-image');
+        var image2 = document.getElementById('Anonym');
+        image.src = reader.result;
+        image2.src = reader.result;
+      };
+      
+      reader.readAsDataURL(input.files[0]);
+
+    }
+  </script>
+    <script src="monprofile.js" ></script>
 
 
 <?php
