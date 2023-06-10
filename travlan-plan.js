@@ -8,7 +8,7 @@
 
 
 if (location.href.indexOf('Travlan_plan') !== -1) {
-    
+
     body.className = 'plan';
 
 
@@ -174,22 +174,22 @@ if (location.href.indexOf('Travlan_plan') !== -1) {
     var heb_con = document.getElementById('Hebergement_container');
     var heb_log_con = document.getElementById('Hebergement_container_logement');
     var heb_hot_con = document.getElementById('Hebergement_container_hotel');
-    var V1= document.getElementById('Val1');
-    var retour1= document.getElementById("Retour1"); 
-    var retour2= document.getElementById("Retour2"); 
-    var retour3= document.getElementById("Retour3"); 
-     
-    
+    var V1 = document.getElementById('Val1');
+    var retour1 = document.getElementById("Retour1");
+    var retour2 = document.getElementById("Retour2");
+    var retour3 = document.getElementById("Retour3");
+
+
     confirmer.addEventListener('click', heb_log);
     suivant.addEventListener('click', heb_hot);
-    retour1.addEventListener('click',retour_e_a);
-    retour2.addEventListener('click',retour_e_a);
-    retour3.addEventListener('click',retour_e_a);
-    
+    retour1.addEventListener('click', retour_e_a);
+    retour2.addEventListener('click', retour_e_a);
+    retour3.addEventListener('click', retour_e_a);
+
 
     function heb_log() {
         heb_con.classList.remove('appear');
-                heb_con.className = 'hide';
+        heb_con.className = 'hide';
         switch (selectHebergement.value) {
             case "Logement":
                 heb_log_con.classList.remove('hide');
@@ -202,8 +202,8 @@ if (location.href.indexOf('Travlan_plan') !== -1) {
             case "Deux":
                 heb_log_con.classList.remove('hide');
                 heb_log_con.className = 'appear';
-                V1.innerHTML="Suivant";
-                V1.addEventListener('click',suivv);
+                V1.innerHTML = "Suivant";
+                V1.addEventListener('click', suivv);
                 break;
         }
     }
@@ -218,41 +218,203 @@ if (location.href.indexOf('Travlan_plan') !== -1) {
 
     function suivv() {
         heb_log_con.classList.remove('appear');
-                heb_log_con.className = 'hide';
+        heb_log_con.className = 'hide';
         heb_hot_con.classList.remove('hide');
         heb_hot_con.className = 'appear';
     }
-  var confirmer=document.getElementById("Valider_c");
-  confirmer.addEventListener('submit',Validation);
+    var confirmer = document.getElementById("Valider_c");
+    confirmer.addEventListener('submit', Validation);
 
-function Validation(){
- console.log ("hello");
-}
-
-}
+    function Validation() {
+        console.log("hello");
+    }
 
 
-function retour_e_a(event){
-    var e=event.target; 
-    switch(e.id) { 
-        case "Retour1" : 
-        heb_con.classList.remove('hide');
-        heb_con.className = 'appear';
-        heb_log_con.classList.remove('appear');
-        heb_log_con.className = 'hide';
-        break;
-        case "Retour2":
-            heb_con.classList.remove('hide');
-            heb_con.className = 'appear';
-            heb_hot_con.classList.remove('appear');
-                heb_hot_con.className = 'hide'; 
-        break;
-        case "Retour3":
-            heb_hot_con.classList.remove('hide');
-                heb_hot_con.className = 'appear'; 
+    function retour_e_a(event) {
+        var e = event.target;
+        switch (e.id) {
+            case "Retour1":
+                heb_con.classList.remove('hide');
+                heb_con.className = 'appear';
+                heb_log_con.classList.remove('appear');
+                heb_log_con.className = 'hide';
+                break;
+            case "Retour2":
+                heb_con.classList.remove('hide');
+                heb_con.className = 'appear';
+                heb_hot_con.classList.remove('appear');
+                heb_hot_con.className = 'hide';
+                break;
+            case "Retour3":
+                heb_hot_con.classList.remove('hide');
+                heb_hot_con.className = 'appear';
                 heb_hot2_con.classList.remove('appear');
                 heb_hot2_con.className = 'hide';
 
-    }   
+        }
+    }
+
+    var confirmerd = document.getElementById('Valider_c');
+    var activite = document.getElementById('Activité_container');
+    var infos = document.getElementById('Infos');
+    confirmerd.addEventListener('submit', confirmation);
+
+    function confirmation(e) {
+        e.preventDefault();
+        heb_con.classList.remove('appear');
+        heb_con.className = 'hide';
+        B_container.className = "hide";
+        activite.className = "hide";
+        infos.className = "hide";
+
+        var recap = document.createElement('div');
+        recap.id = "Recap_container";
+        var h1 = document.createElement('h1');
+        h1.innerHTML = 'FICHE DE CRITERES';
+        h1.className = "conf";
+        recap.appendChild(h1);
+
+        var paysd = document.getElementById('typeP').value;
+        var datedepart = document.getElementById('Date_depart').value;
+        var dateretour = document.getElementById('Date_retour').value;
+        var nb_personnes = document.getElementById('Nb_personnes').value;
+        var nb_enfants = document.getElementById('Nb_personnes1').value;
+
+        // var formulaire= document.createElement('form');
+        // formulaire.action="criteria_search.php"; 
+        // formulaire.method='POST'; 
+
+        var Enregistrer = document.createElement('button');
+        Enregistrer.className = 'bouton';
+        Enregistrer.innerHTML = 'Enregistrer les criteres';
+        Enregistrer.name = "Enregistrer";
+
+
+
+
+
+        var dated = document.createElement('input');
+        dated.className = "hide";
+        dated.type = "date";
+        dated.value = datedepart;
+        dated.name = 'datedp';
+        var dater = document.createElement('input');
+        dater.className = "hide";
+        dater.type = "date";
+        dater.value = dateretour;
+        dater.name = 'dateret';
+        var nbp = document.createElement('input');
+        nbp.className = "hide";
+        nbp.type = "number";
+        nbp.value = nb_personnes;
+        nbp.name = 'nbp';
+        var nbp1 = document.createElement('input');
+        nbp1.className = "hide";
+        nbp1.type = "number";
+        nbp1.value = nb_enfants;
+        nbp1.name = 'nbp1';
+        var pays = document.createElement('input');
+        pays.className = "hide";
+        pays.type = 'text';
+        pays.value = paysd;
+        pays.name = 'pays';
+        var budget_g = document.createElement('input');
+        budget_g.className = "hide";
+        budget_g.type = 'number';
+        budget_g.value = budget_general.value;
+        budget_g.name = 'bgg';
+
+        var croisiere = document.getElementById('croisiere');
+        if (croisiere.checked) {
+            var label7 = document.createElement('label');
+            label7.innerHTML = "CROISIERE";
+            label7.className = "conflab";
+            var span7 = document.createElement('span');
+            span7.innerHTML = "OUI";
+            recap.appendChild(label7);
+            recap.appendChild(span7);
+        }
+
+        Enregistrer.addEventListener('click', () => {
     
+            const data = paysd;
+            //if (croisiere.checked) {data.croisiere=croisiere.value;} 
+            const url = `criteria_search.php?data=${encodeURIComponent(data)}`;
+
+            // Redirect to the target page
+            window.location.href = url;
+        });
+
+
+
+        var label1 = document.createElement('label');
+        label1.innerHTML = "PAYS";
+        label1.className = "conflab";
+        var span1 = document.createElement('span');
+        span1.innerHTML = paysd;
+        recap.appendChild(label1);
+        recap.appendChild(span1);
+
+        var label2 = document.createElement('label');
+        label2.innerHTML = "DATE DE DEPART";
+        label2.className = "conflab";
+        var span2 = document.createElement('span');
+        span2.innerHTML = datedepart;
+        recap.appendChild(label2);
+        recap.appendChild(span2);
+
+
+        var label3 = document.createElement('label');
+        label3.innerHTML = "DATE DE RETOUR";
+        label3.className = "conflab";
+        var span3 = document.createElement('span');
+        span3.innerHTML = dateretour;
+        recap.appendChild(label3);
+        recap.appendChild(span3);
+
+
+        var label4 = document.createElement('label');
+        label4.innerHTML = "NOMBRE DE PERSONNES";
+        label4.className = "conflab";
+        var span4 = document.createElement('span');
+        span4.innerHTML = nb_personnes;
+        recap.appendChild(label4);
+        recap.appendChild(span4);
+
+        var label5 = document.createElement('label');
+        label5.innerHTML = "NOMBRE D'ENFANTS";
+        label5.className = "conflab";
+        var span5 = document.createElement('span');
+        span5.innerHTML = nb_enfants;
+        recap.appendChild(label5);
+        recap.appendChild(span5);
+
+        var label6 = document.createElement('label');
+        label6.innerHTML = "BUDGET GENERAL";
+        label6.className = "conflab";
+        var span6 = document.createElement('span');
+        span6.innerHTML = budget_general.value;
+        recap.appendChild(label6);
+        recap.appendChild(span6);
+
+        /*var label8 = document.createElement('label');
+        label8.innerHTML="BUDGET HEBERGEMENT" ; 
+        label8.className="conflab"; 
+        var span8 = document.createElement('span'); 
+        span8.innerHTML=budget_hebergement.value;
+        recap.appendChild(label8);
+        recap.appendChild(span8);*/
+
+  
+         recap.appendChild(Enregistrer);
+        // formulaire.appendChild(budget_g);
+        // formulaire.appendChild(dater);
+        // formulaire.appendChild(nbp1);
+        // formulaire.appendChild(nbp);
+        // formulaire.appendChild(pays);
+        // formulaire.appendChild(dated);
+        // recap.appendChild(formulaire);
+        body.appendChild(recap);
+    }
+
 }
