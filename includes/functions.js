@@ -310,7 +310,9 @@ function displaySearchResults(searchResults) {
 
             spanPrice.classList.add('spanPrice');
             if ((window.location.href.indexOf('h%C3%B4tels') !== -1) || (window.location.href.indexOf('criteria_search.php') !== -1) ) {
-                spanPrice.textContent = "€" + result.price;
+                if (result.price !== undefined) {
+                    spanPrice.textContent = "€" + result.price;
+                  }
             }
             
             resultContent.classList.add('result-content');

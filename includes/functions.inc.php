@@ -266,7 +266,7 @@ function search($conn, $searchTerm)
 
 
 
-function fullSearch($conn, $searchQuery)
+function fullSearch($conn, $searchQuery, $sortby)
 {
 
     $searchQuery = mysqli_real_escape_string($conn, $searchQuery);
@@ -278,15 +278,75 @@ function fullSearch($conn, $searchQuery)
         $firstPart = trim($queryParts[0]);
         $pluralForm = rtrim($firstPart, "s");
 
-        $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
-          FROM hotels AS h
-          LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
-          LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
-          WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-          OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-          OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-          OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
-          ORDER BY h.nom";
+        switch ($sortby) {
+            case 'Nom A-Z':
+                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
+                    FROM hotels AS h
+                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+                    ORDER BY h.nom ASC";
+                break;
+            case 'Nom Z-A':
+                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
+                    FROM hotels AS h
+                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+                    ORDER BY h.nom DESC";
+                break;
+            case 'Prix asc':
+                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
+                    FROM hotels AS h
+                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+                    ORDER BY h.price ASC";
+                break;
+            case 'Prix desc':
+                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
+                    FROM hotels AS h
+                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+                    ORDER BY h.price DESC";
+                break;
+            case 'Note':
+                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
+                    FROM hotels AS h
+                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+                    ORDER BY h.rating DESC";
+                break;
+            default:
+                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
+                    FROM hotels AS h
+                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+                    ORDER BY h.nom";
+                break;
+        }
+
 
         $result = mysqli_query($conn, $query);
         $numResults = mysqli_num_rows($result);
@@ -308,26 +368,62 @@ function fullSearch($conn, $searchQuery)
             ]);
         }
     } else if (strpos($searchQuery, 'restaurants') !== false || strpos($searchQuery, 'restaurant') !== false) {
-        $queryParts = preg_split("/[, ]+/", $searchQuery);
+        $queryParts = preg_split("/[,]+/", $searchQuery);
         // Get the first part of the search query
         $firstPart = trim($queryParts[0]);
         $pluralForm = rtrim($firstPart, "s");
 
-        $query = "SELECT r.nom_R, r.etoiles
+
+        switch ($sortby) {
+            case 'Nom A-Z':
+                $query = "SELECT r.nom, r.etoiles, r.description, r.urlimg, r.url
           FROM restaurants AS r
           LEFT JOIN destinations AS d ON (r.destination_id = d.id) 
-          LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
           WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-          OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-          OR r.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-          OR r.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
-          ORDER BY r.nom";
+          ORDER BY r.nom ASC";
+                break;
+            case 'Nom Z-A':
+                $query = "SELECT r.nom, r.etoiles, r.description, r.urlimg, r.url
+                FROM restaurants AS r
+                LEFT JOIN destinations AS d ON (r.destination_id = d.id) 
+                WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                ORDER BY r.nom DESC";
+                break;
+            case 'Prix asc':
+                $query = "SELECT r.nom, r.etoiles, r.description, r.urlimg, r.url
+                FROM restaurants AS r
+                LEFT JOIN destinations AS d ON (r.destination_id = d.id) 
+                WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                ORDER BY r.nom ASC";
+                break;
+            case 'Prix desc':
+                $query = "SELECT r.nom, r.etoiles, r.description, r.urlimg, r.url
+                FROM restaurants AS r
+                LEFT JOIN destinations AS d ON (r.destination_id = d.id) 
+                WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                ORDER BY r.nom DESC";
+                break;
+            case 'Note':
+                $query = "SELECT r.nom, r.etoiles, r.description, r.urlimg, r.url
+                FROM restaurants AS r
+                LEFT JOIN destinations AS d ON (r.destination_id = d.id) 
+                WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+                ORDER BY r.etoiles DESC";
+                break;
+            default:
+            $query = "SELECT r.nom, r.etoiles, r.description, r.urlimg, r.url
+            FROM restaurants AS r
+            LEFT JOIN destinations AS d ON (r.destination_id = d.id) 
+            WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+            ORDER BY r.nom";
+                break;
+        }
 
 
 
         $result = mysqli_query($conn, $query);
 
-
+        $numResults = mysqli_num_rows($result);
         if ($result->num_rows > 0) {
             $searchResults = array();
             while ($row = mysqli_fetch_assoc($result)) {
@@ -335,9 +431,15 @@ function fullSearch($conn, $searchQuery)
             }
 
             header('Content-Type: application/json');
-            echo json_encode($searchResults);
+            echo json_encode([
+                'numResults' => $numResults,
+                'searchResults' => $searchResults
+            ]);
         } else {
-            echo json_encode(["message" => "Aucun résultat trouvé."]);
+            echo json_encode([
+                'numResults' => $numResults,
+                'message' => 'Aucun résultat trouvé.'
+            ]);
         }
     } else {
 
@@ -414,11 +516,11 @@ function saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal,
 //     }
 
 
-    // mysqli_stmt_bind_param($stmt, "ss", $nomutilisateur, $img);
-    // mysqli_stmt_execute($stmt);
-    // mysqli_stmt_close($stmt);
-    // header("location: ../monprofile.php");
-    // exit();
+// mysqli_stmt_bind_param($stmt, "ss", $nomutilisateur, $img);
+// mysqli_stmt_execute($stmt);
+// mysqli_stmt_close($stmt);
+// header("location: ../monprofile.php");
+// exit();
 
 
 
@@ -505,7 +607,7 @@ function csearch($conn, $searchQuery1)
     Left join destinations as d2 on (d2.id=d.parentID) 
     WHERE (d.nom = '$pays' OR d2.nom='$pays') and h.price<=$budget; ";
 
-    
+
     $result1 = mysqli_query($conn, $query);
 
     if ($result1->num_rows > 0) {
@@ -537,7 +639,7 @@ function rsearch($conn, $searchQuery2)
     Left join destinations as d2 on (d2.id=d.parentID) 
     WHERE (d.nom = '$pays' OR d2.nom='$pays')";
 
-    
+
     $result1 = mysqli_query($conn, $query);
 
     if ($result1->num_rows > 0) {
