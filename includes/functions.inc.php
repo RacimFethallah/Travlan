@@ -493,20 +493,19 @@ function displayComments($conn, $commentQuery)
 function csearch($conn, $searchQuery1)
 { //Recherche avec les c
 
-    $searchQuery1 = mysqli_real_escape_string($conn, $searchQuery1);
-    $queryParts = preg_split("/[&=]+/", $searchQuery1);
+    $queryParts = preg_split("/[ ]+/", $searchQuery1);
     // Get the first part of the search query
     $pays = trim($queryParts[0]);
-    $budget = trim($queryParts[2]);
+    $budget = trim($queryParts[1]);
 
 
     $query = "SELECT h.nom,h.rating,h.price,h.description,h.urlimg
     From hotels as h
     Left join destinations as d on (h.destination_id = d.id) 
     Left join destinations as d2 on (d2.id=d.parentID) 
-    WHERE (d.nom = '$pays' OR d2.nom='$pays') ; ";
+    WHERE (d.nom = '$pays' OR d2.nom='$pays') and h.price<=$budget; ";
 
-    // and h.price<=$budget
+    
     $result1 = mysqli_query($conn, $query);
 
     if ($result1->num_rows > 0) {

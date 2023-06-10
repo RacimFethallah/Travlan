@@ -341,11 +341,9 @@ if (location.href.indexOf('Travlan_plan') !== -1) {
 
                 Enregistrer.addEventListener('click', () => {
                     const bggg = budget_general.value;
-                    //const data = paysd;
-                    const data = `${encodeURIComponent(paysd)}`;
-                    const url = `criteria_search.php?${data}`;
+                    const data = `${paysd} ${budget_general.value}`;
                     //if (croisiere.checked) {data.croisiere=croisiere.value;} 
-                    //const url = `criteria_search.php?data=${encodeURIComponent(data)}`;
+                    const url = `criteria_search.php?data=${encodeURIComponent(data)}`;
 
                     // Redirect to the target page
                     window.location.href = url;
