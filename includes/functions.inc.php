@@ -499,11 +499,43 @@ function csearch($conn, $searchQuery1)
     $budget = trim($queryParts[1]);
 
 
-    $query = "SELECT h.nom,h.rating,h.price,h.description,h.urlimg
+    $query = "SELECT h.nom,h.rating,h.price,h.description,h.urlimg, h.url
     From hotels as h
     Left join destinations as d on (h.destination_id = d.id) 
     Left join destinations as d2 on (d2.id=d.parentID) 
     WHERE (d.nom = '$pays' OR d2.nom='$pays') and h.price<=$budget; ";
+
+    
+    $result1 = mysqli_query($conn, $query);
+
+    if ($result1->num_rows > 0) {
+        $searchResults1 = array();
+        while ($row1 = mysqli_fetch_assoc($result1)) {
+            $searchResults1[] = $row1;
+        }
+        header('Content-Type: application/json');
+        echo json_encode($searchResults1);
+    } else {
+        echo json_encode(["message" => "Aucun résultat trouvé."]);
+    }
+}
+
+
+
+
+function rsearch($conn, $searchQuery2)
+{ //Recherche avec les c
+
+    $queryParts = preg_split("/[ ]+/", $searchQuery2);
+    // Get the first part of the search query
+    $pays = trim($queryParts[0]);
+
+
+    $query = "SELECT r.nom,r.etoiles,r.description,r.urlimg, r.url
+    From restaurants as r
+    Left join destinations as d on (r.destination_id = d.id) 
+    Left join destinations as d2 on (d2.id=d.parentID) 
+    WHERE (d.nom = '$pays' OR d2.nom='$pays')";
 
     
     $result1 = mysqli_query($conn, $query);

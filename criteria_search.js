@@ -46,6 +46,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     var restaurant = document.getElementById('restaurant1');
-    restaurant.addEventListener('submit', )
+    restaurant.addEventListener('click', (event)=>{
+        event.preventDefault();
+        const urlParams1 = new URLSearchParams(window.location.search);
+        const dataParam1 = urlParams1.get('data');
+
+
+        if (dataParam1) {
+            // Decode the parameter and parse the JSON data
+
+            const queryString2 = window.location.search;
+            const urlParams2 = new URLSearchParams(queryString2);
+            const searchQuery2 = urlParams2.get('data'); 
+             
+            
+            // Now you can work with the retrieved data
+            fetch('includes/criteria_search2.php', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    searchQuery2 : searchQuery2
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    displaySearchResults(data);
+                })
+                .catch(error => {
+                    // Handle any errors that occurred during the fetch request
+                    console.error('Error:', error);
+                });
+        }
+    })
 
 })
