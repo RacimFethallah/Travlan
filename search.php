@@ -63,7 +63,7 @@ include_once 'header.php';
         </label>
         <label class="filter">
             <input type="checkbox" name="Piscine" value="value10">
-            Picine
+            Piscine
         </label>
         <!-- Additional filters -->
 
