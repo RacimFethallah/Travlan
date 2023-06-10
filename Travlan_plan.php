@@ -6,15 +6,14 @@ include_once 'header.php';
 
 
 
-
 <div id="Infos">
-  <form action="includes/test.php" method="POST" id="Valider_c">
+  <form action="" method="POST" id="Valider_c">
     <span class="ico"><ion-icon name="earth-outline"></ion-icon></span>
     <label id="p1">Pays</label>
-    <select id="typeP" name="pays">
+    <select id="typeP">
       <option value="Japon">Japon</option>
-      <option value="Bresil">Bresil</option>
-      <option value="Tchequie">Tchequie</option>
+      <option value="Bresil">Italie</option>
+      <option value="France">France</option>
       <option value="Egypte">Egypte</option>
       <option value="Irelande">Irelande</option>
       <option value="USA">USA</option>
@@ -22,18 +21,17 @@ include_once 'header.php';
     </select>
     <span class="ico" id="plane1"><ion-icon name="airplane-outline"></ion-icon></span>
     <label for="Date_depart">Date de depart</label>
-    <input type="date" name="datedp" id="Date_depart" class='date'>
+    <input type="date" id="Date_depart" class='date'>
     <span class="ico" id="plane2"><ion-icon name="airplane-outline"></ion-icon></span>
     <label for="Date_retour">Date de retour</label>
-    <input type="date" name="dateret" id="Date_retour" class='date'>
+    <input type="date" id="Date_retour" class='date'>
     <span class="ico"> <ion-icon name="person-outline"></ion-icon></span>
     <label for="Nb_personnes">Nombre d'adultes</label>
-    <input type="number" name="nbp" id="Nb_personnes" min=0>
+    <input type="number" id="Nb_personnes" min=1>
     <span class="ico"><ion-icon name="people-outline"></ion-icon></span>
     <label for="Nb_personnes1">Nombre d'enfants</label>
-    <input type="number" name="nbp" id="Nb_personnes1" min=0>
+    <input type="number" id="Nb_personnes1" min=0>
     <input type="submit" name="confirmerd" class="bouton" value="confirmer">
-  </form>
 </div>
 
 <div id="Budget_container">
@@ -45,7 +43,6 @@ include_once 'header.php';
     </form>
   </div>
   <button id="plus">+ Voir plus</button>
-  <button class="Valider">Valider</button>
 </div>
 
 
@@ -116,7 +113,6 @@ include_once 'header.php';
   </label>
   
   <button class="Retour" id="Retour1"><- Retour</button>
-  <button class="Valider" id="Val1" class="appear">Valider</button>
 
 </div>
 
@@ -151,7 +147,7 @@ include_once 'header.php';
 
   <label class="c1" id='fsdb'>En bord de mer</label>
   <label class="switch2">
-    <input type="checkbox">
+    <input type="checkbox" >
     <span class="sliderr"></span>
   </label>
 
@@ -226,7 +222,6 @@ include_once 'header.php';
   </label>
 
   <button class="Retour" id="Retour3"><- Retour</button>
-  <button class="Valider">Valider</button>
 
 
 </div>
@@ -237,68 +232,66 @@ include_once 'header.php';
 
   <label class="c1" id="fnbp1">Croisière</label>
   <label class="switch9">
-    <input type="checkbox">
+    <input type="checkbox" id="croisiere" name="croisiere">
     <span class="sliderr"></span>
   </label>
   <label class="c1" id="fnbm22">Pêche</label>
   <label class="switch10">
-    <input type="checkbox">
+    <input type="checkbox" name="Peche">
     <span class="sliderr"></span>
   </label> 
 
   <label class="c1" id='fani'>Parc d'attraction</label>
   <label class="switch6">
-    <input type="checkbox">
+    <input type="checkbox" name="Parc_attraction">
     <span class="sliderr"></span>
   </label>
   <label class="c1" id='fsds'>Cinema</label>
   <label class="switch7">
-    <input type="checkbox">
+    <input type="checkbox" name="Cinema">
     <span class="sliderr"></span>
   </label>
 
   <label class="c1" id='fwifi'>Randonnée</label>
   <label class="switch1">
-    <input type="checkbox">
+    <input type="checkbox" name="Randonnée">
     <span class="sliderr"></span>
   </label>
 
   <label class="c1" id='fsdb'>Plongée sous-marinne</label>
   <label class="switch2">
-    <input type="checkbox" id="wifi">
+    <input type="checkbox" id="wifi" name="Plongée">
     <span class="sliderr"></span>
   </label>
 
   <label class="c1" id='fpis'>Lieux touristiques</label>
   <label class="switch3">
-    <input type="checkbox">
+    <input type="checkbox" name="touriste">
     <span class="sliderr"></span>
   </label>
 
   <label class="c1" id='fbal'>soirées</label>
   <label class="switch4">
-    <input type="checkbox">
+    <input type="checkbox" name="soirées">
     <span class="sliderr"></span>
   </label>
 
   <label class="c1" id='fparking'>Aquarium</label>
   <label class="switch5">
-    <input type="checkbox">
+    <input type="checkbox"name="Aquarium">
     <span class="sliderr"></span>
   </label>
 
-  <label class="c1" id='fresto'>Animaux</label>
+  <label class="c1" id='fresto'>Ateliers</label>
   <label class="switch8">
-    <input type="checkbox">
+    <input type="checkbox" name="Ateliers">
     <span class="sliderr"></span>
   </label>
 
-  <button class="Valider">Valider</button>
 
 </div>
 
-<button class='button' id='okfinal'> Valider les critéres </button>
-
+</form>
 
 <?php
 include_once 'login.php';
