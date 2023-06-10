@@ -76,7 +76,7 @@ function loginUser($conn, $email, $pwd)
     } else if ($checkpwd === true) {
         session_start();
         $_SESSION['logged_in'] = true;
-        $_SESSION["idUser"] = $userExists["id"];
+        $_SESSION["id"] = $userExists["id"];
         $_SESSION["username"] = $userExists["username"];
         $_SESSION["email"] = $userExists["email"];
         $_SESSION["numtel"] = $userExists["numtel"];
@@ -86,7 +86,7 @@ function loginUser($conn, $email, $pwd)
         $_SESSION["pays"] = $userExists["pays"];
         $_SESSION["codepostal"] = $userExists["codepostal"];
         $_SESSION["bio"] = $userExists["bio"];
-        $_SESSION["urlimg"] = $userExists["urlimg"];
+        // $_SESSION["urlimg"] = $userExists["urlimg"];
 
 
 
@@ -266,7 +266,7 @@ function search($conn, $searchTerm)
 
 
 
-function fullSearch($conn, $searchQuery, $sortby)
+function fullSearch($conn, $searchQuery)
 {
 
     $searchQuery = mysqli_real_escape_string($conn, $searchQuery);
@@ -278,75 +278,15 @@ function fullSearch($conn, $searchQuery, $sortby)
         $firstPart = trim($queryParts[0]);
         $pluralForm = rtrim($firstPart, "s");
 
-        switch ($sortby) {
-            case 'Nom A-Z':
-                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
-                    FROM hotels AS h
-                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
-                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
-                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
-                    ORDER BY h.nom ASC";
-                break;
-            case 'Nom Z-A':
-                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
-                    FROM hotels AS h
-                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
-                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
-                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
-                    ORDER BY h.nom DESC";
-                break;
-            case 'Prix asc':
-                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
-                    FROM hotels AS h
-                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
-                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
-                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
-                    ORDER BY h.price ASC";
-                break;
-            case 'Prix desc':
-                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
-                    FROM hotels AS h
-                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
-                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
-                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
-                    ORDER BY h.price DESC";
-                break;
-            case 'Note':
-                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
-                    FROM hotels AS h
-                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
-                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
-                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
-                    ORDER BY h.rating DESC";
-                break;
-            default:
-                $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
-                    FROM hotels AS h
-                    LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
-                    LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
-                    WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
-                    OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
-                    ORDER BY h.nom";
-                break;
-        }
-
+        $query = "SELECT h.nom, h.rating, h.price, h.description, h.urlimg, h.url
+          FROM hotels AS h
+          LEFT JOIN destinations AS d ON (h.destination_id = d.id) 
+          LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
+          WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+          OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+          OR h.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+          OR h.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
+          ORDER BY h.nom";
 
         $result = mysqli_query($conn, $query);
         $numResults = mysqli_num_rows($result);
@@ -368,22 +308,26 @@ function fullSearch($conn, $searchQuery, $sortby)
             ]);
         }
     } else if (strpos($searchQuery, 'restaurants') !== false || strpos($searchQuery, 'restaurant') !== false) {
-        $queryParts = preg_split("/[,]+/", $searchQuery);
+        $queryParts = preg_split("/[, ]+/", $searchQuery);
         // Get the first part of the search query
         $firstPart = trim($queryParts[0]);
         $pluralForm = rtrim($firstPart, "s");
 
-        $query = "SELECT r.nom, r.etoiles, r.description, r.urlimg, r.url
+        $query = "SELECT r.nom_R, r.etoiles
           FROM restaurants AS r
           LEFT JOIN destinations AS d ON (r.destination_id = d.id) 
+          LEFT JOIN destinations AS d2 ON (d2.id = d.parentID) 
           WHERE d.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+          OR d2.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+          OR r.nom COLLATE utf8mb4_general_ci LIKE '%$firstPart%'
+          OR r.nom COLLATE utf8mb4_general_ci LIKE '%$pluralForm%'
           ORDER BY r.nom";
 
 
 
         $result = mysqli_query($conn, $query);
 
-        $numResults = mysqli_num_rows($result);
+
         if ($result->num_rows > 0) {
             $searchResults = array();
             while ($row = mysqli_fetch_assoc($result)) {
@@ -391,15 +335,9 @@ function fullSearch($conn, $searchQuery, $sortby)
             }
 
             header('Content-Type: application/json');
-            echo json_encode([
-                'numResults' => $numResults,
-                'searchResults' => $searchResults
-            ]);
+            echo json_encode($searchResults);
         } else {
-            echo json_encode([
-                'numResults' => $numResults,
-                'message' => 'Aucun résultat trouvé.'
-            ]);
+            echo json_encode(["message" => "Aucun résultat trouvé."]);
         }
     } else {
 
@@ -459,7 +397,7 @@ function   Criteres(
 
 function saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal, $nomutilisateur, $bio)
 {
-    $sql = "UPDATE users SET  numtel = ?, origine = ?, rue = ?, ville = ?, pays = ?, codepostal = ?, bio = ?  WHERE username = ?";
+    $sql = "UPDATE users SET  numtel = ?, origine = ?, rue = ?, ville = ?, pays = ?, codepostal = ?, username = ? , bio = ?  WHERE  {$_SESSION["idUser"]}";
 
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -474,89 +412,20 @@ function saveprofile($conn, $numtel, $origine, $rue, $ville, $pays, $codepostal,
     header("location: ../monprofile.php");
     exit();
 }
-function saveprofile2($conn, $nomutilisateur, $img)
-{
-    $sql = "UPDATE users SET  urlimg= ?  WHERE username = ?";
+// function saveprofile2($conn, $nomutilisateur, $img)
+// {
+//     $sql = "UPDATE users SET  urlimg= ?  WHERE username = ?";
 
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../index.php?error=stmterror");
-        exit();
-    }
-
-
-    mysqli_stmt_bind_param($stmt, "ss", $nomutilisateur, $img);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    header("location: ../monprofile.php");
-    exit();
-}
+//     $stmt = mysqli_stmt_init($conn);
+//     if (!mysqli_stmt_prepare($stmt, $sql)) {
+//         header("location: ../index.php?error=stmterror");
+//         exit();
+//     }
 
 
-
-
-function postComment($conn, $idusr, $comment, $hotel, $restaurant)
-{
-    $url = $_SERVER['REQUEST_URI'];
-    $decodedQueryString = urldecode($url);
-
-
-
-    if (strpos($decodedQueryString, "hôtels") !== false) {
-
-
-        $findhotel = "SELECT id FROM hotels WHERE nom = '$hotel'";
-        $result = mysqli_query($conn, $findhotel);
-        $row = mysqli_fetch_assoc($result);
-        $idhotel = $row['id'];
-        $sql = "INSERT INTO avis(texte, Date_a, idusr, idhotel) VALUES(\"$comment\", NOW(), $idusr, $idhotel)";
-        mysqli_query($conn, $sql);
-    } else if (strpos($decodedQueryString, "restaurants") !== false) {
-        $findresto = "SELECT id FROM restaurants WHERE nom = '$restaurant'";
-        $result = mysqli_query($conn, $findresto);
-        $row = mysqli_fetch_assoc($result);
-        $idresto = $row['id'];
-        $sql = "INSERT INTO avis(texte, Date_a, idusr, idhotel) VALUES(\"$comment\", NOW(), $idusr, $idresto)";
-        mysqli_query($conn, $sql);
-    }
-}
-
-
-
-
-function displayComments($conn, $commentQuery)
-{
-
-    $url = $_SERVER['REQUEST_URI'];
-    $decodedQueryString = urldecode($url);
-
-
-
-    if (strpos($decodedQueryString, "hôtels") !== false) {
-        $sql = "SELECT a.texte, u.username, a.Date_a
-         FROM avis AS a
-         LEFT JOIN hotels AS h ON h.id = a.idhotel
-         LEFT JOIN users as u ON a.idusr = u.id
-         WHERE h.nom = '$commentQuery'";
-    }else if (strpos($decodedQueryString, "restaurants") !== false) {
-        $sql = "SELECT a.texte, u.username, a.Date_a
-         FROM avis AS a
-         LEFT JOIN restaurants AS r ON r.id = a.idresto
-         LEFT JOIN users as u ON a.idusr = u.id
-         WHERE r.nom = '$commentQuery'";
-    }
-
-
-    
-    $result = mysqli_query($conn, $sql);
-
-
-    if ($result->num_rows > 0) {
-        $commentResult = array();
-        while ($row = mysqli_fetch_assoc($result)) {
-            $commentResult[] = $row;
-        }
-        header('Content-Type: application/json');
-        echo json_encode($commentResult);
-    }
-}
+//     mysqli_stmt_bind_param($stmt, "ss", $nomutilisateur, $img);
+//     mysqli_stmt_execute($stmt);
+//     mysqli_stmt_close($stmt);
+//     header("location: ../monprofile.php");
+//     exit();
+// }

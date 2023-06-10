@@ -9,7 +9,7 @@ include_once 'header.php';
 <link rel="stylesheet" href="monprofile.css"> 
 </head>
 
-    <form action="includes/profile.inc.php" enctype="multipart/form-data" method="post">
+    <form method="POST" action="includes/profile.inc.php" enctype="multipart/form-data" >
         <div class="container">
             <div class="row gutters">
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -21,9 +21,8 @@ include_once 'header.php';
                                         <img id="profile-image" class="profile-image" src="Pics/Background/user.png"
                                             alt="Photo de profil" >
                                         <br>
-                                        <input id="bimg" type="file" accept="image/*"
-                                            onchange="changeProfileImage(event)" name="img" value="<?= $_SESSION["img"] ?? "" ?>">
-                                    </div>
+                                        <input type="file" accept="image/*" onchange="changeProfileImage(event)" name="profileImage">
+                                      </div>
                                     <!-- <h5 class="user-name">Nom</h5> -->
                                     <?= $_SESSION["username"] ?? "" ? "<span id='nom'>Hi,<br>{$_SESSION["username"]}</span>" : "" ?>
                                     <br><br>
@@ -66,18 +65,19 @@ include_once 'header.php';
 
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                    <div class="form-group">
-                                        <label for="phone">Téléphone</label>
-                                        <input type="text" class="form-control" id="phone" name="numtel"
-                                            placeholder="Entrez votre numero de téléphone"
-                                            value="<?= $_SESSION["numtel"] ?? "" ?>">
-                                    </div>
-                                </div>
+                               <div class="form-group">
+                                    <label for="numtel">Téléphone</label>
+                                      <input type="text" class="form-control" id="idnumtel" name="numtel"
+                                        placeholder="Entrez votre numero de téléphone"
+                                        value="<?= $_SESSION["numtel"] ?? "" ?>">
+                                 </div>
+                               </div>
+
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <div class="form-group">
-                                        <label for="nationnalite">Nationnalité</label>
+                                        <label for="origine">Nationnalité</label>
                                         <!-- <input type="url" class="form-control" id="nationnalite" placeholder="Nationnalité"> -->
-                                        <select id="profile_form_country_id" name="origine" class="form-control"
+                                        <select id="idorigine" name="origine" class="form-control"
                                             placeholder="Entrez votre pays d'origine"
                                             value="<?= $_SESSION["origine"] ?? "" ?>">
                                             <option value=""></option>
@@ -219,6 +219,8 @@ include_once 'header.php';
                                             class="btn btn-secondary">Réinitialiser</button> -->
                                             <button type="submit" id="save" name="saveprofile"
                                                 class="btn btn-primary">Enregistrer</button>
+
+                                                <div id="result"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -228,6 +230,25 @@ include_once 'header.php';
                 </div>
             </div>
     </form>
+
+
+    <script>
+    function changeProfileImage(event) {
+      var input = event.target;
+      var reader = new FileReader();
+      
+      reader.onload = function(){
+        var image = document.getElementById('profile-image');
+        var image2 = document.getElementById('Anonym');
+        image.src = reader.result;
+        image2.src = reader.result;
+      };
+      
+      reader.readAsDataURL(input.files[0]);
+
+    }
+  </script>
+    <script src="monprofile.js" ></script>
 
 
 <?php
