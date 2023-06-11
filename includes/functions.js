@@ -291,6 +291,7 @@ function displaySearchResults(searchResults) {
             
             resultDescription.textContent = result.description;
 
+            //etoiles des hotels et restos
             if (result.price !== undefined) {
                 if (result.rating >= 4.90) {
                     result.rating = 5;
