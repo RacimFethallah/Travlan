@@ -288,7 +288,7 @@ function displaySearchResults(searchResults) {
 
             resultItem.classList.add('result-item');
             resultImage.src = result.urlimg;
-            
+
             resultDescription.textContent = result.description;
 
             //etoiles des hotels et restos
@@ -302,7 +302,7 @@ function displaySearchResults(searchResults) {
                 } else if (result.rating >= 3.00) {
                     result.rating = 3;
                 }
-                
+
                 let starIcons = '';
                 switch (result.rating) {
                     case 5:
@@ -315,11 +315,11 @@ function displaySearchResults(searchResults) {
                         starIcons = '<span class = "stars">' + '<img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">'.repeat(3) + '</span>';
                         break;
                 }
-                
+
                 resultName.innerHTML = result.nom + "&nbsp;&nbsp;&nbsp;" + starIcons;
-                
-            
-            }else{
+
+
+            } else {
                 let starIcons = '';
                 switch (result.etoiles) {
                     case '5':
@@ -337,11 +337,11 @@ function displaySearchResults(searchResults) {
                     case '1':
                         starIcons = '<span class = "stars">' + '<img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">'.repeat(1) + '</span>';
                         break;
-                     case '0':
+                    case '0':
                         starIcons = '';
                         break;
                 }
-                
+
                 resultName.innerHTML = result.nom + "&nbsp;&nbsp;&nbsp;" + starIcons;
             }
 
@@ -391,6 +391,32 @@ function displaySearchResults(searchResults) {
             searchResultsList.appendChild(listItem);
 
 
+
+
+
+            //verifier le bouton pour sauvegarder plus tard si il est coché ou non
+
+            fetch("includes/save.inc.php", {
+                method: 'POST',
+                body: new URLSearchParams({
+                    checksaveQuery: result.nom
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(post => {
+                        buttonSave.innerHTML = "<ion-icon name='checkmark-done-outline'></ion-icon>";
+                        buttonSave.classList.add('saved');
+                        buttonSave.style.background = "#006b5e";
+                        buttonSave.style.color = "#fff";
+                    })
+                })
+                .catch(error => {
+                    console.log('An error occurred:', error);
+                });
+
+
+
             //Bouton poour sauvegarder pour plus tard
             buttonSave.onclick = function () {
                 if (sessionStorage.getItem('logged_in') !== 'true') {
@@ -405,12 +431,40 @@ function displaySearchResults(searchResults) {
                     buttonSave.classList.add('saved');
                     buttonSave.style.background = "#006b5e";
                     buttonSave.style.color = "#fff";
+
+                    fetch("includes/save.inc.php", {
+                        method: 'POST',
+                        body: new URLSearchParams({
+                            saveQuery: result.nom
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('goood');
+                        })
+                        .catch(error => {
+                            console.log('An error occurred:', error);
+                        });
                 }
                 else {
                     buttonSave.innerHTML = "<ion-icon name='heart-outline'></ion-icon> Sauvegarder pour plus tard";
                     buttonSave.classList.remove('saved');
                     buttonSave.style.background = "#f1f1f1";
                     buttonSave.style.color = "#162938";
+
+                    fetch("includes/save.inc.php", {
+                        method: 'POST',
+                        body: new URLSearchParams({
+                            deleteQuery: result.nom
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('goood');
+                        })
+                        .catch(error => {
+                            console.log('An error occurred:', error);
+                        });
                 }
             };
 
@@ -442,12 +496,12 @@ function displaySearchResults(searchResults) {
                     let fetchUrl;
 
                     if ((window.location.href.indexOf('h%C3%B4tels') !== -1) || ((window.location.href.indexOf('criteria_search.php') !== -1) && result.price !== undefined)) {
-                            selectedHotel = result.nom;
-                            fetchUrl = "includes/comment.inc.php?hôtels";
-                            requestBody = new URLSearchParams({
-                                commentQuery: selectedHotel
-                            });
-                    } else if ((window.location.href.indexOf('restaurants') !== -1)|| (window.location.href.indexOf('criteria_search.php') !== -1)) {
+                        selectedHotel = result.nom;
+                        fetchUrl = "includes/comment.inc.php?hôtels";
+                        requestBody = new URLSearchParams({
+                            commentQuery: selectedHotel
+                        });
+                    } else if ((window.location.href.indexOf('restaurants') !== -1) || (window.location.href.indexOf('criteria_search.php') !== -1)) {
                         selectedRestaurant = result.nom;
                         fetchUrl = "includes/comment.inc.php?restaurants";
                         requestBody = new URLSearchParams({

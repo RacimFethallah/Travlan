@@ -653,3 +653,49 @@ function rsearch($conn, $searchQuery2)
         echo json_encode(["message" => "Aucun résultat trouvé."]);
     }
 }
+
+
+
+
+function savepost($conn, $hotel, $idusr){
+
+        $findhotel = "SELECT id FROM hotels WHERE nom = '$hotel'";
+        $result = mysqli_query($conn, $findhotel);
+        $row = mysqli_fetch_assoc($result);
+        $idhotel = $row['id'];
+        $sql = "INSERT INTO sauvegarderh(idu,idh) VALUES($idusr,$idhotel)";
+        mysqli_query($conn, $sql);
+}
+
+
+function deletepost($conn, $hotel, $idusr){
+        $findhotel = "SELECT id FROM hotels WHERE nom = '$hotel'";
+        $result = mysqli_query($conn, $findhotel);
+        $row = mysqli_fetch_assoc($result);
+        $idhotel = $row['id'];
+        $sql = "DELETE FROM sauvegarderh WHERE idu = $idusr AND idh = $idhotel";
+        mysqli_query($conn, $sql);
+}
+
+
+function checkpost($conn, $hotel, $idusr){
+    $findhotel = "SELECT id FROM hotels WHERE nom = '$hotel'";
+        $result = mysqli_query($conn, $findhotel);
+        $row = mysqli_fetch_assoc($result);
+        $idhotel = $row['id'];
+        $sql = "SELECT h.nom
+        FROM hotels as h
+        LEFT JOIN sauvegarderh as s on h.id = s.idh
+        where s.idh = $idhotel ;";
+        $result = mysqli_query($conn, $sql);
+
+
+        if ($result->num_rows > 0) {
+            $checkPost = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $checkPost[] = $row;
+            }
+            header('Content-Type: application/json');
+            echo json_encode($checkPost);
+        }
+}
