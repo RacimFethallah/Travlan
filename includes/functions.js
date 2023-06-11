@@ -222,7 +222,7 @@ function displaySearchResults(searchResults) {
             const resultImage = document.createElement('img');
             const resultContent = document.createElement('div');
             const buttonContent = document.createElement('div');
-            const resultLink = document.createElement('a');
+            const resultName = document.createElement('a');
             const resultDescription = document.createElement('p');
             const buttonDetails = document.createElement('button');
             const buttonSave = document.createElement('button');
@@ -288,8 +288,63 @@ function displaySearchResults(searchResults) {
 
             resultItem.classList.add('result-item');
             resultImage.src = result.urlimg;
-            resultLink.textContent = result.nom;
+            
             resultDescription.textContent = result.description;
+
+            if (result.price !== undefined) {
+                if (result.rating >= 4.90) {
+                    result.rating = 5;
+                } else if (result.rating >= 4.00) {
+                    result.rating = 4;
+                } else if (result.rating >= 3.50) {
+                    result.rating = 4;
+                } else if (result.rating >= 3.00) {
+                    result.rating = 3;
+                }
+                
+                let starIcons = '';
+                switch (result.rating) {
+                    case 5:
+                        starIcons = '<span class = "stars">' + '<img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">'.repeat(5) + '</span>';
+                        break;
+                    case 4:
+                        starIcons = '<span class = "stars">' + '<img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">'.repeat(4) + '</span>';
+                        break;
+                    case 3:
+                        starIcons = '<span class = "stars">' + '<img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">'.repeat(3) + '</span>';
+                        break;
+                }
+                
+                resultName.innerHTML = result.nom + "&nbsp;&nbsp;&nbsp;" + starIcons;
+                
+            
+            }else{
+                let starIcons = '';
+                switch (result.etoiles) {
+                    case '5':
+                        starIcons = '<span class = "stars">' + '<img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">'.repeat(5) + '</span>';
+                        break;
+                    case '4':
+                        starIcons = '<span class = "stars">' + '<img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">'.repeat(4) + '</span>';
+                        break;
+                    case '3':
+                        starIcons = '<span class = "stars">' + '<img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">'.repeat(3) + '</span>';
+                        break;
+                    case '2':
+                        starIcons = '<span class = "stars">' + '<img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">'.repeat(2) + '</span>';
+                        break;
+                    case '1':
+                        starIcons = '<span class = "stars">' + '<img src="https://img.icons8.com/pulsar-color/48/star.png" alt="star" id="one-star">'.repeat(1) + '</span>';
+                        break;
+                     case '0':
+                        starIcons = '';
+                        break;
+                }
+                
+                resultName.innerHTML = result.nom + "&nbsp;&nbsp;&nbsp;" + starIcons;
+            }
+
+
 
 
             buttonDetails.classList.add('resultButtons');
@@ -319,7 +374,7 @@ function displaySearchResults(searchResults) {
 
 
 
-            resultContent.appendChild(resultLink);
+            resultContent.appendChild(resultName);
             resultContent.appendChild(resultDescription);
 
             resultContent.appendChild(spanPrice);

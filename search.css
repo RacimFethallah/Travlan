@@ -225,8 +225,8 @@ body.search main {
 
 
 .result-item img {
-    width: 250px;
-    height: 250px;
+    width: 260px;
+    height: 260px;
     object-fit: cover;
     margin-right: 20px;
     border-radius: 20px 0 0 20px;
@@ -269,7 +269,7 @@ body.search main {
     align-items: flex-start;
     margin-bottom: 20px;
     border-radius: 20px;
-    min-height: 250px;
+    min-height: 260px;
     margin-top: 30px;
 }
 
@@ -283,7 +283,7 @@ body.search main {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    margin-top: 15px;
+    margin-top: 20px;
     border-top: 0.5px solid #888;
     padding-top: 10px;
     width: 100%;
@@ -471,4 +471,11 @@ margin-top: -25px;
     cursor:pointer;
     background-color: white;
     transition: all 0.5s ease;
+}
+
+
+.stars{
+    display: inline-block;
+margin-top: -11px;
+vertical-align: middle;
 }
