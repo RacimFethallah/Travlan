@@ -196,21 +196,7 @@ include_once 'header.php';
   <a href="https://twitter.com/Travlann" id="Twitter" ><img id="TwitterPic" src = "Pics/UI/Twitter.png"></a>
 </div>
 
-<div id="Aide" class="scroll-page"> 
-    <div id="Aide1"> 
-    <img width="64" height="64" src="https://img.icons8.com/wired/64/floating-island-beach.png" alt="floating-island-beach"/>
-        <h1> QUI SOMMES NOUS ? <h1>
-        <p> we're bitches <p>  
-    </div> 
-    <div id="Aide2"> 
-        <h1> QUI SOMMES NOUS ? <h1>
-        <p> we're bitches <p>  
-    </div>      
-    <div id="Aide4"> 
-        <h1> QUI SOMMES NOUS ? <h1>
-        <p> we're bitches <p>  
-    </div> 
-</div> 
+
 </div>
 
 <?php
