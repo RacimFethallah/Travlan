@@ -37,11 +37,11 @@ include_once 'header.php';
 
 <div class="content-wrapper">
     <section id="sectionSearchPage1">
-        <form action="" method="POST" id="searchform">
+        <!-- <form action="" method="POST" id="searchform">
             <input type='submit' id='hebergement1' value="Hebergement">
             <input type='submit' id='restaurant1' value="Restaurants">
             <input type='submit' id='activite1' value="Activites">
-        </form>
+        </form> -->
     </section>
     <div id="resultsContainerB"></div>
 
