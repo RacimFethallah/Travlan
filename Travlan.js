@@ -4,7 +4,7 @@
 
 
 
-if (/^http:\/\/localhost\/travlan\/(#|index\.php)?$/.test(window.location.href)) {
+if (/^http:\/\/localhost\/Travlan\/(#|index\.php)?$/i.test(window.location.href)) {
     let sliderInterval;
     showImage(1);
     sliderInterval = setInterval(slideImages, Delay);
